@@ -15,37 +15,34 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600&family=Gaegu:wght@400;700&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
 <style>
-/* Same skeleton as the product portfolio: hero, hanging-card rails, link index, about, contact, data-driven case pages.
-   Palette: page tone from "attic window" #98C1E9 + "seafoam" #E7F5F9; painted modules from the 12-swatch card set.
-   Painted blocks use an SVG displacement filter (#rough) for hand-cut edges and a grain overlay for gouache texture. */
+/* Same system as the product portfolio: neutral base, one restrained accent, white ID cards with holographic backs.
+   Accent family comes from "attic window" #98C1E9 and "seafoam" #E7F5F9. The 12-swatch set appears only as
+   pale tints: project dots, image mats, and the holographic card backs. Nothing saturated fills a large area. */
 :root{
-  --attic:#98C1E9; --seafoam:#E7F5F9; --wisteria:#E6E3F7; --matcha:#9CA362; --milk:#FCEDED; --butter:#FED57D;
-  --clover:#5BA881; --apricot:#F0A351; --rainy:#B3DFEB; --latte:#F7F1E8; --ballet:#FDD0D0; --cherry:#C62A29;
-  --navy:#1E3550; --ink-on:#1E3550; --sub-on:#3F566E;
-  --bg:#EEF7FA; --surface:#FBFDFE; --fg:#1E3550; --muted:#55708A; --line:#CFE2EA;
-  --accent:#2D6CB0; --accent-soft:#DCEBF8; --ph:#E3EFF4; --ph-ink:#6E8799;
-  --wire:#8FB0C8; --shadow:rgba(30,53,80,.34);
+  --bg:#F3F5F7; --surface:#FFFFFF; --fg:#13171E; --muted:#596273; --line:#DCE1E7;
+  --accent:#2E5E8C; --accent-soft:#E4EEF7; --attic:#98C1E9; --seafoam:#E7F5F9;
+  --ph:#E8EDF1; --ph-ink:#7A8594; --wire:#A9B3BF; --shadow:rgba(20,30,44,.34);
+  --h1:#E6E3F7; --h2:#D4E8F6; --h3:#E7F5F9; --h4:#FBE7E4; --h5:#FDF1D3; --holo-ink:#161B24;
   --display:"Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
   --body:"Geist", -apple-system, "Segoe UI", Roboto, sans-serif;
   --mono:"Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
-  --hand:"Gaegu", "Comic Sans MS", "Chalkboard SE", cursive;
   --radius:14px; --max:1200px;
-  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .12 0 0 0 0 .16 0 0 0 0 .22 0 0 0 .5 -.08'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .1 0 0 0 0 .12 0 0 0 0 .16 0 0 0 .32 -.05'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --bg:#0F1B26; --surface:#162533; --fg:#E6F1F7; --muted:#9BB2C3; --line:#26394A;
-    --accent:#98C1E9; --accent-soft:#1D3347; --ph:#182837; --ph-ink:#7F97AA;
-    --wire:#4B6479; --shadow:rgba(0,0,0,.7);
+    --bg:#0E1116; --surface:#161A21; --fg:#ECEFF3; --muted:#97A0AE; --line:#262C36;
+    --accent:#98C1E9; --accent-soft:#1C2A39; --ph:#1A1F27; --ph-ink:#7F8897; --wire:#4A5260; --shadow:rgba(0,0,0,.7);
+    --h1:#2E2A48; --h2:#1F3346; --h3:#1C3438; --h4:#3E2A2A; --h5:#3D3424; --holo-ink:#EEF1F6;
     color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
-  --bg:#0F1B26; --surface:#162533; --fg:#E6F1F7; --muted:#9BB2C3; --line:#26394A;
-  --accent:#98C1E9; --accent-soft:#1D3347; --ph:#182837; --ph-ink:#7F97AA;
-  --wire:#4B6479; --shadow:rgba(0,0,0,.7);
+  --bg:#0E1116; --surface:#161A21; --fg:#ECEFF3; --muted:#97A0AE; --line:#262C36;
+  --accent:#98C1E9; --accent-soft:#1C2A39; --ph:#1A1F27; --ph-ink:#7F8897; --wire:#4A5260; --shadow:rgba(0,0,0,.7);
+  --h1:#2E2A48; --h2:#1F3346; --h3:#1C3438; --h4:#3E2A2A; --h5:#3D3424; --holo-ink:#EEF1F6;
   color-scheme:dark;
 }
 *{box-sizing:border-box}
@@ -59,113 +56,118 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .wrap{max-width:var(--max);margin:0 auto;padding-left:max(24px, env(safe-area-inset-left,0px));padding-right:max(24px, env(safe-area-inset-right,0px))}
 @media (max-width:480px){.wrap{padding-left:max(16px, env(safe-area-inset-left,0px));padding-right:max(16px, env(safe-area-inset-right,0px))}}
 .mono{font-family:var(--mono);font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
-.hand{font-family:var(--hand);font-weight:700;letter-spacing:.02em}
 h1,h2,h3{font-family:var(--display);font-weight:500;text-wrap:balance;margin:0;letter-spacing:-.015em}
 p{margin:0}
-.tbd{color:var(--navy);background:var(--butter);border-radius:4px;padding:0 .3em;font-style:normal}
-.fx{position:absolute;width:0;height:0;overflow:hidden}
-
-/* Painted swatch: a filtered color layer with hand-cut edges plus grain. Content sits above it. */
-.pt{position:absolute;inset:0;border-radius:inherit;background:var(--sw,var(--latte));filter:url(#rough);z-index:0;pointer-events:none}
-.pt::after{content:"";position:absolute;inset:4px;border-radius:inherit;background-image:var(--grain),repeating-linear-gradient(104deg,rgba(255,255,255,.10) 0 2px,transparent 2px 9px);mix-blend-mode:multiply;opacity:.55}
-.painted{position:relative;isolation:isolate;color:var(--ink-on)}
-.painted::before{content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;background:var(--sw,var(--latte));filter:url(#rough)}
-.painted::after{content:"";position:absolute;inset:4px;z-index:-1;border-radius:inherit;background-image:var(--grain),repeating-linear-gradient(104deg,rgba(255,255,255,.10) 0 2px,transparent 2px 9px);mix-blend-mode:multiply;opacity:.5;pointer-events:none}
+.tbd{color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:0 .3em;font-style:normal}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--sw,var(--attic));box-shadow:inset 0 0 0 1px rgba(19,23,30,.12);flex:none}
 
 /* Nav */
 .nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb, var(--bg) 88%, transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .2s}
 .nav.scrolled{border-bottom-color:var(--line)}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
 .brand{font-family:var(--display);font-weight:600;font-size:18px;text-decoration:none;letter-spacing:-.01em;white-space:nowrap;display:flex;align-items:center;gap:10px}
-.brand i{width:16px;height:16px;border-radius:5px;background:var(--attic);display:inline-block;filter:url(#rough)}
+.brand i{width:12px;height:12px;border-radius:3px;background:var(--attic);display:inline-block}
 .nav ul{list-style:none;display:flex;gap:4px;margin:0;padding:0}
 .nav ul a{display:block;text-decoration:none;font-size:14.5px;padding:8px 12px;border-radius:999px;color:var(--muted);transition:color .15s,background .15s}
 .nav ul a:hover{color:var(--fg);background:var(--surface)}
-.nav ul a.cta{color:var(--navy);background:var(--attic);font-weight:500}
-.nav ul a.cta:hover{filter:brightness(1.04);color:var(--navy)}
+.nav ul a.cta{color:var(--bg);background:var(--fg)}
+.nav ul a.cta:hover{opacity:.85;background:var(--fg);color:var(--bg)}
 @media (max-width:560px){.nav ul a:not(.cta):not(.keep){display:none}}
 
 /* Hero */
 .hero{padding-block:clamp(28px,4.5vh,48px) clamp(20px,3vh,28px);display:grid;gap:14px}
-.hero h1{font-size:clamp(30px,3.6vw,48px);line-height:1.08;max-width:24ch}
+.hero h1{font-size:clamp(30px,3.6vw,48px);line-height:1.06;max-width:24ch}
 @media (min-width:1100px){.hero h1{max-width:30ch}}
-.hero h1 em{font-style:normal;position:relative;z-index:0;color:var(--navy);padding:0 .1em;white-space:nowrap}
-.hero h1 em::before{content:"";position:absolute;inset:.1em -.06em 0;z-index:-1;border-radius:.28em;background:var(--attic);filter:url(#rough)}
+.hero h1 em{font-style:normal;color:var(--accent)}
 .hero-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;margin-top:4px}
-.hero .lede{font-size:17px;color:var(--muted);max-width:64ch}
+.hero .lede{font-size:17px;color:var(--muted);max-width:66ch}
 .hero .lede strong{color:var(--fg);font-weight:500}
 .quick{display:flex;flex-wrap:wrap;gap:10px}
 .btn{display:inline-flex;align-items:center;gap:8px;font:500 14.5px/1 var(--body);padding:12px 16px;border-radius:999px;text-decoration:none;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer;transition:border-color .15s,transform .15s}
 .btn:hover{border-color:var(--fg)}
-.btn.primary{background:var(--navy);color:#F7F1E8;border-color:var(--navy)}
-:root[data-theme="dark"] .btn.primary{background:var(--attic);color:var(--navy);border-color:var(--attic)}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .btn.primary{background:var(--attic);color:var(--navy);border-color:var(--attic)}}
+.btn.primary{background:var(--fg);color:var(--bg);border-color:var(--fg)}
 .btn .arr{font-family:var(--mono);font-size:13px}
 .btn.pending{color:var(--muted);border-style:dashed;cursor:default}
 .btn.pending:hover{border-color:var(--line)}
 @media (max-width:860px){.hero-row{grid-template-columns:1fr;gap:20px}}
-.chipsrow{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
-.chipsrow i{width:22px;height:22px;border-radius:7px;background:var(--sw);filter:url(#rough);display:block}
 
 /* Section headers */
 .sec{padding-block:56px}
 .sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding-bottom:20px;border-bottom:1px solid var(--line);margin-bottom:32px;flex-wrap:wrap}
 .sec-head h2{font-size:28px}
 
-/* Work: two rails of cards hung on sagging lines */
+/* Work: two rails of ID cards hung on sagging lines */
 #work{padding-block:4px 56px}
 .work-head{align-items:flex-end;margin-bottom:8px;padding-bottom:14px}
 .work-head h2{font-size:24px}
 .work-head p{margin-top:6px}
-.row-head{display:flex;align-items:baseline;gap:12px;margin-top:18px}
-.row-head .hand{font-size:22px;color:var(--accent)}
+.row-head{display:flex;align-items:baseline;gap:12px;margin-top:18px;flex-wrap:wrap}
+.row-head .n{font:500 12.5px var(--mono);color:var(--accent)}
 .row-head h3{font-size:19px}
-.row-head .mono{margin-left:auto}
+.row-head .sub{color:var(--muted);font-size:14px}
+.row-head .right{margin-left:auto;display:flex;align-items:center;gap:12px}
 .rnav{display:flex;gap:6px}
 .rnav button{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--fg);font-size:15px;cursor:pointer;transition:border-color .15s}
 .rnav button:hover:not(:disabled){border-color:var(--fg)}
 .rnav button:disabled{opacity:.35;cursor:default}
+.rail{position:relative;overflow-x:auto;overflow-y:hidden;scrollbar-width:thin;--cw:clamp(178px,15.5vw,196px)}
 .rail.more-r{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 56px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 56px),transparent)}
 .rail.more-l{-webkit-mask-image:linear-gradient(90deg,transparent,#000 56px);mask-image:linear-gradient(90deg,transparent,#000 56px)}
 .rail.more-l.more-r{-webkit-mask-image:linear-gradient(90deg,transparent,#000 56px,#000 calc(100% - 56px),transparent);mask-image:linear-gradient(90deg,transparent,#000 56px,#000 calc(100% - 56px),transparent)}
-.rail{position:relative;overflow-x:auto;overflow-y:hidden;scrollbar-width:thin;--cw:clamp(178px,15.5vw,196px)}
 .rail-inner{position:relative;min-width:100%}
 .wire{position:absolute;left:0;top:0;pointer-events:none;overflow:visible}
-.wire path{fill:none;stroke:var(--wire);stroke-width:1.6;stroke-linecap:round}
+.wire path{fill:none;stroke:var(--wire);stroke-width:1.5}
 .wire circle{fill:var(--bg);stroke:var(--wire);stroke-width:1.5}
 .hanger{position:absolute;width:var(--cw);transform-origin:50% 0;will-change:transform;perspective:1100px;--tilt:0}
-.clip{position:absolute;left:50%;top:-8px;width:12px;height:16px;transform:translateX(-50%);border:1.5px solid var(--wire);border-radius:4px;background:var(--bg);z-index:3}
+.clip{position:absolute;left:50%;top:-8px;width:10px;height:15px;transform:translateX(-50%);border:1.5px solid var(--wire);border-radius:3px;background:var(--bg);z-index:2}
 .string{display:block;width:1.5px;margin:0 auto;background:var(--wire)}
-.card3d{position:relative;display:block;width:100%;aspect-ratio:200/288;transform-style:preserve-3d;transition:transform .75s cubic-bezier(.2,.75,.2,1);text-decoration:none;color:inherit;border-radius:20px;outline:none}
+.card3d{position:relative;display:block;width:100%;aspect-ratio:200/288;transform-style:preserve-3d;transition:transform .75s cubic-bezier(.2,.75,.2,1);text-decoration:none;color:inherit;border-radius:14px;outline:none}
 .hanger.flipped .card3d{transform:rotateY(180deg)}
 .card3d:focus-visible{box-shadow:0 0 0 2px var(--bg),0 0 0 4px var(--accent)}
-.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:20px;padding:22px 12px 12px;display:flex;flex-direction:column;gap:8px;color:var(--ink)}
-.face>*:not(.pt){position:relative;z-index:1}
-.face>.pt{filter:url(#rough) drop-shadow(0 16px 14px color-mix(in srgb,var(--shadow) 50%,transparent))}
-.face>.bchip{position:absolute}
-.face::before{content:"";position:absolute;top:9px;left:50%;width:28px;height:7px;transform:translateX(-50%);border-radius:4px;background:var(--bg);z-index:2;opacity:.9}
-.ctop{display:flex;justify-content:space-between;gap:8px;min-width:0;font:600 10.5px var(--body);letter-spacing:.08em;text-transform:uppercase}
-.ctop span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.ctop span:last-child{flex:none}
-.cimg{border-radius:12px;overflow:hidden;aspect-ratio:5/4;background:color-mix(in srgb,var(--ink) 10%,transparent);position:relative}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:14px;padding:22px 12px 14px;display:flex;flex-direction:column;gap:9px;border:1px solid var(--line);overflow:hidden;box-shadow:0 22px 34px -22px var(--shadow)}
+.face::before{content:"";position:absolute;top:8px;left:50%;width:30px;height:6px;transform:translateX(-50%);border-radius:3px;background:var(--bg);border:1px solid var(--line)}
+.front{background:var(--surface)}
+.ctop{display:flex;justify-content:space-between;align-items:center;gap:8px;min-width:0}
+.ctop .mono{font-size:10.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ctop .mono:last-child{flex:none}
+.cimg{position:relative;border-radius:9px;overflow:hidden;aspect-ratio:5/4;background:var(--mat,var(--ph))}
 .cimg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
-.cimg .lbl{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:10px;font:500 12px/1.35 var(--body);background-image:repeating-linear-gradient(135deg,transparent 0 12px,color-mix(in srgb,var(--ink) 12%,transparent) 12px 13px)}
-.cname{font-family:var(--hand);font-weight:700;font-size:25px;line-height:.98;letter-spacing:.01em;margin-top:4px;text-wrap:balance}
-.chex{font-family:var(--hand);font-weight:700;font-size:17px;letter-spacing:.06em;margin-top:auto}
-.bface{transform:rotateY(180deg)}
-.bface .mono{color:inherit;opacity:.8;font-size:10.5px}
+.cimg .lbl{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:10px;font:500 12px/1.35 var(--body);color:var(--ph-ink);background-image:repeating-linear-gradient(135deg,transparent 0 12px,color-mix(in srgb,var(--ph-ink) 12%,transparent) 12px 13px)}
+.cname{font-family:var(--display);font-weight:500;font-size:18px;line-height:1.1;letter-spacing:-.01em;margin-top:2px}
+.crole{font-size:12.5px;color:var(--muted);margin-top:-4px}
+.cfoot{display:flex;align-items:center;gap:6px;margin-top:auto;font:500 10.5px var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
+.cfoot span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.bface{transform:rotateY(180deg);color:var(--holo-ink);border-color:transparent;
+  background:linear-gradient(calc(125deg + var(--tilt) * 3deg),var(--h1),var(--h2) 26%,var(--h3) 48%,var(--h4) 72%,var(--h5) 88%,var(--h1));
+  background-size:240% 240%;background-position:calc(50% + var(--tilt) * 4%) 50%}
+.bface::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(120% 60% at calc(30% + var(--tilt) * 6%) 0%,rgba(255,255,255,.55),transparent 60%),var(--grain);mix-blend-mode:soft-light}
+.bface .mono{color:inherit;opacity:.65;font-size:10.5px}
 .bface h4{font-family:var(--display);font-weight:500;font-size:20px;line-height:1.08;margin:0;letter-spacing:-.01em}
-.bsum{font-size:12.8px;line-height:1.45;display:-webkit-box;-webkit-line-clamp:6;-webkit-box-orient:vertical;overflow:hidden}
-.bmeta{display:grid;gap:4px;margin:auto 0 0;font-size:11.8px}
-.bmeta div{display:grid;grid-template-columns:58px minmax(0,1fr);gap:6px}
-.bmeta dt{opacity:.75}.bmeta dd{margin:0}
-.bcta{display:flex;justify-content:space-between;align-items:center;font-family:var(--hand);font-weight:700;font-size:17px;padding-top:7px;border-top:1.5px dashed color-mix(in srgb,var(--ink) 35%,transparent)}
-.bchip{position:absolute;top:16px;right:14px;width:18px;height:18px;border-radius:6px;background:var(--front);filter:url(#rough)}
+.bsum{font-size:13px;line-height:1.45;display:-webkit-box;-webkit-line-clamp:4;min-height:0;flex:0 1 auto;-webkit-box-orient:vertical;overflow:hidden}
+.bmeta{display:grid;gap:4px;margin:auto 0 0;font-size:12px}
+.bmeta div{display:grid;grid-template-columns:62px minmax(0,1fr);gap:6px}
+.bmeta dt{opacity:.6}.bmeta dd{margin:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.bcta{display:flex;justify-content:space-between;align-items:center;font-weight:600;font-size:13px;padding-top:9px;border-top:1px solid color-mix(in srgb,var(--holo-ink) 18%,transparent)}
 .work-index{margin-top:40px}
+
+/* How I work: a process strip mapped to evidence */
+.process{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.process>div{background:var(--surface);padding:22px 20px 20px;display:flex;flex-direction:column;gap:8px}
+.process .n{font:500 12px var(--mono);color:var(--accent)}
+.process h3{font-size:19px;line-height:1.15}
+.process p{font-size:14px;color:var(--muted)}
+.process .ev{margin-top:auto;padding-top:10px;display:flex;flex-wrap:wrap;gap:6px}
+.process .ev a{font-size:12.5px;text-decoration:none;padding:4px 10px;border-radius:999px;background:var(--accent-soft);color:var(--accent);font-weight:500}
+.process .ev a:hover{text-decoration:underline}
+@media (max-width:980px){.process{grid-template-columns:repeat(2,minmax(0,1fr))}.process>div:last-child{grid-column:1/-1}}
+@media (max-width:560px){.process{grid-template-columns:1fr}}
+.tools{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;align-items:center}
+.tools .mono{margin-right:6px}
+.tools span.t{font-size:13.5px;padding:6px 12px;border:1px solid var(--line);border-radius:999px;background:var(--surface)}
 
 /* Placeholders */
 .ph{position:relative;margin:0;width:100%;max-width:100%;border-radius:var(--radius);background:var(--tint,var(--ph));overflow:hidden;display:grid;place-items:center;border:1px solid var(--line)}
-.ph::before{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(135deg,transparent 0 14px,color-mix(in srgb,var(--ph-ink) 11%,transparent) 14px 15px)}
+.ph::before{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(135deg,transparent 0 14px,color-mix(in srgb,var(--ph-ink) 9%,transparent) 14px 15px)}
 .ph .lbl{position:relative;display:grid;gap:4px;text-align:center;padding:16px;max-width:80%}
 .ph .lbl b{font-family:var(--mono);font-weight:500;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ph-ink)}
 .ph .lbl span{font-size:14px;color:var(--muted)}
@@ -173,26 +175,23 @@ p{margin:0}
 
 /* Link index */
 .links{border-top:1px solid var(--line)}
-.lrow{display:grid;grid-template-columns:20px minmax(0,2fr) minmax(0,2.4fr) 110px 24px;gap:16px;align-items:center;padding:16px 4px;border-bottom:1px solid var(--line);text-decoration:none;transition:background .15s}
+.lrow{display:grid;grid-template-columns:14px minmax(0,2fr) minmax(0,2.4fr) 110px 24px;gap:16px;align-items:center;padding:16px 4px;border-bottom:1px solid var(--line);text-decoration:none;transition:background .15s}
 .lrow:hover{background:var(--surface)}
-.lrow .sw{width:16px;height:16px;border-radius:5px;background:var(--sw,var(--attic));filter:url(#rough);box-shadow:inset 0 0 0 1px rgba(30,53,80,.18)}
 .lrow .n{font-family:var(--display);font-size:19px;font-weight:500}
 .lrow .d{color:var(--muted);font-size:14.5px}
 .lrow .y{font-family:var(--mono);font-size:12.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
 .lrow .go{font-family:var(--mono);color:var(--accent)}
-@media (max-width:720px){.lrow{grid-template-columns:20px minmax(0,1fr) 24px}.lrow .d,.lrow .y{grid-column:2}.lrow .go{grid-row:1;grid-column:3}}
+@media (max-width:720px){.lrow{grid-template-columns:14px minmax(0,1fr) 24px}.lrow .d,.lrow .y{grid-column:2}.lrow .go{grid-row:1;grid-column:3}}
 
 /* About */
 .about{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px}
 .about p+p{margin-top:16px}
 .about .big{font-family:var(--display);font-size:24px;line-height:1.35;letter-spacing:-.01em}
-.principles{display:grid;gap:12px;margin-top:32px}
-.principles>div{border-radius:16px;padding:16px 18px;--sw:var(--latte)}
-.principles>div:nth-child(1){--sw:var(--wisteria)}
-.principles>div:nth-child(2){--sw:var(--butter)}
-.principles>div:nth-child(3){--sw:var(--rainy)}
-.principles b{font-family:var(--hand);font-size:21px;font-weight:700;display:block;line-height:1.1}
-.principles span{color:var(--sub-on);display:block;margin-top:4px;font-size:15px}
+.principles{display:grid;gap:18px;margin-top:32px}
+.principles div{display:grid;grid-template-columns:20px minmax(0,1fr);gap:12px}
+.principles i{width:8px;height:8px;border-radius:50%;background:var(--attic);box-shadow:0 0 0 3px var(--accent-soft);margin-top:9px;font-style:normal}
+.principles b{font-weight:600}
+.principles span{color:var(--muted)}
 .xp{border-top:1px solid var(--line)}
 .xp div{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 16px;padding:16px 0;border-bottom:1px solid var(--line)}
 .xp .r{font-weight:500}
@@ -200,42 +199,41 @@ p{margin:0}
 .xp .t{font-family:var(--mono);font-size:13px;color:var(--muted);grid-row:1;grid-column:2;font-variant-numeric:tabular-nums;white-space:nowrap}
 @media (max-width:860px){.about{grid-template-columns:1fr;gap:40px}}
 
-/* Contact: a big attic-window swatch */
-.contact{--sw:var(--attic);border-radius:26px;padding:56px clamp(24px,5vw,64px);display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:40px;align-items:end;color:var(--navy)}
+/* Contact */
+.contact{background:var(--fg);color:var(--bg);border-radius:20px;padding:56px clamp(24px,5vw,64px);display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:40px;align-items:end;position:relative;overflow:hidden}
+.contact::before{content:"";position:absolute;right:-80px;top:-120px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--attic) 38%,transparent),transparent 70%);pointer-events:none}
+.contact>*{position:relative}
 .contact h2{font-size:clamp(30px,4vw,48px);line-height:1.05}
-.contact p{margin-top:14px;color:#24405F}
-.contact .mono{color:#24405F}
+.contact p{opacity:.7;margin-top:14px}
+.contact .mono{color:inherit;opacity:.6}
 .clist{display:grid;gap:10px}
-.crow{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 0;border-bottom:1.5px dashed rgba(30,53,80,.35);text-decoration:none;font-size:15.5px;min-width:0}
+.crow{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid color-mix(in srgb,var(--bg) 22%,transparent);text-decoration:none;font-size:15.5px;min-width:0}
 .crow span:first-child{overflow-wrap:anywhere}
-.crow-sub{opacity:.75;margin-left:8px;font:12.5px var(--mono)}
-.copy{font:500 12.5px var(--mono);text-transform:uppercase;letter-spacing:.05em;background:var(--latte);color:var(--navy);border:0;border-radius:999px;padding:7px 12px;cursor:pointer;flex:none}
-.contact a:focus-visible,.contact button:focus-visible{outline-color:var(--navy)}
+.crow-sub{opacity:.55;margin-left:8px;font:12.5px var(--mono)}
+.copy{font:500 12.5px var(--mono);text-transform:uppercase;letter-spacing:.05em;background:transparent;color:inherit;border:1px solid color-mix(in srgb,var(--bg) 35%,transparent);border-radius:999px;padding:6px 10px;cursor:pointer;flex:none}
 @media (max-width:860px){.contact{grid-template-columns:1fr}}
 footer{padding-block:32px 48px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
 /* Case study */
 .case-top{padding-block:40px 0}
-.back{display:inline-flex;gap:8px;text-decoration:none;color:var(--muted);font-size:14.5px}
+.back{display:inline-flex;gap:8px;padding:8px 0;text-decoration:none;color:var(--muted);font-size:14.5px}
 .back:hover{color:var(--fg)}
+.case-top .eyebrow{display:flex;align-items:center;gap:10px;margin-top:28px}
 .case-top h1{font-size:clamp(40px,6vw,76px);line-height:1;margin-top:20px}
-.case-top .hexline{display:flex;align-items:center;gap:10px;margin-top:28px}
-.case-top .hexline i{width:26px;height:26px;border-radius:8px;background:var(--case);filter:url(#rough)}
-.case-top .hexline .hand{font-size:20px;color:var(--fg)}
 .case-top .subtitle{font-size:clamp(18px,2vw,22px);color:var(--muted);max-width:52ch;margin-top:20px;line-height:1.45}
 .meta{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;margin-top:40px;padding-block:24px;border-block:1px solid var(--line)}
 .meta dt{margin:0 0 6px}
 .meta dd{margin:0;font-size:15px}
 @media (max-width:720px){.meta{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.fit{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:20px}
+.fit .mono{margin-right:4px}
+.fit span.t{font-size:13px;padding:5px 11px;border-radius:999px;background:var(--accent-soft);color:var(--accent);font-weight:500}
 .case-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
 .case-hero{margin-top:40px}
-.tldr{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:40px}
-.tldr>div{border-radius:18px;padding:22px 22px 24px;--sw:var(--latte)}
-.tldr>div:nth-child(1){--sw:var(--case-soft)}
-.tldr>div:nth-child(2){--sw:var(--latte)}
-.tldr>div:nth-child(3){--sw:var(--seafoam)}
-.tldr .mono{color:var(--sub-on)}
-.tldr p:last-child{margin-top:10px;font-size:15.5px}
+.case-hero .ph{background:var(--mat,var(--ph))}
+.tldr{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin-top:40px}
+.tldr div{background:var(--surface);padding:24px}
+.tldr p{margin-top:10px;font-size:15.5px}
 @media (max-width:720px){.tldr{grid-template-columns:1fr}}
 .case-body{display:grid;grid-template-columns:200px minmax(0,1fr);gap:64px;padding-block:64px 32px}
 .toc{position:sticky;top:calc(env(safe-area-inset-top,0px) + 96px);align-self:start;display:grid;gap:2px}
@@ -248,8 +246,8 @@ footer{padding-block:32px 48px;display:flex;justify-content:space-between;gap:16
 .chapter + .chapter{margin-top:72px}
 .chapter h2{font-size:30px;margin-top:10px}
 .chapter .prose{margin-top:18px;display:grid;gap:16px;font-size:17px;color:color-mix(in srgb,var(--fg) 86%,var(--muted))}
-.chapter .q{font-family:var(--hand);font-weight:700;font-size:27px;line-height:1.25;color:var(--fg);padding-left:20px;border-left:3px solid var(--accent)}
-.chapter .q cite{display:block;font:500 13px var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin-top:8px;font-style:normal}
+.chapter .q{font-family:var(--display);font-size:24px;line-height:1.35;color:var(--fg);padding-left:20px;border-left:2px solid var(--accent)}
+.chapter .q cite{display:block;font:500 12.5px var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin-top:8px;font-style:normal}
 .chapter figure.ph{margin-top:8px}
 figcaption{font-size:13.5px;color:var(--muted);margin-top:10px}
 .chapter.wide{max-width:none}
@@ -263,51 +261,45 @@ figcaption{font-size:13.5px;color:var(--muted);margin-top:10px}
 .imgs.narrowset:has(figure:only-child){max-width:320px}
 .imgs figure,.vids figure,.yts figure{margin:0;min-width:0}
 .imgs img{width:100%;aspect-ratio:var(--ar,1/1);object-fit:cover;border-radius:12px;border:1px solid var(--line);display:block;background:var(--surface)}
-.imgs.contain img{object-fit:contain}
 .vids{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .vids video{width:100%;aspect-ratio:var(--ar,5/4);object-fit:cover;border-radius:12px;background:#000;display:block}
 @media (max-width:640px){.imgs,.vids{grid-template-columns:1fr!important}.imgs[style*="repeat(4"]{grid-template-columns:repeat(2,minmax(0,1fr))!important}.vids.narrowset{grid-template-columns:1fr 1fr!important}}
-/* YouTube: poster first, the player loads on click */
 .yts{display:grid;gap:12px}
-.ytb{position:relative;display:block;width:100%;aspect-ratio:var(--ar,16/9);border:0;padding:0;border-radius:14px;overflow:hidden;background:var(--navy);cursor:pointer}
-.ytb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.ytb .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:inline-flex;align-items:center;gap:8px;font:600 14px var(--body);color:var(--navy);padding:12px 18px;border-radius:999px;background:var(--butter);box-shadow:0 12px 24px -10px rgba(0,0,0,.5);white-space:nowrap}
+.ytb{position:relative;display:block;width:100%;aspect-ratio:var(--ar,16/9);border:1px solid var(--line);padding:0;border-radius:12px;overflow:hidden;background:#11161D;cursor:pointer}
+.ytb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.88}
+.ytb .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:inline-flex;align-items:center;gap:8px;font:600 14px var(--body);color:#13171E;padding:12px 18px;border-radius:999px;background:#fff;box-shadow:0 12px 24px -10px rgba(0,0,0,.5);white-space:nowrap;transition:transform .2s}
 .ytb:hover .play{transform:translate(-50%,-50%) scale(1.05)}
-.yts iframe{display:block;width:100%;aspect-ratio:var(--ar,16/9);border:0;border-radius:14px;background:#000}
+.yts iframe{display:block;width:100%;aspect-ratio:var(--ar,16/9);border:0;border-radius:12px;background:#000}
 .yts.shorts{grid-template-columns:repeat(3,minmax(0,1fr))}
-@media (max-width:640px){.yts.shorts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.yts.shorts{grid-template-columns:repeat(2,minmax(0,1fr))}.yts:not(.shorts){grid-template-columns:1fr!important}}
 .steps{display:grid;gap:0;margin-top:8px;border-top:1px solid var(--line)}
 .steps div{display:grid;grid-template-columns:150px minmax(0,1fr);gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
 .steps b{font-weight:600;display:block}
 .steps span{color:var(--muted);font-size:15.5px}
 @media (max-width:560px){.steps div{grid-template-columns:1fr;gap:4px}}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:8px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:8px}
 .cards.c2{grid-template-columns:repeat(2,minmax(0,1fr))}
 @media (max-width:560px){.cards.c2{grid-template-columns:1fr}}
-.cards>div{border-radius:18px;padding:20px 20px 22px}
-.cards>div:nth-child(4n+1){--sw:var(--wisteria)}
-.cards>div:nth-child(4n+2){--sw:var(--butter)}
-.cards>div:nth-child(4n+3){--sw:var(--rainy)}
-.cards>div:nth-child(4n+4){--sw:var(--milk)}
-.cards b{display:block;font-family:var(--hand);font-weight:700;font-size:23px;line-height:1.05}
-.cards span{display:block;color:var(--sub-on);font-size:15px;margin-top:8px}
+.cards div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px}
+.cards b{display:block;font-family:var(--display);font-weight:500;font-size:19px}
+.cards span{display:block;color:var(--muted);font-size:15px;margin-top:8px}
 .zoomable{cursor:zoom-in}
-.ph:has(.zoomable)::after{content:"⤢ Click to enlarge";position:absolute;right:10px;bottom:10px;font:500 11.5px var(--body);color:#fff;background:rgba(20,32,48,.62);padding:5px 9px;border-radius:999px;opacity:0;transition:opacity .2s;pointer-events:none}
+.ph:has(.zoomable)::after{content:"⤢ Click to enlarge";position:absolute;right:10px;bottom:10px;font:500 11.5px var(--body);color:#fff;background:rgba(20,24,32,.62);padding:5px 9px;border-radius:999px;opacity:0;transition:opacity .2s;pointer-events:none}
 .ph:hover::after{opacity:1}
 @media (hover:none){.ph:has(.zoomable)::after{opacity:.85;content:"⤢"}}
 .zoomable:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
-.lb{position:fixed;inset:0;z-index:100;background:rgba(10,18,28,.92);display:none}
+.lb{position:fixed;inset:0;z-index:100;background:rgba(10,12,16,.92);display:none}
 .lb.open{display:block}
 .lb-scroll{position:absolute;inset:0 0 56px;overflow:auto;display:grid;place-items:center;padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) 16px max(16px,env(safe-area-inset-left,0px));overscroll-behavior:contain}
 .lb-scroll img{max-width:100%;max-height:100%;object-fit:contain;cursor:zoom-in;border-radius:8px;background:#fff;user-select:none;-webkit-user-drag:none}
 .lb.zoomed .lb-scroll{place-items:start;cursor:grab}
 .lb.zoomed .lb-scroll img{max-width:none;max-height:none;width:auto;cursor:zoom-out}
 .lb-bar{position:absolute;left:0;right:0;bottom:0;height:56px;display:flex;align-items:center;gap:10px;padding:0 max(16px,env(safe-area-inset-right,0px)) env(safe-area-inset-bottom,0px) max(16px,env(safe-area-inset-left,0px));color:#e9ecf2}
-.lb-cap{flex:1;min-width:0;font-size:13.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#c8d3de}
+.lb-cap{flex:1;min-width:0;font-size:13.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#c8cdd8}
 .lb-btn{font:500 13.5px var(--body);color:#fff;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:8px 14px;cursor:pointer}
 .lb-btn:hover{background:rgba(255,255,255,.2)}
 /* Misfits card deck (Bad Children Shop) */
-.dex{--paper:#f6f1e3;--ink:#1f3a44;display:grid;justify-items:center;gap:14px;padding:36px 16px 24px;border-radius:20px;background:linear-gradient(180deg,#e3eef6,#cddfea);outline:none}
+.dex{--paper:#f6f1e3;--ink:#1f3a44;display:grid;justify-items:center;gap:14px;padding:36px 16px 24px;border-radius:20px;background:linear-gradient(180deg,#e7f1f7,#d6e5ee);outline:none}
 .dex:focus-visible{box-shadow:0 0 0 3px var(--accent)}
 .dex-stage{position:relative;width:min(320px,100%);aspect-ratio:320/500}
 .dex-card{position:absolute;inset:0;perspective:1200px;touch-action:pan-y;user-select:none;-webkit-user-select:none;transition:transform .45s cubic-bezier(.2,.8,.25,1.1),opacity .3s;cursor:grab}
@@ -334,21 +326,19 @@ figcaption{font-size:13.5px;color:var(--muted);margin-top:10px}
 .dex-btn:hover{transform:scale(1.05)}
 .dex-count{font:500 14px var(--mono);color:#1f3a44;min-width:48px;text-align:center}
 .dex-hint{font-size:12.5px;color:#4b6470;margin:0}
-/* Immersive: the live app inside a frame */
 .immersive{margin-top:40px}
 .imm-stage{position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--line);aspect-ratio:1440/900;max-width:100%;background:#fffdf6}
 .imm-stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top}
 .imm-stage.on{aspect-ratio:auto;height:clamp(560px,82vh,860px)}
 .imm-stage iframe{display:block;width:100%;height:100%;border:0}
-.imm-go{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);z-index:2;display:inline-flex;gap:10px;align-items:center;font:600 15px var(--body);padding:15px 24px;border:0;border-radius:999px;background:var(--navy);color:#F7F1E8;cursor:pointer;box-shadow:0 18px 40px -14px rgba(0,0,0,.55);transition:transform .2s}
+.imm-go{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);z-index:2;display:inline-flex;gap:10px;align-items:center;font:600 15px var(--body);padding:15px 24px;border:0;border-radius:999px;background:#13171E;color:#fff;cursor:pointer;box-shadow:0 18px 40px -14px rgba(0,0,0,.55);transition:transform .2s}
 .imm-go span{font-size:11px}
 .imm-go:hover{transform:translateX(-50%) scale(1.04)}
-.immersive.phone .imm-stage.on{height:auto;aspect-ratio:auto;display:grid;place-items:center;padding:28px 16px;background:linear-gradient(180deg,#e3eef6,#c9dceb)}
+.immersive.phone .imm-stage.on{height:auto;aspect-ratio:auto;display:grid;place-items:center;padding:28px 16px;background:linear-gradient(180deg,#e7f1f7,#d3e3ec)}
 .imm-phone{width:min(390px,100%);height:min(780px,78vh);border:10px solid #111;border-radius:44px;overflow:hidden;background:#fff;box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
 .imm-note{font-size:13.5px;color:var(--muted);margin-top:10px}
 .imm-note a{color:var(--accent)}
 .prose .narrow{max-width:360px;margin-inline:auto}
-.note-pending{border-radius:16px;padding:16px 18px;--sw:var(--butter);font-size:15px}
 .next{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:24px;text-decoration:none;padding:40px 0;border-top:1px solid var(--line);margin-top:48px}
 .next h3{font-size:clamp(28px,4vw,44px);margin-top:8px}
 .next .go{font-family:var(--mono);font-size:24px;color:var(--accent);transition:transform .2s}
@@ -357,18 +347,12 @@ figcaption{font-size:13.5px;color:var(--muted);margin-top:10px}
 </head>
 <body>
 
-<svg class="fx" aria-hidden="true" focusable="false">
-  <filter id="rough" x="-5%" y="-5%" width="110%" height="110%">
-    <feTurbulence type="fractalNoise" baseFrequency=".032" numOctaves="3" seed="7" result="n"/>
-    <feDisplacementMap in="SourceGraphic" in2="n" scale="7" xChannelSelector="R" yChannelSelector="G"/>
-  </filter>
-</svg>
-
 <header class="nav" id="nav">
   <div class="wrap">
     <a class="brand" href="#top" data-home><i aria-hidden="true"></i>Zhihan Liu</a>
     <ul>
       <li><a class="keep" href="#work" data-home>Work</a></li>
+      <li><a href="#process" data-home>Process</a></li>
       <li><a href="#about" data-home>About</a></li>
       <li><a href="#contact" data-home>Contact</a></li>
       <li><a class="cta" href="#resume" id="navResume">Resume</a></li>
@@ -379,9 +363,9 @@ figcaption{font-size:13.5px;color:var(--muted);margin-top:10px}
 <main id="home" class="wrap">
   <section class="hero" id="top">
     <p class="mono">Zhihan (Dee) Liu · Play &amp; Experience Designer · New York</p>
-    <h1>I design toys, rooms, and games where the story <em>lives in the object</em>.</h1>
+    <h1>I design toys and play, from the <em>first sketch to the factory sample</em>.</h1>
     <div class="hero-row">
-      <p class="lede">Interactive installations, physical-digital toys, and narrative games. I write the world, wire the hardware, and test it with real players. <strong>MFA Design &amp; Technology, Parsons.</strong></p>
+      <p class="lede">Collectible toys, interactive plush, tabletop games, and play installations, built with electronics, paper goods, and craft materials. I research the play, design the characters, prototype by hand, and work with makers to get it produced. <strong>MFA Design &amp; Technology, Parsons.</strong></p>
       <div class="quick">
         <a class="btn primary" href="#resume" data-resume>Resume <span class="arr">↗</span></a>
         <a class="btn" href="https://www.linkedin.com/in/zhihan-liu-1856b22ba/" target="_blank" rel="noopener">LinkedIn <span class="arr">↗</span></a>
@@ -399,23 +383,38 @@ figcaption{font-size:13.5px;color:var(--muted);margin-top:10px}
     <div class="links work-index" id="workIndex"></div>
   </section>
 
+  <section class="sec" id="process">
+    <div class="sec-head">
+      <h2>From idea to production</h2>
+      <span class="mono">How I work · with evidence</span>
+    </div>
+    <div class="process">
+      <div><span class="n">01</span><h3>Research the play</h3><p>Audiences, trends, and play patterns first: who plays, for how long, alone or together, and what brings them back.</p><span class="ev"><a href="#bad-children-shop">Bad Children Shop</a><a href="#whispers-of-female-script">Whispers</a></span></div>
+      <div><span class="n">02</span><h3>Sketch the characters</h3><p>Hand sketches, character design, turnarounds, and concept renders to show intent before anything is built.</p><span class="ev"><a href="#bad-children-paradise">Bad Children Paradise</a><a href="#crystal-citizen">Crystal Citizen</a></span></div>
+      <div><span class="n">03</span><h3>Prototype by hand</h3><p>Electronics, paper, fabric, and found objects. Fast, cheap rounds that people can touch and test.</p><span class="ev"><a href="#toast">Toast</a><a href="#sunflower-house">Sunflower House</a><a href="#a-home-only-without-me">A Home Only</a></span></div>
+      <div><span class="n">04</span><h3>Make it buildable</h3><p>Materials, samples, print files, and production handoff, refined with manufacturers and printers.</p><span class="ev"><a href="#crystal-citizen">Crystal Citizen</a><a href="#whispers-of-female-script">Whispers</a></span></div>
+      <div><span class="n">05</span><h3>Package and launch</h3><p>Packaging, product photography, a storefront, and exhibitions where real people use the work.</p><span class="ev"><a href="#crystal-citizen">Crystal Citizen</a><a href="#a-home-only-without-me">A Home Only</a></span></div>
+    </div>
+    <div class="tools"><span class="mono">Tools</span><span class="t">Hand sketching</span><span class="t">Illustrator</span><span class="t">Photoshop</span><span class="t">InDesign</span><span class="t">Blender</span><span class="t">Figma</span><span class="t">Arduino · ESP32</span><span class="t">NFC · sensors</span><span class="t">Unity</span></div>
+  </section>
+
   <section class="sec" id="more">
     <div class="sec-head">
       <h2>More from the archive</h2>
       <span class="mono">zhihanliu.art</span>
     </div>
     <div class="links">
-      <a class="lrow" style="--sw:var(--apricot)" href="https://www.zhihanliu.art/packagingdesign" target="_blank" rel="noopener">
-        <i class="sw"></i><span class="n">Packaging design</span><span class="d">Blind-box packaging for Crystal Citizen and the Whispers of Female Script game box</span><span class="y">Packaging</span><span class="go">↗</span>
+      <a class="lrow" style="--sw:#F6D9B8" href="https://www.zhihanliu.art/packagingdesign" target="_blank" rel="noopener">
+        <i class="dot"></i><span class="n">Packaging design</span><span class="d">Tear-open blind boxes for Crystal Citizen and the Whispers of Female Script game box</span><span class="y">Packaging</span><span class="go">↗</span>
       </a>
-      <a class="lrow" style="--sw:var(--rainy)" href="https://www.zhihanliu.art/short-film-works" target="_blank" rel="noopener">
-        <i class="sw"></i><span class="n">Short films</span><span class="d">SCALE, a 15-minute fantasy-realism film, and Zhihuan’s Daily Dictation, shot on a phone</span><span class="y">Film</span><span class="go">↗</span>
+      <a class="lrow" style="--sw:#CDE6EF" href="https://www.zhihanliu.art/short-film-works" target="_blank" rel="noopener">
+        <i class="dot"></i><span class="n">Short films</span><span class="d">SCALE, a 15-minute fantasy-realism film, and Zhihuan’s Daily Dictation, shot on a phone</span><span class="y">Film</span><span class="go">↗</span>
       </a>
-      <a class="lrow" style="--sw:var(--wisteria)" href="https://productdesign.zhihanliu.art" target="_blank" rel="noopener">
-        <i class="sw"></i><span class="n">Product design portfolio</span><span class="d">Consumer apps, B2B workflows, and a WeChat mini program</span><span class="y">Product</span><span class="go">↗</span>
+      <a class="lrow" style="--sw:#E6E3F7" href="https://productdesign.zhihanliu.art" target="_blank" rel="noopener">
+        <i class="dot"></i><span class="n">Product design portfolio</span><span class="d">Consumer apps, B2B workflows, and a WeChat mini program</span><span class="y">Product</span><span class="go">↗</span>
       </a>
-      <a class="lrow" style="--sw:var(--matcha)" href="https://www.zhihanliu.art" target="_blank" rel="noopener">
-        <i class="sw"></i><span class="n">Full archive</span><span class="d">Every interactive, film, and packaging project at zhihanliu.art</span><span class="y">Archive</span><span class="go">↗</span>
+      <a class="lrow" style="--sw:#D9DDBF" href="https://www.zhihanliu.art" target="_blank" rel="noopener">
+        <i class="dot"></i><span class="n">Full archive</span><span class="d">Every interactive, film, and packaging project at zhihanliu.art</span><span class="y">Archive</span><span class="go">↗</span>
       </a>
     </div>
   </section>
@@ -427,11 +426,11 @@ figcaption{font-size:13.5px;color:var(--muted);margin-top:10px}
     </div>
     <div class="about">
       <div>
-        <p class="big">I moved from poetry to film, wrote narrative for a shipped mobile RPG, then spent my MFA building rooms, toys, and tabletop games that people play with their hands.</p>
+        <p class="big">I moved from poetry to film, wrote narrative for a shipped mobile RPG, co-founded a collectible toy brand, then spent my MFA building toys, rooms, and tabletop games that people play with their hands.</p>
         <div class="principles">
-          <div class="painted"><b>Find the mechanic inside the subject.</b><span>Nüshu became a decoding game, shadows became a size mechanic, a fridge became a crime scene. The rules come from the material.</span></div>
-          <div class="painted"><b>Let the object carry the story.</b><span>Domestic objects, plush toys, cards, and capsules hold the narrative, so people find it by touching, opening, and matching.</span></div>
-          <div class="painted"><b>Prototype in the real medium.</b><span>ESP32, NFC, sensors, Unity, and web builds. I test with players early and change what the room tells me to change.</span></div>
+          <div><i></i><p><b>Find the mechanic inside the subject.</b> <span>Nüshu became a decoding game, shadows became a size mechanic, a fridge became a crime scene. The rules come from the material.</span></p></div>
+          <div><i></i><p><b>Let the object carry the story.</b> <span>Plush, cards, capsules, and boxes hold the narrative, so people find it by touching, opening, and matching.</span></p></div>
+          <div><i></i><p><b>Prototype in the real medium.</b> <span>I build with the actual materials early and test with players, then change what the play tells me to change.</span></p></div>
         </div>
       </div>
       <div class="xp">
@@ -439,6 +438,7 @@ figcaption{font-size:13.5px;color:var(--muted);margin-top:10px}
         <div><span class="r">Content Creator &amp; Product Designer</span><span class="o">Seven Sense immersive theater, freelance</span><span class="t">2024 – Now</span></div>
         <div><span class="r">Co-founder &amp; Chief Designer</span><span class="o">Crystal of Citizens, collectible toy brand</span><span class="t">2023 – 2025</span></div>
         <div><span class="r">Lead Game Narrative Designer</span><span class="o">Rakshasa Street, Sohu.com</span><span class="t">2021 – 2023</span></div>
+        <div><span class="r">Volunteer drama teacher for children</span><span class="o">Student theater outreach: taught and directed kids in staged plays</span><span class="t">BFA years</span></div>
         <div><span class="r">MFA Design &amp; Technology</span><span class="o">Parsons School of Design</span><span class="t">2026</span></div>
         <div><span class="r">BFA, Film and Television Literature</span><span class="o">Beijing Film Academy</span><span class="t">2021</span></div>
       </div>
@@ -446,10 +446,10 @@ figcaption{font-size:13.5px;color:var(--muted);margin-top:10px}
   </section>
 
   <section class="sec" id="contact">
-    <div class="contact painted">
+    <div class="contact">
       <div>
         <p class="mono">Contact</p>
-        <h2>Open to experience, toy, and game design roles in New York and remote.</h2>
+        <h2>Open to toy, play, and experience design roles in New York and remote.</h2>
         <p>The fastest way to reach me is email.</p>
       </div>
       <div class="clist">
@@ -471,373 +471,2018 @@ figcaption{font-size:13.5px;color:var(--muted);margin-top:10px}
 
 <script>
 /* ---------- Content ----------
-   row 0 = installations and toys, row 1 = games and play.
-   sw = painted card color from the swatch set, ink = text color on that swatch.
+   row 0 = toys and physical play, row 1 = play experiences and games.
+   sw = the project's swatch, used only as a pale tint. fit = skills this project shows.
    [[text]] renders as a highlighted placeholder to replace later. */
 const RESUME_URL="resume.pdf";
-const ROWS=[{n:"01",h:"Installations & toys"},{n:"02",h:"Games & play"}];
-const SW={
-  attic:["#98C1E9","#1E3550"], butter:["#FED57D","#C62A29"], apricot:["#F0A351","#1E3550"], matcha:["#9CA362","#1E3550"],
-  rainy:["#B3DFEB","#A9581A"], clover:["#5BA881","#1E3550"], ballet:["#FDD0D0","#A9581A"], wisteria:["#E6E3F7","#A9581A"],
-  cherry:["#C62A29","#F7F1E8"], latte:["#F7F1E8","#2F7350"], milk:["#FCEDED","#2F7350"], seafoam:["#E7F5F9","#565C24"]
-};
+const ROWS=[{"n":"01","h":"Toys & physical play","sub":"Collectibles, plush, electronics, paper goods"},{"n":"02","h":"Play experiences & games","sub":"Installations, apps, video games"}];
+const SW={"attic":["#98C1E9","#1E3550"],"butter":["#FED57D","#C62A29"],"apricot":["#F0A351","#1E3550"],"matcha":["#9CA362","#1E3550"],"rainy":["#B3DFEB","#A9581A"],"clover":["#5BA881","#1E3550"],"ballet":["#FDD0D0","#A9581A"],"wisteria":["#E6E3F7","#A9581A"],"cherry":["#C62A29","#F7F1E8"],"latte":["#F7F1E8","#2F7350"],"milk":["#FCEDED","#2F7350"],"seafoam":["#E7F5F9","#565C24"]};
 const CASES=[
-
-/* ===================== Row 1: installations & toys ===================== */
-{
-  id:"a-home-only-without-me", row:0, sw:"attic", tag:"Installation", short:"2026",
-  eyebrow:"Interactive installation · Physical narrative game", year:"2026",
-  title:"A Home Only Without Me",
-  summary:"A half-room installation where visitors investigate a family's generational curse through miniature scenes hidden inside a refrigerator and a TV cabinet.",
-  subtitle:"An interactive narrative installation played through the silence of domestic objects. Visitors enter as investigators, piece the story together from miniature scenes, and leave as part of it.",
-  meta:[["Role","Concept, story, interaction, build"],["Shown","Parsons Pop Show · A Space Gallery"],["Year","2026, MFA thesis"],["Medium","ESP32, NFC, sensors, sound"]],
-  links:[["Watch the walkthrough ↓","scroll:yts"],["Thesis page on zhihanliu.art","https://www.zhihanliu.art/home-1"]],
-  hero:{label:"The refrigerator and TV cabinet in the dark gallery",ratio:"1376/768",src:"img/home-fridge-night.jpg"},
-  card:"img/home-fridge-open.jpg",
-  tldr:[["Premise","No character is in the room. A family's story of fish-scale disease, inheritance, and reincarnation lives in the objects they left behind."],["What I built","Miniature scenes inside a refrigerator and a CRT TV cabinet. NFC, magnetic, ultrasonic, and fabric-touch triggers play sound and small screens."],["Shown","Parsons Pop Show 2026, and the group show I Am Not an Alien? at A Space Gallery, Brooklyn, June 2026."]],
-  sections:[
-    {id:"premise",h:"Premise",blocks:[
-      {q:"A family lived here. Then they didn't. What they left behind is still waiting to be found."},
-      {p:"A Home Only Without Me is a physical narrative game built from a magical-realist family tragedy. Visitors step into a half room as investigators and search for the truth inside miniature family scenes hidden in a refrigerator and a television casing."},
-      {p:"No character physically exists in the space. When no one is present, who are we observing, and who is observing us? Even an ordinary trash can holds whispered secrets. Only on leaving the room does the visitor close the story's loop and become part of it."}
-    ]},
-    {id:"journey",h:"The visitor journey",blocks:[
-      {steps:[["Enter","The refrigerator and television invite investigation at a domestic scale."],["Handle","Looking, reaching, and handling objects reveal fragments of the family story."],["Interpret","Visitors piece the narrative together through physical evidence and sound."],["Leave","The exit text turns the investigator into the next person the house remembers."]]},
-      {imgs:[{src:"img/home-visitors.jpg",label:"Visitors searching the open refrigerator"},{src:"img/home-07.jpg",label:"Matching evidence at the TV cabinet"},{src:"img/home-16.jpg",label:"Reading a scene up close"}],ratio:"3/4"}
-    ]},
-    {id:"build",h:"Engineering the interaction",wide:true,blocks:[
-      {p:"Hand-drawn interaction points guided the spatial build. Each domestic gesture, reaching, touching, turning, or matching, became part of the interaction vocabulary, and the electronics stay hidden inside the built scenes."},
-      {imgs:[{src:"img/home-sensors.jpg",label:"Sensor layout across the refrigerator: NFC scene matching, magnetic induction, ultrasonic sensing, fabric touch"},{src:"img/home-sketch.jpg",label:"Early sketch of interaction points"}],ratio:"auto",cols:2},
-      {steps:[["Map the action","Define each gesture through the object, so familiar domestic behavior becomes the controls."],["Integrate the input","Place NFC, magnetic, and proximity sensing inside the miniature scenes."],["Connect the response","Route each trigger to sound and scene content across headphones, speakers, and tiny displays."]]},
-      {cards:[["XIAO ESP32-S3","Microcontroller for each scene, programmed in the Arduino IDE."],["PN532 NFC","Visitors match evidence cards to scenes to unlock their audio."],["MAX98357A I2S","Amplified narration and ambient sound inside the furniture."],["E-paper + reed switch","A companion display wakes when a door opens."]]},
-      {p:"Code collaborator: Felix Yu."}
-    ]},
-    {id:"scenes",h:"Inside the scenes",wide:true,blocks:[
-      {imgs:[{src:"img/home-detail.jpg",label:"A miniature room behind the fridge door"},{src:"img/home-tv.jpg",label:"The TV cabinet scene"},{src:"img/home-01.jpg",label:"Lace, light, and a hidden bedroom"}],ratio:"3/4"},
-      {imgs:[{src:"img/home-fridge-dark.jpg",label:"The installation in the dark"},{src:"img/home-08.jpg",label:"Both objects lit from inside"}],ratio:"16/9",cols:2}
-    ]},
-    {id:"voices",h:"Voices of the family",blocks:[
-      {p:"Each scene carries a voice. Visitors hear the family only in fragments, and have to decide for themselves what happened."},
-      {q:"It looks like a water burial, but it is not. With his back turned to us, he walks resolutely toward rebirth.",cite:"The Little Girl"},
-      {q:"It was us. We did it. The family. Then we put him in the water. I'm a fisherman. Everything returns to the water, in the end.",cite:"The Grandfather"}
-    ]},
-    {id:"yts",h:"Walkthrough",blocks:[
-      {yt:[{id:"Z-a4qLTW7UM",label:"Installation walkthrough",poster:"img/home-fridge-night.jpg"},{id:"qcmmnh7pA_A",label:"Documentation",poster:"img/home-visitor.jpg"}]}
-    ]},
-    {id:"exhibition",h:"Exhibition",blocks:[
-      {p:"The installation was shown at Parsons Pop Show 2026, and in I Am Not an Alien?, a group exhibition at A Space Gallery in Brooklyn about perception and the relation between human experience and technological systems. ArtRabbit and Fakewhale both covered the show, and the ArtRabbit review discussed the miniature domestic scenes and their question of who observes and who is observed."}
-    ]}
+ {
+  "id": "crystal-citizen",
+  "row": 0,
+  "sw": "clover",
+  "tag": "Collectible toy",
+  "short": "2023–25",
+  "eyebrow": "Collectible toy brand · Co-founder",
+  "year": "2023 – 2025",
+  "title": "Crystal Citizen",
+  "summary": "A blind-box line of tiny crystal dioramas and desktop figures, taken from brand to factory to a working Shopify store.",
+  "subtitle": "An independent collectible line from Hong Kong. Each tear-open blind box pairs a lightweight DIY crystal-diorama kit with a collectible desktop figure, so unboxing becomes a small ritual of building and display.",
+  "meta": [
+   [
+    "Role",
+    "Co-founder, chief designer"
+   ],
+   [
+    "Base",
+    "Hong Kong"
+   ],
+   [
+    "Years",
+    "2023 – 2025"
+   ],
+   [
+    "Medium",
+    "3D modeling, packaging, Shopify"
+   ]
+  ],
+  "links": [
+   [
+    "Packaging on zhihanliu.art",
+    "https://www.zhihanliu.art/packagingdesign"
+   ]
+  ],
+  "hero": {
+   "label": "A finished crystal diorama: a figure by a turquoise lake",
+   "ratio": "3/2",
+   "src": "img/cc-diorama.jpg"
+  },
+  "card": "img/cc-cube.jpg",
+  "tldr": [
+   [
+    "Product",
+    "Tear-open blind boxes, each with a DIY crystal-diorama kit and a collectible figure."
+   ],
+   [
+    "What I owned",
+    "Positioning and user research, 3D models and renders, samples with manufacturers, packaging and logo, product photography."
+   ],
+   [
+    "Shipped",
+    "A Shopify storefront selling real product, and Instagram marketing alongside my co-founder."
+   ]
+  ],
+  "sections": [
+   {
+    "id": "play",
+    "h": "Play pattern",
+    "blocks": [
+     {
+      "cards": [
+       [
+        "Who",
+        "Collectors who buy blind boxes for the surprise and keep them on display."
+       ],
+       [
+        "Loop",
+        "Tear the box open, find out which figure you got, build the crystal diorama, then display it."
+       ],
+       [
+        "Why it lasts",
+        "Building the scene turns a two-second reveal into a small craft session and a desk object."
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "concept",
+    "h": "Concept",
+    "blocks": [
+     {
+      "p": "Crystal Citizen started from a simple feeling: a blind box should not end when it is opened. Each box holds a lightweight crystal-diorama kit and a figure, so the buyer finishes the scene with their own hands and keeps it on the desk."
+     },
+     {
+      "imgs": [
+       {
+        "src": "img/cc-cube.jpg",
+        "label": "A finished cube in hand"
+       },
+       {
+        "src": "img/cc-diorama.jpg",
+        "label": "Lake scene detail"
+       }
+      ],
+      "ratio": "1/1",
+      "cols": 2
+     }
+    ]
+   },
+   {
+    "id": "delivery",
+    "h": "Materials, samples, and production",
+    "blocks": [
+     {
+      "steps": [
+       [
+        "Research",
+        "Positioned the line and studied the collectors it was for."
+       ],
+       [
+        "3D and samples",
+        "Modeled and rendered figures, then refined materials and samples with manufacturers."
+       ],
+       [
+        "Packaging",
+        "Designed the tear-open box, logo, and inserts so opening feels like a ritual."
+       ],
+       [
+        "Store",
+        "Shot product photography and built the Shopify storefront for real sales."
+       ]
+      ]
+     },
+     {
+      "img": {
+       "label": "Brand collage: packaging, scenes, and storefront",
+       "ratio": "1300/1800",
+       "src": "img/cc-collage.jpg",
+       "narrow": true
+      }
+     },
+     {
+      "p": "Brand systems and concept-to-production work were developed with my co-founder, and my partner led marketing. Tools: Figma, Illustrator, Photoshop, InDesign, Blender, and Shopify."
+     }
+    ]
+   },
+   {
+    "id": "more",
+    "h": "More objects",
+    "blocks": [
+     {
+      "imgs": [
+       {
+        "src": "img/pack-02.jpg",
+        "label": "Pillow cushion tray, a later home object"
+       }
+      ],
+      "ratio": "16/9",
+      "narrow": true
+     }
+    ]
+   }
+  ],
+  "fit": [
+   "Hard-goods production",
+   "Materials and samples",
+   "Packaging",
+   "Character design",
+   "3D modeling"
   ]
-},
-{
-  id:"bad-children-paradise", row:0, sw:"butter", tag:"AR × toy stage", short:"[[Year]]",
-  eyebrow:"Narrative puzzle toy · AR game + physical stage", year:"[[Year]]",
-  title:"Bad Children Paradise",
-  summary:"A narrative puzzle toy installation that pairs an AR video game with an interactive physical toy stage, and grew into a whole character IP.",
-  subtitle:"An AR video game and an interactive toy stage that solve one story together. The Bad Children characters later grew into figurines, stickers, a desktop pet, and the Bad Children Shop app.",
-  meta:[["Role","[[Concept, game design, build]]"],["Type","AR game + toy stage"],["Year","[[Year]]"],["Medium","[[AR engine, hardware, 3D print]]"]],
-  links:[["See the IP's web app","#bad-children-shop"]],
-  hero:{label:"Bad Children Paradise characters",ratio:"1/1",src:"img/bcp-kuku.jpg"},
-  card:"img/bcp-kuku.jpg",
-  tldr:[["Idea","[[One line on the story the player solves.]]"],["How it plays","An AR game on the screen and a physical toy stage on the table share clues, so the puzzle only resolves when both are used."],["What it became","An IP with world-building illustrations, level design, 3D-printed figurines, a sticker pack, a desktop pet, and a gamified web app."]],
-  sections:[
-    {id:"concept",h:"Concept",blocks:[
-      {p:"Bad Children Paradise is a narrative puzzle toy installation. A player moves between an AR video game and an interactive toy stage, and each side holds clues the other needs."},
-      {p:"[[Describe the story, the player's goal, and the key puzzle in two or three sentences.]]"}
-    ]},
-    {id:"stage",h:"The toy stage",blocks:[
-      {img:{label:"Photo of the physical toy stage",ratio:"4/3"}},
-      {p:"[[How the stage is built, what the player touches or moves, and which sensors or markers connect it to the AR game.]]"}
-    ]},
-    {id:"ar",h:"The AR game",blocks:[
-      {img:{label:"Screenshot of the AR game over the stage",ratio:"16/9"}},
-      {p:"[[What the player sees in AR and how it answers the physical moves.]]"}
-    ]},
-    {id:"ip",h:"From toy to IP",blocks:[
-      {p:"The characters outlived the installation. Bad Children grew into world-building illustrations, level design, 3D-printed figurines, a published sticker pack, a virtual desktop pet, and later the Bad Children Shop web app."},
-      {imgs:[{src:"img/bcp-kuku.jpg",label:"Kuku Sunflower"},{src:"img/bcp-sheep-girl.jpg",label:"Sheep-hat girl and her capsule machine"},{src:"img/bcp-jimao.jpg",label:"Jimao in a capsule"}],ratio:"1/1"}
-    ]}
+ },
+ {
+  "id": "toast",
+  "row": 0,
+  "sw": "apricot",
+  "tag": "Plush toy",
+  "short": "2026",
+  "eyebrow": "Interactive toy · Physical computing",
+  "year": "2026",
+  "title": "Toast, the Cooking Companion",
+  "summary": "A multisensory emotional-support plush with an embedded display, haptic feedback, and social connectivity, built around cooking at home.",
+  "subtitle": "A soft toast-shaped companion that keeps you company while you cook. It reacts to touch, shows its mood on a small screen, and logs cooking moments over Wi-Fi so friends can share them.",
+  "meta": [
+   [
+    "Role",
+    "Concept, hardware, fabrication"
+   ],
+   [
+    "Type",
+    "Interactive plush prototype"
+   ],
+   [
+    "Year",
+    "2026"
+   ],
+   [
+    "Medium",
+    "XIAO ESP32, capacitive touch, Wi-Fi"
+   ]
+  ],
+  "links": [
+   [
+    "Watch it react ↓",
+    "scroll:yts"
+   ],
+   [
+    "Project page on zhihanliu.art",
+    "https://www.zhihanliu.art/toasttoy"
+   ]
+  ],
+  "hero": {
+   "label": "Toast on the kitchen counter with its companion app",
+   "ratio": "1/1",
+   "src": "img/toast-01.jpg"
+  },
+  "card": "img/cover-04.jpg",
+  "tldr": [
+   [
+    "Question",
+    "Cooking alone can feel lonely. Could a small plush make it feel shared and calmer?"
+   ],
+   [
+    "What I built",
+    "A plush with capacitive touch, haptics, and a face display, running on a XIAO ESP32 with Wi-Fi logging."
+   ],
+   [
+    "Made from",
+    "Discarded dolls and fabric scraps, so the first prototype cost almost nothing to iterate on."
+   ]
+  ],
+  "sections": [
+   {
+    "id": "companion",
+    "h": "Meet the companion",
+    "blocks": [
+     {
+      "p": "Toast is a multisensory emotional-support plushie. It sits on the counter, notices when you touch it, answers with a face and a buzz, and keeps a light record of what you cooked."
+     },
+     {
+      "imgs": [
+       {
+        "src": "img/toast-02.jpg",
+        "label": "Meet the Toast companion"
+       },
+       {
+        "src": "img/toast-03.jpg",
+        "label": "Psychological grounding"
+       },
+       {
+        "src": "img/toast-04.jpg",
+        "label": "How it works"
+       }
+      ],
+      "ratio": "16/9",
+      "cols": 1
+     }
+    ]
+   },
+   {
+    "id": "play",
+    "h": "Play pattern",
+    "blocks": [
+     {
+      "cards": [
+       [
+        "Moment",
+        "Cooking alone at home, when a little company helps."
+       ],
+       [
+        "Loop",
+        "Touch Toast, it answers with a face and a buzz, and the cooking moment is logged to share with a friend."
+       ],
+       [
+        "Senses",
+        "Sight from the small display, touch from capacitive sensing, and haptic feedback."
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "build",
+    "h": "Prototype and electronics",
+    "blocks": [
+     {
+      "steps": [
+       [
+        "Interaction flow",
+        "Mapped a cooking workflow and the moments where Toast should respond."
+       ],
+       [
+        "Hardware",
+        "Programmed a XIAO ESP32 in the Arduino IDE with capacitive sensors and haptic feedback."
+       ],
+       [
+        "Connectivity",
+        "Built a Wi-Fi system that logs cooking interactions and shares them with friends."
+       ],
+       [
+        "Fabrication",
+        "Sewed the first body from discarded dolls and fabric scraps."
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "yts",
+    "h": "In action",
+    "blocks": [
+     {
+      "yt": [
+       {
+        "id": "ZE0qE84hKho",
+        "label": "Touch reaction",
+        "ratio": "9/16"
+       },
+       {
+        "id": "Xx42Fa4HULw",
+        "label": "Cooking session",
+        "ratio": "9/16"
+       },
+       {
+        "id": "G1QA4_DAk2g",
+        "label": "Display and haptics",
+        "ratio": "9/16"
+       }
+      ],
+      "shorts": true
+     }
+    ]
+   }
+  ],
+  "fit": [
+   "Electronic toy",
+   "Rapid prototyping",
+   "Soft goods",
+   "Play pattern"
   ]
-},
-{
-  id:"toast", row:0, sw:"apricot", tag:"Plush toy", short:"2026",
-  eyebrow:"Interactive toy · Physical computing", year:"2026",
-  title:"Toast, the Cooking Companion",
-  summary:"A multisensory emotional-support plush with an embedded display, haptic feedback, and social connectivity, built around cooking at home.",
-  subtitle:"A soft toast-shaped companion that keeps you company while you cook. It reacts to touch, shows its mood on a small screen, and logs cooking moments over Wi-Fi so friends can share them.",
-  meta:[["Role","Concept, hardware, fabrication"],["Type","Interactive plush prototype"],["Year","2026"],["Medium","XIAO ESP32, capacitive touch, Wi-Fi"]],
-  links:[["Watch it react ↓","scroll:yts"],["Project page on zhihanliu.art","https://www.zhihanliu.art/toasttoy"]],
-  hero:{label:"Toast on the kitchen counter with its companion app",ratio:"1/1",src:"img/toast-01.jpg"},
-  card:"img/cover-04.jpg",
-  tldr:[["Question","Cooking alone can feel lonely. Could a small plush make it feel shared and calmer?"],["What I built","A plush with capacitive touch, haptics, and a face display, running on a XIAO ESP32 with Wi-Fi logging."],["Made from","Discarded dolls and fabric scraps, so the first prototype cost almost nothing to iterate on."]],
-  sections:[
-    {id:"companion",h:"Meet the companion",blocks:[
-      {p:"Toast is a multisensory emotional-support plushie. It sits on the counter, notices when you touch it, answers with a face and a buzz, and keeps a light record of what you cooked."},
-      {imgs:[{src:"img/toast-02.jpg",label:"Meet the Toast companion"},{src:"img/toast-03.jpg",label:"Psychological grounding"},{src:"img/toast-04.jpg",label:"How it works"}],ratio:"16/9",cols:1}
-    ]},
-    {id:"build",h:"Prototype",blocks:[
-      {steps:[["Interaction flow","Mapped a cooking workflow and the moments where Toast should respond."],["Hardware","Programmed a XIAO ESP32 in the Arduino IDE with capacitive sensors and haptic feedback."],["Connectivity","Built a Wi-Fi system that logs cooking interactions and shares them with friends."],["Fabrication","Sewed the first body from discarded dolls and fabric scraps."]]}
-    ]},
-    {id:"yts",h:"In action",blocks:[
-      {yt:[{id:"ZE0qE84hKho",label:"Touch reaction",ratio:"9/16"},{id:"Xx42Fa4HULw",label:"Cooking session",ratio:"9/16"},{id:"G1QA4_DAk2g",label:"Display and haptics",ratio:"9/16"}],shorts:true}
-    ]}
+ },
+ {
+  "id": "bad-children-paradise",
+  "row": 0,
+  "sw": "butter",
+  "tag": "AR × toy stage",
+  "short": "[[Year]]",
+  "eyebrow": "Narrative puzzle toy · AR game + physical stage",
+  "year": "[[Year]]",
+  "title": "Bad Children Paradise",
+  "summary": "A narrative puzzle toy installation that pairs an AR video game with an interactive physical toy stage, and grew into a whole character IP.",
+  "subtitle": "An AR video game and an interactive toy stage that solve one story together. The Bad Children characters later grew into figurines, stickers, a desktop pet, and the Bad Children Shop app.",
+  "meta": [
+   [
+    "Role",
+    "[[Concept, game design, build]]"
+   ],
+   [
+    "Type",
+    "AR game + toy stage"
+   ],
+   [
+    "Year",
+    "[[Year]]"
+   ],
+   [
+    "Medium",
+    "[[AR engine, hardware, 3D print]]"
+   ]
+  ],
+  "links": [
+   [
+    "See the IP's web app",
+    "#bad-children-shop"
+   ]
+  ],
+  "hero": {
+   "label": "Bad Children Paradise characters",
+   "ratio": "1/1",
+   "src": "img/bcp-kuku.jpg"
+  },
+  "card": "img/bcp-kuku.jpg",
+  "tldr": [
+   [
+    "Idea",
+    "[[One line on the story the player solves.]]"
+   ],
+   [
+    "How it plays",
+    "An AR game on the screen and a physical toy stage on the table share clues, so the puzzle only resolves when both are used."
+   ],
+   [
+    "What it became",
+    "An IP with world-building illustrations, level design, 3D-printed figurines, a sticker pack, a desktop pet, and a gamified web app."
+   ]
+  ],
+  "sections": [
+   {
+    "id": "concept",
+    "h": "Concept and play pattern",
+    "blocks": [
+     {
+      "p": "Bad Children Paradise is a narrative puzzle toy installation. A player moves between an AR video game and an interactive toy stage, and each side holds clues the other needs."
+     },
+     {
+      "p": "[[Describe the story, the player's goal, and the key puzzle in two or three sentences.]]"
+     }
+    ]
+   },
+   {
+    "id": "stage",
+    "h": "The toy stage",
+    "blocks": [
+     {
+      "img": {
+       "label": "Photo of the physical toy stage",
+       "ratio": "4/3"
+      }
+     },
+     {
+      "p": "[[How the stage is built, what the player touches or moves, and which sensors or markers connect it to the AR game.]]"
+     }
+    ]
+   },
+   {
+    "id": "ar",
+    "h": "The AR game",
+    "blocks": [
+     {
+      "img": {
+       "label": "Screenshot of the AR game over the stage",
+       "ratio": "16/9"
+      }
+     },
+     {
+      "p": "[[What the player sees in AR and how it answers the physical moves.]]"
+     }
+    ]
+   },
+   {
+    "id": "ip",
+    "h": "From toy to IP",
+    "blocks": [
+     {
+      "p": "The characters outlived the installation. Bad Children grew into world-building illustrations, level design, 3D-printed figurines, a published sticker pack, a virtual desktop pet, and later the Bad Children Shop web app."
+     },
+     {
+      "imgs": [
+       {
+        "src": "img/bcp-kuku.jpg",
+        "label": "Kuku Sunflower"
+       },
+       {
+        "src": "img/bcp-sheep-girl.jpg",
+        "label": "Sheep-hat girl and her capsule machine"
+       },
+       {
+        "src": "img/bcp-jimao.jpg",
+        "label": "Jimao in a capsule"
+       }
+      ],
+      "ratio": "1/1"
+     }
+    ]
+   }
+  ],
+  "fit": [
+   "Character design",
+   "Physical + digital play",
+   "IP extension"
   ]
-},
-{
-  id:"capybara", row:0, sw:"matcha", tag:"Plush toy", short:"[[Year]]",
-  eyebrow:"Interactive toy", year:"[[Year]]",
-  title:"Capybara Plush",
-  summary:"[[An interactive capybara plush. One sentence on what it does and who it is for.]]",
-  subtitle:"[[Two sentences: the feeling it should create, and the interaction that creates it.]]",
-  meta:[["Role","[[Your role]]"],["Type","Interactive plush"],["Year","[[Year]]"],["Medium","[[Board, sensors, output]]"]],
-  links:[],
-  hero:{label:"Hero photo of the capybara plush",ratio:"4/3"},
-  card:"",
-  tldr:[["Idea","[[The emotion or habit it supports.]]"],["Interaction","[[Squeeze, pat, hug, voice, light?]]"],["Status","[[Prototype, tested with how many people.]]"]],
-  sections:[
-    {id:"concept",h:"Concept",blocks:[{p:"[[Why a capybara, who it is for, and what it does.]]"},{img:{label:"Sketches or character turnaround",ratio:"16/9"}}]},
-    {id:"build",h:"Build",blocks:[{p:"[[Electronics, materials, and how the inside fits the soft body.]]"},{img:{label:"Inside the plush: board and sensors",ratio:"4/3"}}]},
-    {id:"test",h:"Play test",blocks:[{p:"[[What players did, what surprised you, what changed.]]"}]}
+ },
+ {
+  "id": "capybara",
+  "row": 0,
+  "sw": "matcha",
+  "tag": "Plush toy",
+  "short": "[[Year]]",
+  "eyebrow": "Interactive toy",
+  "year": "[[Year]]",
+  "title": "Capybara Plush",
+  "summary": "[[An interactive capybara plush. One sentence on what it does and who it is for.]]",
+  "subtitle": "[[Two sentences: the feeling it should create, and the interaction that creates it.]]",
+  "meta": [
+   [
+    "Role",
+    "[[Your role]]"
+   ],
+   [
+    "Type",
+    "Interactive plush"
+   ],
+   [
+    "Year",
+    "[[Year]]"
+   ],
+   [
+    "Medium",
+    "[[Board, sensors, output]]"
+   ]
+  ],
+  "links": [],
+  "hero": {
+   "label": "Hero photo of the capybara plush",
+   "ratio": "4/3"
+  },
+  "card": "",
+  "tldr": [
+   [
+    "Idea",
+    "[[The emotion or habit it supports.]]"
+   ],
+   [
+    "Interaction",
+    "[[Squeeze, pat, hug, voice, light?]]"
+   ],
+   [
+    "Status",
+    "[[Prototype, tested with how many people.]]"
+   ]
+  ],
+  "sections": [
+   {
+    "id": "concept",
+    "h": "Concept",
+    "blocks": [
+     {
+      "p": "[[Why a capybara, who it is for, and what it does.]]"
+     },
+     {
+      "img": {
+       "label": "Sketches or character turnaround",
+       "ratio": "16/9"
+      }
+     }
+    ]
+   },
+   {
+    "id": "build",
+    "h": "Build",
+    "blocks": [
+     {
+      "p": "[[Electronics, materials, and how the inside fits the soft body.]]"
+     },
+     {
+      "img": {
+       "label": "Inside the plush: board and sensors",
+       "ratio": "4/3"
+      }
+     }
+    ]
+   },
+   {
+    "id": "test",
+    "h": "Play test",
+    "blocks": [
+     {
+      "p": "[[What players did, what surprised you, what changed.]]"
+     }
+    ]
+   }
+  ],
+  "fit": [
+   "Plush",
+   "Electronics"
   ]
-},
-{
-  id:"sunflower-house", row:0, sw:"rainy", tag:"Wall toy + web", short:"2026",
-  eyebrow:"Wall-mounted toy house · NFC daily ritual", year:"2026",
-  title:"Seventh-Day Sunflower",
-  summary:"A small wall-hung toy house with an NFC tag. Tap it each day to open a little web scene: six rainy nights of watering a sunflower, then a sunny seventh day.",
-  subtitle:"A decorative toy house for the wall and a daily check-in page behind it. One tap of the phone opens the house: on rainy nights you water a sunflower and leave a message in the rain, and on the seventh day the sun comes out.",
-  meta:[["Role","Concept, toy, web interaction"],["Type","Physical toy + mobile web"],["Year","2026"],["Medium","NFC NTAG215, Canvas, Web Audio"]],
-  links:[],
-  hero:{label:"The wall-mounted toy house with its NFC tag",ratio:"4/3"},
-  card:"",
-  tldr:[["Ritual","An NFC tag in the toy house opens the page. No app, no account: the phone is the key to the door."],["Seven-day loop","Days one to six are rainy nights. Visit on consecutive days and day seven turns into a sunny garden."],["Built and tested","A mobile-first Canvas page with sound, local memory, and 23 of 23 automated checks passing."]],
-  sections:[
-    {id:"loop",h:"The seven-day loop",blocks:[
-      {cards:[["Rainy nights, days 1 to 6","The sunflower sulks under a closed umbrella. Open the umbrella and rain falls, ripples turn into glowing stars, and the flower slowly smiles."],["Messages in the rain","Tap the sunflower to write a line. It joins the rain for the rest of the week, drawn at random from everything left so far."],["The seventh day","Tap the cloud to lower a swing, then five sun charms. Wipe the cloud to reveal one message from the past six nights."],["Then it starts again","The next day begins a new rainy cycle and the old messages are washed away."]]}
-    ]},
-    {id:"system",h:"Designing the daily rule",blocks:[
-      {p:"The loop counts calendar days in the phone's own time zone, not 24-hour windows. Visiting twice on one day does not add progress, and missing a day resets the streak, so the sunny day has to be earned with a small daily habit."},
-      {p:"Everything lives in the browser, with no server and no account. Changing phones starts the garden over. For a private ritual about a small daily act of care, that fragility suits the piece."},
-      {img:{label:"Rainy night: umbrella open, message rain falling",ratio:"9/16",narrow:true}},
-      {img:{label:"Seventh day: swing, sun charms, and a revealed message",ratio:"9/16",narrow:true}}
-    ]},
-    {id:"sound",h:"Sound",blocks:[
-      {p:"Mobile browsers block autoplay, so the first touch on the umbrella, the flower, or the cloud starts the music. Rain fades in after the umbrella opens, and the star chimes are quiet, randomized, and spaced several seconds apart so they never nag."}
-    ]},
-    {id:"house",h:"The house",blocks:[
-      {img:{label:"Toy house on the wall, phone tapping the NFC tag",ratio:"4/3"}},
-      {p:"[[How the toy house is made, its size and materials, and where the NFC tag sits.]]"}
-    ]},
-    {id:"next",h:"What I would change next",blocks:[
-      {steps:[["Count the watering","Today a visit counts as a day. Next, only an opened umbrella should count."],["Roll over at midnight","Refresh the day automatically if the page stays open past midnight."],["Gentler reduced motion","Finish state changes instantly instead of freezing them."]]}
-    ]}
+ },
+ {
+  "id": "sunflower-house",
+  "row": 0,
+  "sw": "rainy",
+  "tag": "Wall toy + web",
+  "short": "2026",
+  "eyebrow": "Wall-mounted toy house · NFC daily ritual",
+  "year": "2026",
+  "title": "Seventh-Day Sunflower",
+  "summary": "A small wall-hung toy house with an NFC tag. Tap it each day to open a little web scene: six rainy nights of watering a sunflower, then a sunny seventh day.",
+  "subtitle": "A decorative toy house for the wall and a daily check-in page behind it. One tap of the phone opens the house: on rainy nights you water a sunflower and leave a message in the rain, and on the seventh day the sun comes out.",
+  "meta": [
+   [
+    "Role",
+    "Concept, toy, web interaction"
+   ],
+   [
+    "Type",
+    "Physical toy + mobile web"
+   ],
+   [
+    "Year",
+    "2026"
+   ],
+   [
+    "Medium",
+    "NFC NTAG215, Canvas, Web Audio"
+   ]
+  ],
+  "links": [],
+  "hero": {
+   "label": "The wall-mounted toy house with its NFC tag",
+   "ratio": "4/3"
+  },
+  "card": "",
+  "tldr": [
+   [
+    "Ritual",
+    "An NFC tag in the toy house opens the page. No app, no account: the phone is the key to the door."
+   ],
+   [
+    "Seven-day loop",
+    "Days one to six are rainy nights. Visit on consecutive days and day seven turns into a sunny garden."
+   ],
+   [
+    "Built and tested",
+    "A mobile-first Canvas page with sound, local memory, and 23 of 23 automated checks passing."
+   ]
+  ],
+  "sections": [
+   {
+    "id": "loop",
+    "h": "Play pattern: a seven-day loop",
+    "blocks": [
+     {
+      "cards": [
+       [
+        "Rainy nights, days 1 to 6",
+        "The sunflower sulks under a closed umbrella. Open the umbrella and rain falls, ripples turn into glowing stars, and the flower slowly smiles."
+       ],
+       [
+        "Messages in the rain",
+        "Tap the sunflower to write a line. It joins the rain for the rest of the week, drawn at random from everything left so far."
+       ],
+       [
+        "The seventh day",
+        "Tap the cloud to lower a swing, then five sun charms. Wipe the cloud to reveal one message from the past six nights."
+       ],
+       [
+        "Then it starts again",
+        "The next day begins a new rainy cycle and the old messages are washed away."
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "system",
+    "h": "Designing the daily rule",
+    "blocks": [
+     {
+      "p": "The loop counts calendar days in the phone's own time zone, not 24-hour windows. Visiting twice on one day does not add progress, and missing a day resets the streak, so the sunny day has to be earned with a small daily habit."
+     },
+     {
+      "p": "Everything lives in the browser, with no server and no account. Changing phones starts the garden over. For a private ritual about a small daily act of care, that fragility suits the piece."
+     },
+     {
+      "img": {
+       "label": "Rainy night: umbrella open, message rain falling",
+       "ratio": "9/16",
+       "narrow": true
+      }
+     },
+     {
+      "img": {
+       "label": "Seventh day: swing, sun charms, and a revealed message",
+       "ratio": "9/16",
+       "narrow": true
+      }
+     }
+    ]
+   },
+   {
+    "id": "sound",
+    "h": "Sound",
+    "blocks": [
+     {
+      "p": "Mobile browsers block autoplay, so the first touch on the umbrella, the flower, or the cloud starts the music. Rain fades in after the umbrella opens, and the star chimes are quiet, randomized, and spaced several seconds apart so they never nag."
+     }
+    ]
+   },
+   {
+    "id": "house",
+    "h": "The house",
+    "blocks": [
+     {
+      "img": {
+       "label": "Toy house on the wall, phone tapping the NFC tag",
+       "ratio": "4/3"
+      }
+     },
+     {
+      "p": "[[How the toy house is made, its size and materials, and where the NFC tag sits.]]"
+     }
+    ]
+   },
+   {
+    "id": "next",
+    "h": "What I would change next",
+    "blocks": [
+     {
+      "steps": [
+       [
+        "Count the watering",
+        "Today a visit counts as a day. Next, only an opened umbrella should count."
+       ],
+       [
+        "Roll over at midnight",
+        "Refresh the day automatically if the page stays open past midnight."
+       ],
+       [
+        "Gentler reduced motion",
+        "Finish state changes instantly instead of freezing them."
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "fit": [
+   "NFC electronics",
+   "Daily play pattern",
+   "Craft build"
   ]
-},
-{
-  id:"crystal-citizen", row:0, sw:"clover", tag:"Collectible toy", short:"2023–25",
-  eyebrow:"Collectible toy brand · Co-founder", year:"2023 – 2025",
-  title:"Crystal Citizen",
-  summary:"A blind-box line of tiny crystal dioramas and desktop figures, taken from brand to factory to a working Shopify store.",
-  subtitle:"An independent collectible line from Hong Kong. Each tear-open blind box pairs a lightweight DIY crystal-diorama kit with a collectible desktop figure, so unboxing becomes a small ritual of building and display.",
-  meta:[["Role","Co-founder, chief designer"],["Base","Hong Kong"],["Years","2023 – 2025"],["Medium","3D modeling, packaging, Shopify"]],
-  links:[["Packaging on zhihanliu.art","https://www.zhihanliu.art/packagingdesign"]],
-  hero:{label:"A finished crystal diorama: a figure by a turquoise lake",ratio:"3/2",src:"img/cc-diorama.jpg"},
-  card:"img/cc-cube.jpg",
-  tldr:[["Product","Tear-open blind boxes, each with a DIY crystal-diorama kit and a collectible figure."],["What I owned","Positioning and user research, 3D models and renders, samples with manufacturers, packaging and logo, product photography."],["Shipped","A Shopify storefront selling real product, and Instagram marketing alongside my co-founder."]],
-  sections:[
-    {id:"concept",h:"Small worlds you build",blocks:[
-      {p:"Crystal Citizen started from a simple feeling: a blind box should not end when it is opened. Each box holds a lightweight crystal-diorama kit and a figure, so the buyer finishes the scene with their own hands and keeps it on the desk."},
-      {imgs:[{src:"img/cc-cube.jpg",label:"A finished cube in hand"},{src:"img/cc-diorama.jpg",label:"Lake scene detail"}],ratio:"1/1",cols:2}
-    ]},
-    {id:"delivery",h:"From brand to delivery",blocks:[
-      {steps:[["Research","Positioned the line and studied the collectors it was for."],["3D and samples","Modeled and rendered figures, then refined materials and samples with manufacturers."],["Packaging","Designed the tear-open box, logo, and inserts so opening feels like a ritual."],["Store","Shot product photography and built the Shopify storefront for real sales."]]},
-      {img:{label:"Brand collage: packaging, scenes, and storefront",ratio:"1300/1800",src:"img/cc-collage.jpg",narrow:true}},
-      {p:"Brand systems and concept-to-production work were developed with my co-founder, and my partner led marketing. Tools: Figma, Illustrator, Photoshop, InDesign, Blender, and Shopify."}
-    ]},
-    {id:"more",h:"More objects",blocks:[
-      {imgs:[{src:"img/pack-02.jpg",label:"Pillow cushion tray, a later home object"}],ratio:"16/9",narrow:true}
-    ]}
+ },
+ {
+  "id": "whispers-of-female-script",
+  "row": 0,
+  "sw": "cherry",
+  "tag": "Tabletop",
+  "short": "2023",
+  "eyebrow": "Two-player narrative tabletop · Cultural research",
+  "year": "2023",
+  "title": "Whispers of Female Script",
+  "summary": "A two-player tabletop game about decoding Nüshu, a script created and used only by women in China. Language becomes the puzzle and the bond.",
+  "subtitle": "A cooperative narrative game in which two players, separated in time, decode Nüshu characters for each other. Exhibited at the Shanghai Women's Book Fair.",
+  "meta": [
+   [
+    "Role",
+    "Solo: research, story, mechanics, art"
+   ],
+   [
+    "Players",
+    "2, cooperative"
+   ],
+   [
+    "Shown",
+    "Shanghai Women's Book Fair"
+   ],
+   [
+    "Medium",
+    "Cards, decoding disc, scroll, box"
+   ]
+  ],
+  "links": [
+   [
+    "Full process on zhihanliu.art",
+    "https://www.zhihanliu.art/whispers-of-female-script"
+   ]
+  ],
+  "hero": {
+   "label": "The game laid out as a scroll with cards and the decoding disc",
+   "ratio": "1800/1124",
+   "src": "img/nushu-scroll.jpg"
+  },
+  "card": "img/nushu-13.jpg",
+  "tldr": [
+   [
+    "Subject",
+    "Nüshu, the world's only surviving script made exclusively by women, once a private network beyond a male-dominated society."
+   ],
+   [
+    "Mechanic",
+    "Each player's answer hides in the other player's symbol art. Neither can finish alone."
+   ],
+   [
+    "Objects",
+    "24 narrative cards, 2 character cards, a decoding disc with puzzle pieces, a scroll board, and the box."
+   ]
+  ],
+  "sections": [
+   {
+    "id": "why",
+    "h": "Why Nüshu",
+    "blocks": [
+     {
+      "q": "A silenced shout in history, its voice swallowed by grand narratives."
+     },
+     {
+      "p": "With few chances for education, women in parts of Hunan created their own writing system. Sharing it, they built a private network of thought and feeling outside the male-dominated order. The game asks players to enter that world by learning to read it."
+     },
+     {
+      "imgs": [
+       {
+        "src": "img/nushu-15.jpg",
+        "label": "Project overview board"
+       },
+       {
+        "src": "img/nushu-16.jpg",
+        "label": "Background and cultural research"
+       },
+       {
+        "src": "img/nushu-17.jpg",
+        "label": "Research into narrative"
+       }
+      ],
+      "ratio": "10/3",
+      "cols": 1
+     }
+    ]
+   },
+   {
+    "id": "play",
+    "h": "Play pattern",
+    "blocks": [
+     {
+      "cards": [
+       [
+        "Role-play and adventure",
+        "Another self, from the past or the future, veiled beyond your sight."
+       ],
+       [
+        "Encrypted dialogue",
+        "Read the clues and hidden text on your cards. Every line is both a guide and a possible trap."
+       ],
+       [
+        "Decode together",
+        "Your answer lies inside the other player's symbol image, so you must talk to finish the story."
+       ]
+      ]
+     },
+     {
+      "imgs": [
+       {
+        "src": "img/nushu-08.jpg",
+        "label": "Narrative card, the One from the Past"
+       },
+       {
+        "src": "img/nushu-09.jpg",
+        "label": "Narrative card, the One from the Future"
+       },
+       {
+        "src": "img/nushu-11.jpg",
+        "label": "Decoding card"
+       }
+      ],
+      "ratio": "916/1743"
+     }
+    ]
+   },
+   {
+    "id": "objects",
+    "h": "Paper goods and print production",
+    "wide": true,
+    "blocks": [
+     {
+      "p": "Every component was designed for print: 24 narrative cards, 2 character cards, a rotating decoding disc with matching puzzle pieces, a scroll-like play surface, and the box. Typography and card hierarchy carry the rules, so the game needs almost no rulebook."
+     },
+     {
+      "steps": [
+       [
+        "Decode",
+        "The rotating disc turns a visual symbol into a physical action. Each solved character adds a puzzle piece in its shape."
+       ],
+       [
+        "Read",
+        "Printed characters and card hierarchy organize incomplete information."
+       ],
+       [
+        "Exchange",
+        "The shared scroll surface structures how players compare and pass clues."
+       ]
+      ]
+     },
+     {
+      "imgs": [
+       {
+        "src": "img/nushu-disc.jpg",
+        "label": "Decoding disc in hand"
+       },
+       {
+        "src": "img/nushu-12.jpg",
+        "label": "Disc and puzzle pieces"
+       },
+       {
+        "src": "img/nushu-cards.jpg",
+        "label": "Cards standing on the scroll"
+       }
+      ],
+      "ratio": "4/3"
+     },
+     {
+      "imgs": [
+       {
+        "src": "img/nushu-13.jpg",
+        "label": "Character card: the Female Poet, Quest for Freedom"
+       },
+       {
+        "src": "img/nushu-14.jpg",
+        "label": "Character card: the One from the Future"
+       }
+      ],
+      "ratio": "1241/1843",
+      "narrow": true
+     }
+    ]
+   },
+   {
+    "id": "flow",
+    "h": "Game flow and iteration",
+    "blocks": [
+     {
+      "imgs": [
+       {
+        "src": "img/nushu-18.jpg",
+        "label": "Game flow"
+       },
+       {
+        "src": "img/nushu-19.jpg",
+        "label": "Information exchange"
+       },
+       {
+        "src": "img/nushu-20.jpg",
+        "label": "Iteration"
+       },
+       {
+        "src": "img/nushu-21.jpg",
+        "label": "Final structure"
+       }
+      ],
+      "ratio": "10/3",
+      "cols": 1
+     }
+    ]
+   }
+  ],
+  "fit": [
+   "Paper goods",
+   "Print production",
+   "Packaging",
+   "Cooperative play"
   ]
-},
-{
-  id:"bad-children-shop", row:0, sw:"ballet", tag:"Capsule toy app", short:"2026",
-  eyebrow:"Gamified community · Web app", year:"2026",
-  title:"Bad Children Shop",
-  summary:"A gamified web app that turns a capsule-toy machine into a social space for people who already know each other. Designed and built end to end.",
-  subtitle:"A gamified web app that reimagines the capsule-toy machine as the start of an acquaintance-based community, blending online play with offline collectible culture.",
-  meta:[["Role","Sole designer and builder"],["Partner","Community team, entertainment company"],["Timeline","2026 · In development"],["Platform","Mobile web and desktop"]],
-  links:[["Play the live app","https://didiisliuzhihan.github.io/bad-children-shop/"],["Full case on zhihanliu.art","https://www.zhihanliu.art/bad-children-shop"]],
-  hero:{label:"Bad Children Shop on desktop and mobile",ratio:"1800/1013",src:"img/bcs-hero.jpg"},
-  card:"img/bcs-cover.jpg",
-  immersive:{url:"https://didiisliuzhihan.github.io/bad-children-shop/",poster:"img/bcs-hero.jpg",label:"Bad Children Shop live app",device:"phone",cta:"Play the live app",note:"The real app in a phone frame. Swipe the machine, slide the capsule open, and browse your bag. Local play only: nothing is saved to an account."},
-  tldr:[["Problem","People came for the draw and missed everything after it. The partner wanted collectibles that bring members who already know each other closer."],["What I did","Designed in Figma and built a working prototype with Codex, tested it with 30+ early participants, and grew one draw into three connected loops."],["Result","A live, iterating prototype. The social layer resonated most. Retention uplift is not yet established."]],
-  sections:[
-    {id:"context",h:"Problem and motivation",blocks:[
-      {p:"Developed with the community team of an entertainment company, Bad Children Shop explores how collectible characters can encourage interaction among people who already know one another."},
-      {p:"The experience connects digital capsule collecting with shared stories, community-made postcards, and tasks that extend into face-to-face moments."}
-    ]},
-    {id:"capsule",h:"Capsule interaction",blocks:[
-      {h3:"Make the gesture part of the surprise"},
-      {p:"A moving light follows the curved seam. Drag either way and the shell separates to reveal the character. Light suggests a direction, the shell follows the hand, and the reveal returns you to your original decision."},
-      {videos:[{src:"media/bcs-open.mp4",poster:"media/bcs-open.jpg",label:"Opening the capsule"},{src:"media/bcs-bag.mp4",poster:"media/bcs-bag.jpg",label:"My capsule bag: swipe to browse"}],ratio:"480/854",narrow:true}
-    ]},
-    {id:"nest",h:"The Nest",blocks:[
-      {p:"After the draw, characters share a home, develop relationships, and generate small stories that return as surprise postcards. You arrange the room, tap characters for sounds, and watch relationships unfold through small scenes."},
-      {imgs:[{src:"img/bcs-nest-day.jpg",label:"Day: a shared setting"},{src:"img/bcs-nest-night.jpg",label:"Night: a different atmosphere"}]},
-      {imgs:[{src:"img/bcs-nest-mobile.jpg",label:"My Nest on mobile"},{src:"img/bcs-nest-postcard.jpg",label:"A Nest moment, mailed back as a postcard"}],ratio:"auto",narrow:true}
-    ]},
-    {id:"social",h:"Beyond the screen",blocks:[
-      {cards:[["Shared postcard pool","Make a card with images, memes, and stamps, and let another member discover it."],["Character tasks","A playful prompt connects the digital collectible to an in-person moment."],["Wipe to unlock","Some figures stay behind frosted glass until you finish their small task offline."]]},
-      {imgs:[{src:"img/bcs-unlock.jpg",label:"Locked model: do the task, then wipe the glass"}],ratio:"714/839",narrow:true}
-    ]},
-    {id:"misfits",h:"Meet the misfits",wide:true,blocks:[
-      {p:"Every character has a card, a 3D model, and a short story. Swipe through them the way you would in the app."},
-      {dex:[
-        {n:"03",name:"Stressed Jimao",img:"img/bcs-g-jimao-card.jpg",model:"img/bcs-g-jimao-model.jpg",photo:"img/bcs-g-jimao-story.jpg",line:"Says \u201cI\u2019m fine.\u201d Forecast: thunderstorms",task:"Do one small favor for Jimao this week",quote:"Do I look okay?",story:"Nine forecasts out of ten predict little thunderstorms over Jimao\u2019s head. Even with lightning wired to its brain, it grins: \u201cNo big deal.\u201d Those drooping eyelids have already waved a white flag. Let it rest while the little storm passes."},
-        {n:"04",name:"Miss Popcorn",img:"img/bcs-g-popcorn-card.jpg",model:"img/bcs-g-popcorn-model.jpg",photo:"img/bcs-g-popcorn-story.jpg",line:"You\u2019ve set Miss Popcorn off. Again",task:"Tell her, \u201cDon\u2019t fret. You\u2019re gorgeous.\u201d",quote:"Today\u2019s housework allowance is used up.",story:"Popcorn rattles her keys as if announcing an official strike. But each time she says, \u201cNext time you\u2019re on your own,\u201d she quietly sets out your favorite cup. Her grumbling doesn\u2019t mean she dislikes you. Today, she\u2019d just like a turn at being cared for."},
-        {n:"05",name:"Whatever Dua",img:"img/bcs-g-dua-model.jpg",model:"img/bcs-g-dua-model.jpg",photo:"img/bcs-g-dua-story.jpg",line:"No answers yet. The sitting position is sorted.",task:"Sit with Dua for a while",quote:"Answers can wait.",story:"Dua wraps up in a towel, flops into the red chair and announces that its brain is closed for the day. When you ask what to do, it makes room: why not sit for a while? Answers can wait. Resting together doesn\u2019t have to."},
-        {n:"06",name:"Office Hulu",img:"img/bcs-g-hulu-card.jpg",model:"img/bcs-g-hulu-model.jpg",photo:"img/bcs-g-hulu-story.jpg",line:"Finally a grown-up. Serious for one whole second",task:"Clink glasses with Hulu today",quote:"Today\u2019s market: the butt calls the shots.",story:"Hulu finally has a tie and a white-collar job as a stock manager, mostly to cause office chaos. While others wait for the market, he announces his rear is on the rise. He straightens his tie, and one serious second later he is laughing again."}
-      ]}
-    ]}
+ },
+ {
+  "id": "station-nowhere",
+  "row": 0,
+  "sw": "latte",
+  "tag": "Sound tabletop",
+  "short": "[[Year]]",
+  "eyebrow": "Listening-based social tabletop",
+  "year": "[[Year]]",
+  "title": "Station Nowhere",
+  "summary": "A tabletop game where sound replaces visuals. Wandering souls tune into a death radio and build a shared story from ambient audio and abstract cards.",
+  "subtitle": "A listening-based tabletop game. Players are wandering souls tuning into a death radio, and the story exists only in what they hear, say, and bluff.",
+  "meta": [
+   [
+    "Role",
+    "Solo, end to end"
+   ],
+   [
+    "Type",
+    "Social tabletop + web radio"
+   ],
+   [
+    "Year",
+    "[[Year]]"
+   ],
+   [
+    "Medium",
+    "Audio, cards, companion website"
+   ]
+  ],
+  "links": [
+   [
+    "Project page on zhihanliu.art",
+    "https://www.zhihanliu.art/sound-board-game"
+   ]
+  ],
+  "hero": {
+   "label": "Players reaching for cards around the radio",
+   "ratio": "1500/678",
+   "src": "img/cover-03.jpg"
+  },
+  "card": "img/cover-03.jpg",
+  "tldr": [
+   [
+    "Twist",
+    "Sound is the main narrative medium. Ambient audio and abstract notion cards drive play."
+   ],
+   [
+    "Social play",
+    "Players interpret, mislead, and guess meanings, building a shared narrative space."
+   ],
+   [
+    "Self-produced",
+    "UI design, a companion radio website, card design, and physical card production."
+   ]
+  ],
+  "sections": [
+   {
+    "id": "play",
+    "h": "Play pattern",
+    "blocks": [
+     {
+      "p": "Each round the radio plays a stretch of ambient sound. Players hold abstract notion cards and describe, hint, or bluff about what they heard. Meaning is negotiated around the table, so the story is different every game."
+     },
+     {
+      "yt": [
+       {
+        "id": "tGUIvXLqat4",
+        "label": "Gameplay"
+       },
+       {
+        "id": "yqhSW9JQIjw",
+        "label": "The death radio"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "fit": [
+   "Paper goods",
+   "Social play",
+   "Audio"
   ]
-},
-
-/* ===================== Row 2: games & play ===================== */
-{
-  id:"gone-scrawly", row:1, sw:"wisteria", tag:"Video game", short:"Unity",
-  eyebrow:"Drawing puzzle game · Unity 3D", year:"[[Year]]",
-  title:"Gone Scrawly",
-  summary:"A drawing puzzle game where an adult who has forgotten childhood repaints a collapsing doodle diary to recover what happened.",
-  subtitle:"A mysterious yet familiar world of doodles. The player re-enters a childhood drawing diary whose colors and lines are fading, and restores it by painting, until the whole world comes back.",
-  meta:[["Role","Solo: concept, story, gameplay"],["Type","Drawing puzzle game"],["Engine","Unity 3D"],["Medium","Prototype, motion, narrative"]],
-  links:[["Watch the moving-image documentation","https://www.zhihanliu.art/gone-scrawly"]],
-  hero:{label:"Gone Scrawly title screen",ratio:"16/9",src:"img/gs-title.jpg"},
-  card:"img/cover-01.jpg",
-  tldr:[["Premise","Time is erasing a child's doodle world. Its colors and lines drift toward a strange childish script."],["Mechanic","Painting is the only verb. Restoring color restores the scene and changes what it means."],["My role","Independent concept, narrative, gameplay, visual direction, and the interactive prototype."]],
-  sections:[
-    {id:"loop",h:"Four actions",blocks:[
-      {p:"One repeated gesture carries changing narrative meaning. Each puzzle moves through the same four actions."},
-      {steps:[["Observe","Read the child's fragmented language and look for what the scene remembers."],["Extract","Find colors in the memory space and connect them to the drawing."],["Restore","Color restores the scene and changes how it can be read."],["Reframe","The 3D room and the drawing become different views of the same memory."]]},
-      {imgs:[{src:"img/gs-clock-eye.jpg",label:"A clock-like composition in the drawn world"},{src:"img/gs-window.jpg",label:"The quiet 3D room"}],ratio:"16/9",cols:2}
-    ]},
-    {id:"look",h:"Between room and sketchbook",blocks:[
-      {p:"Two visual registers mark the shift between memory and present. A calm 3D environment sets up an everyday space the player recognizes. Hand-drawn marks, a clock-like layout, and changing color carry the puzzle into the drawn world."},
-      {imgs:[{src:"img/gs-sun.jpg",label:"The collapsing colors"},{src:"img/gs-clock.jpg",label:"Time as a puzzle"}],ratio:"16/9",cols:2}
-    ]}
+ },
+ {
+  "id": "a-home-only-without-me",
+  "row": 1,
+  "sw": "attic",
+  "tag": "Installation",
+  "short": "2026",
+  "eyebrow": "Interactive installation · Physical narrative game",
+  "year": "2026",
+  "title": "A Home Only Without Me",
+  "summary": "A half-room installation where visitors investigate a family's generational curse through miniature scenes hidden inside a refrigerator and a TV cabinet.",
+  "subtitle": "An interactive narrative installation played through the silence of domestic objects. Visitors enter as investigators, piece the story together from miniature scenes, and leave as part of it.",
+  "meta": [
+   [
+    "Role",
+    "Concept, story, interaction, build"
+   ],
+   [
+    "Shown",
+    "Parsons Pop Show · A Space Gallery"
+   ],
+   [
+    "Year",
+    "2026, MFA thesis"
+   ],
+   [
+    "Medium",
+    "ESP32, NFC, sensors, sound"
+   ]
+  ],
+  "links": [
+   [
+    "Watch the walkthrough ↓",
+    "scroll:yts"
+   ],
+   [
+    "Thesis page on zhihanliu.art",
+    "https://www.zhihanliu.art/home-1"
+   ]
+  ],
+  "hero": {
+   "label": "The refrigerator and TV cabinet in the dark gallery",
+   "ratio": "1376/768",
+   "src": "img/home-fridge-night.jpg"
+  },
+  "card": "img/home-fridge-open.jpg",
+  "tldr": [
+   [
+    "Premise",
+    "No character is in the room. A family's story of fish-scale disease, inheritance, and reincarnation lives in the objects they left behind."
+   ],
+   [
+    "What I built",
+    "Miniature scenes inside a refrigerator and a CRT TV cabinet. NFC, magnetic, ultrasonic, and fabric-touch triggers play sound and small screens."
+   ],
+   [
+    "Shown",
+    "Parsons Pop Show 2026, and the group show I Am Not an Alien? at A Space Gallery, Brooklyn, June 2026."
+   ]
+  ],
+  "sections": [
+   {
+    "id": "premise",
+    "h": "Premise",
+    "blocks": [
+     {
+      "q": "A family lived here. Then they didn't. What they left behind is still waiting to be found."
+     },
+     {
+      "p": "A Home Only Without Me is a physical narrative game built from a magical-realist family tragedy. Visitors step into a half room as investigators and search for the truth inside miniature family scenes hidden in a refrigerator and a television casing."
+     },
+     {
+      "p": "No character physically exists in the space. When no one is present, who are we observing, and who is observing us? Even an ordinary trash can holds whispered secrets. Only on leaving the room does the visitor close the story's loop and become part of it."
+     }
+    ]
+   },
+   {
+    "id": "journey",
+    "h": "The visitor journey",
+    "blocks": [
+     {
+      "steps": [
+       [
+        "Enter",
+        "The refrigerator and television invite investigation at a domestic scale."
+       ],
+       [
+        "Handle",
+        "Looking, reaching, and handling objects reveal fragments of the family story."
+       ],
+       [
+        "Interpret",
+        "Visitors piece the narrative together through physical evidence and sound."
+       ],
+       [
+        "Leave",
+        "The exit text turns the investigator into the next person the house remembers."
+       ]
+      ]
+     },
+     {
+      "imgs": [
+       {
+        "src": "img/home-visitors.jpg",
+        "label": "Visitors searching the open refrigerator"
+       },
+       {
+        "src": "img/home-07.jpg",
+        "label": "Matching evidence at the TV cabinet"
+       },
+       {
+        "src": "img/home-16.jpg",
+        "label": "Reading a scene up close"
+       }
+      ],
+      "ratio": "3/4"
+     }
+    ]
+   },
+   {
+    "id": "build",
+    "h": "Engineering the interaction",
+    "wide": true,
+    "blocks": [
+     {
+      "p": "Hand-drawn interaction points guided the spatial build. Each domestic gesture, reaching, touching, turning, or matching, became part of the interaction vocabulary, and the electronics stay hidden inside the built scenes."
+     },
+     {
+      "imgs": [
+       {
+        "src": "img/home-sensors.jpg",
+        "label": "Sensor layout across the refrigerator: NFC scene matching, magnetic induction, ultrasonic sensing, fabric touch"
+       },
+       {
+        "src": "img/home-sketch.jpg",
+        "label": "Early sketch of interaction points"
+       }
+      ],
+      "ratio": "auto",
+      "cols": 2
+     },
+     {
+      "steps": [
+       [
+        "Map the action",
+        "Define each gesture through the object, so familiar domestic behavior becomes the controls."
+       ],
+       [
+        "Integrate the input",
+        "Place NFC, magnetic, and proximity sensing inside the miniature scenes."
+       ],
+       [
+        "Connect the response",
+        "Route each trigger to sound and scene content across headphones, speakers, and tiny displays."
+       ]
+      ]
+     },
+     {
+      "cards": [
+       [
+        "XIAO ESP32-S3",
+        "Microcontroller for each scene, programmed in the Arduino IDE."
+       ],
+       [
+        "PN532 NFC",
+        "Visitors match evidence cards to scenes to unlock their audio."
+       ],
+       [
+        "MAX98357A I2S",
+        "Amplified narration and ambient sound inside the furniture."
+       ],
+       [
+        "E-paper + reed switch",
+        "A companion display wakes when a door opens."
+       ]
+      ]
+     },
+     {
+      "p": "Code collaborator: Felix Yu."
+     }
+    ]
+   },
+   {
+    "id": "scenes",
+    "h": "Inside the scenes",
+    "wide": true,
+    "blocks": [
+     {
+      "imgs": [
+       {
+        "src": "img/home-detail.jpg",
+        "label": "A miniature room behind the fridge door"
+       },
+       {
+        "src": "img/home-tv.jpg",
+        "label": "The TV cabinet scene"
+       },
+       {
+        "src": "img/home-01.jpg",
+        "label": "Lace, light, and a hidden bedroom"
+       }
+      ],
+      "ratio": "3/4"
+     },
+     {
+      "imgs": [
+       {
+        "src": "img/home-fridge-dark.jpg",
+        "label": "The installation in the dark"
+       },
+       {
+        "src": "img/home-08.jpg",
+        "label": "Both objects lit from inside"
+       }
+      ],
+      "ratio": "16/9",
+      "cols": 2
+     }
+    ]
+   },
+   {
+    "id": "voices",
+    "h": "Voices of the family",
+    "blocks": [
+     {
+      "p": "Each scene carries a voice. Visitors hear the family only in fragments, and have to decide for themselves what happened."
+     },
+     {
+      "q": "It looks like a water burial, but it is not. With his back turned to us, he walks resolutely toward rebirth.",
+      "cite": "The Little Girl"
+     },
+     {
+      "q": "It was us. We did it. The family. Then we put him in the water. I'm a fisherman. Everything returns to the water, in the end.",
+      "cite": "The Grandfather"
+     }
+    ]
+   },
+   {
+    "id": "yts",
+    "h": "Walkthrough",
+    "blocks": [
+     {
+      "yt": [
+       {
+        "id": "Z-a4qLTW7UM",
+        "label": "Installation walkthrough",
+        "poster": "img/home-fridge-night.jpg"
+       },
+       {
+        "id": "qcmmnh7pA_A",
+        "label": "Documentation",
+        "poster": "img/home-visitor.jpg"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "exhibition",
+    "h": "Exhibition",
+    "blocks": [
+     {
+      "p": "The installation was shown at Parsons Pop Show 2026, and in I Am Not an Alien?, a group exhibition at A Space Gallery in Brooklyn about perception and the relation between human experience and technological systems. ArtRabbit and Fakewhale both covered the show, and the ArtRabbit review discussed the miniature domestic scenes and their question of who observes and who is observed."
+     }
+    ]
+   }
+  ],
+  "fit": [
+   "Fabrication",
+   "Electronics and sensors",
+   "Spatial play"
   ]
-},
-{
-  id:"whispers-of-female-script", row:1, sw:"cherry", tag:"Tabletop", short:"2023",
-  eyebrow:"Two-player narrative tabletop · Cultural research", year:"2023",
-  title:"Whispers of Female Script",
-  summary:"A two-player tabletop game about decoding Nüshu, a script created and used only by women in China. Language becomes the puzzle and the bond.",
-  subtitle:"A cooperative narrative game in which two players, separated in time, decode Nüshu characters for each other. Exhibited at the Shanghai Women's Book Fair.",
-  meta:[["Role","Solo: research, story, mechanics, art"],["Players","2, cooperative"],["Shown","Shanghai Women's Book Fair"],["Medium","Cards, decoding disc, scroll, box"]],
-  links:[["Full process on zhihanliu.art","https://www.zhihanliu.art/whispers-of-female-script"]],
-  hero:{label:"The game laid out as a scroll with cards and the decoding disc",ratio:"1800/1124",src:"img/nushu-scroll.jpg"},
-  card:"img/nushu-13.jpg",
-  tldr:[["Subject","Nüshu, the world's only surviving script made exclusively by women, once a private network beyond a male-dominated society."],["Mechanic","Each player's answer hides in the other player's symbol art. Neither can finish alone."],["Objects","24 narrative cards, 2 character cards, a decoding disc with puzzle pieces, a scroll board, and the box."]],
-  sections:[
-    {id:"why",h:"Why Nüshu",blocks:[
-      {q:"A silenced shout in history, its voice swallowed by grand narratives."},
-      {p:"With few chances for education, women in parts of Hunan created their own writing system. Sharing it, they built a private network of thought and feeling outside the male-dominated order. The game asks players to enter that world by learning to read it."},
-      {imgs:[{src:"img/nushu-15.jpg",label:"Project overview board"},{src:"img/nushu-16.jpg",label:"Background and cultural research"},{src:"img/nushu-17.jpg",label:"Research into narrative"}],ratio:"10/3",cols:1}
-    ]},
-    {id:"play",h:"How it plays",blocks:[
-      {cards:[["Role-play and adventure","Another self, from the past or the future, veiled beyond your sight."],["Encrypted dialogue","Read the clues and hidden text on your cards. Every line is both a guide and a possible trap."],["Decode together","Your answer lies inside the other player's symbol image, so you must talk to finish the story."]]},
-      {imgs:[{src:"img/nushu-08.jpg",label:"Narrative card, the One from the Past"},{src:"img/nushu-09.jpg",label:"Narrative card, the One from the Future"},{src:"img/nushu-11.jpg",label:"Decoding card"}],ratio:"916/1743"}
-    ]},
-    {id:"objects",h:"Typography and objects carry the rules",wide:true,blocks:[
-      {steps:[["Decode","The rotating disc turns a visual symbol into a physical action. Each solved character adds a puzzle piece in its shape."],["Read","Printed characters and card hierarchy organize incomplete information."],["Exchange","The shared scroll surface structures how players compare and pass clues."]]},
-      {imgs:[{src:"img/nushu-disc.jpg",label:"Decoding disc in hand"},{src:"img/nushu-12.jpg",label:"Disc and puzzle pieces"},{src:"img/nushu-cards.jpg",label:"Cards standing on the scroll"}],ratio:"4/3"},
-      {imgs:[{src:"img/nushu-13.jpg",label:"Character card: the Female Poet, Quest for Freedom"},{src:"img/nushu-14.jpg",label:"Character card: the One from the Future"}],ratio:"1241/1843",narrow:true}
-    ]},
-    {id:"flow",h:"Game flow and iteration",blocks:[
-      {imgs:[{src:"img/nushu-18.jpg",label:"Game flow"},{src:"img/nushu-19.jpg",label:"Information exchange"},{src:"img/nushu-20.jpg",label:"Iteration"},{src:"img/nushu-21.jpg",label:"Final structure"}],ratio:"10/3",cols:1}
-    ]}
+ },
+ {
+  "id": "bad-children-shop",
+  "row": 1,
+  "sw": "ballet",
+  "tag": "Capsule toy app",
+  "short": "2026",
+  "eyebrow": "Gamified community · Web app",
+  "year": "2026",
+  "title": "Bad Children Shop",
+  "summary": "A gamified web app that turns a capsule-toy machine into a social space for people who already know each other. Designed and built end to end.",
+  "subtitle": "A gamified web app that reimagines the capsule-toy machine as the start of an acquaintance-based community, blending online play with offline collectible culture.",
+  "meta": [
+   [
+    "Role",
+    "Sole designer and builder"
+   ],
+   [
+    "Partner",
+    "Community team, entertainment company"
+   ],
+   [
+    "Timeline",
+    "2026 · In development"
+   ],
+   [
+    "Platform",
+    "Mobile web and desktop"
+   ]
+  ],
+  "links": [
+   [
+    "Play the live app",
+    "https://didiisliuzhihan.github.io/bad-children-shop/"
+   ],
+   [
+    "Full case on zhihanliu.art",
+    "https://www.zhihanliu.art/bad-children-shop"
+   ]
+  ],
+  "hero": {
+   "label": "Bad Children Shop on desktop and mobile",
+   "ratio": "1800/1013",
+   "src": "img/bcs-hero.jpg"
+  },
+  "card": "img/bcs-cover.jpg",
+  "immersive": {
+   "url": "https://didiisliuzhihan.github.io/bad-children-shop/",
+   "poster": "img/bcs-hero.jpg",
+   "label": "Bad Children Shop live app",
+   "device": "phone",
+   "cta": "Play the live app",
+   "note": "The real app in a phone frame. Swipe the machine, slide the capsule open, and browse your bag. Local play only: nothing is saved to an account."
+  },
+  "tldr": [
+   [
+    "Problem",
+    "People came for the draw and missed everything after it. The partner wanted collectibles that bring members who already know each other closer."
+   ],
+   [
+    "What I did",
+    "Designed in Figma and built a working prototype with Codex, tested it with 30+ early participants, and grew one draw into three connected loops."
+   ],
+   [
+    "Result",
+    "A live, iterating prototype. The social layer resonated most. Retention uplift is not yet established."
+   ]
+  ],
+  "sections": [
+   {
+    "id": "context",
+    "h": "Problem and motivation",
+    "blocks": [
+     {
+      "p": "Developed with the community team of an entertainment company, Bad Children Shop explores how collectible characters can encourage interaction among people who already know one another."
+     },
+     {
+      "p": "The experience connects digital capsule collecting with shared stories, community-made postcards, and tasks that extend into face-to-face moments."
+     }
+    ]
+   },
+   {
+    "id": "capsule",
+    "h": "Capsule interaction",
+    "blocks": [
+     {
+      "h3": "Make the gesture part of the surprise"
+     },
+     {
+      "p": "A moving light follows the curved seam. Drag either way and the shell separates to reveal the character. Light suggests a direction, the shell follows the hand, and the reveal returns you to your original decision."
+     },
+     {
+      "videos": [
+       {
+        "src": "media/bcs-open.mp4",
+        "poster": "media/bcs-open.jpg",
+        "label": "Opening the capsule"
+       },
+       {
+        "src": "media/bcs-bag.mp4",
+        "poster": "media/bcs-bag.jpg",
+        "label": "My capsule bag: swipe to browse"
+       }
+      ],
+      "ratio": "480/854",
+      "narrow": true
+     }
+    ]
+   },
+   {
+    "id": "nest",
+    "h": "The Nest",
+    "blocks": [
+     {
+      "p": "After the draw, characters share a home, develop relationships, and generate small stories that return as surprise postcards. You arrange the room, tap characters for sounds, and watch relationships unfold through small scenes."
+     },
+     {
+      "imgs": [
+       {
+        "src": "img/bcs-nest-day.jpg",
+        "label": "Day: a shared setting"
+       },
+       {
+        "src": "img/bcs-nest-night.jpg",
+        "label": "Night: a different atmosphere"
+       }
+      ]
+     },
+     {
+      "imgs": [
+       {
+        "src": "img/bcs-nest-mobile.jpg",
+        "label": "My Nest on mobile"
+       },
+       {
+        "src": "img/bcs-nest-postcard.jpg",
+        "label": "A Nest moment, mailed back as a postcard"
+       }
+      ],
+      "ratio": "auto",
+      "narrow": true
+     }
+    ]
+   },
+   {
+    "id": "social",
+    "h": "Beyond the screen",
+    "blocks": [
+     {
+      "cards": [
+       [
+        "Shared postcard pool",
+        "Make a card with images, memes, and stamps, and let another member discover it."
+       ],
+       [
+        "Character tasks",
+        "A playful prompt connects the digital collectible to an in-person moment."
+       ],
+       [
+        "Wipe to unlock",
+        "Some figures stay behind frosted glass until you finish their small task offline."
+       ]
+      ]
+     },
+     {
+      "imgs": [
+       {
+        "src": "img/bcs-unlock.jpg",
+        "label": "Locked model: do the task, then wipe the glass"
+       }
+      ],
+      "ratio": "714/839",
+      "narrow": true
+     }
+    ]
+   },
+   {
+    "id": "misfits",
+    "h": "Meet the misfits",
+    "wide": true,
+    "blocks": [
+     {
+      "p": "Every character has a card, a 3D model, and a short story. Swipe through them the way you would in the app."
+     },
+     {
+      "dex": [
+       {
+        "n": "03",
+        "name": "Stressed Jimao",
+        "img": "img/bcs-g-jimao-card.jpg",
+        "model": "img/bcs-g-jimao-model.jpg",
+        "photo": "img/bcs-g-jimao-story.jpg",
+        "line": "Says “I’m fine.” Forecast: thunderstorms",
+        "task": "Do one small favor for Jimao this week",
+        "quote": "Do I look okay?",
+        "story": "Nine forecasts out of ten predict little thunderstorms over Jimao’s head. Even with lightning wired to its brain, it grins: “No big deal.” Those drooping eyelids have already waved a white flag. Let it rest while the little storm passes."
+       },
+       {
+        "n": "04",
+        "name": "Miss Popcorn",
+        "img": "img/bcs-g-popcorn-card.jpg",
+        "model": "img/bcs-g-popcorn-model.jpg",
+        "photo": "img/bcs-g-popcorn-story.jpg",
+        "line": "You’ve set Miss Popcorn off. Again",
+        "task": "Tell her, “Don’t fret. You’re gorgeous.”",
+        "quote": "Today’s housework allowance is used up.",
+        "story": "Popcorn rattles her keys as if announcing an official strike. But each time she says, “Next time you’re on your own,” she quietly sets out your favorite cup. Her grumbling doesn’t mean she dislikes you. Today, she’d just like a turn at being cared for."
+       },
+       {
+        "n": "05",
+        "name": "Whatever Dua",
+        "img": "img/bcs-g-dua-model.jpg",
+        "model": "img/bcs-g-dua-model.jpg",
+        "photo": "img/bcs-g-dua-story.jpg",
+        "line": "No answers yet. The sitting position is sorted.",
+        "task": "Sit with Dua for a while",
+        "quote": "Answers can wait.",
+        "story": "Dua wraps up in a towel, flops into the red chair and announces that its brain is closed for the day. When you ask what to do, it makes room: why not sit for a while? Answers can wait. Resting together doesn’t have to."
+       },
+       {
+        "n": "06",
+        "name": "Office Hulu",
+        "img": "img/bcs-g-hulu-card.jpg",
+        "model": "img/bcs-g-hulu-model.jpg",
+        "photo": "img/bcs-g-hulu-story.jpg",
+        "line": "Finally a grown-up. Serious for one whole second",
+        "task": "Clink glasses with Hulu today",
+        "quote": "Today’s market: the butt calls the shots.",
+        "story": "Hulu finally has a tie and a white-collar job as a stock manager, mostly to cause office chaos. While others wait for the market, he announces his rear is on the rise. He straightens his tie, and one serious second later he is laughing again."
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "fit": [
+   "Character design",
+   "Collectibles",
+   "Play testing, 30+ players"
   ]
-},
-{
-  id:"station-nowhere", row:1, sw:"latte", tag:"Sound tabletop", short:"[[Year]]",
-  eyebrow:"Listening-based social tabletop", year:"[[Year]]",
-  title:"Station Nowhere",
-  summary:"A tabletop game where sound replaces visuals. Wandering souls tune into a death radio and build a shared story from ambient audio and abstract cards.",
-  subtitle:"A listening-based tabletop game. Players are wandering souls tuning into a death radio, and the story exists only in what they hear, say, and bluff.",
-  meta:[["Role","Solo, end to end"],["Type","Social tabletop + web radio"],["Year","[[Year]]"],["Medium","Audio, cards, companion website"]],
-  links:[["Project page on zhihanliu.art","https://www.zhihanliu.art/sound-board-game"]],
-  hero:{label:"Players reaching for cards around the radio",ratio:"1500/678",src:"img/cover-03.jpg"},
-  card:"img/cover-03.jpg",
-  tldr:[["Twist","Sound is the main narrative medium. Ambient audio and abstract notion cards drive play."],["Social play","Players interpret, mislead, and guess meanings, building a shared narrative space."],["Self-produced","UI design, a companion radio website, card design, and physical card production."]],
-  sections:[
-    {id:"play",h:"How it plays",blocks:[
-      {p:"Each round the radio plays a stretch of ambient sound. Players hold abstract notion cards and describe, hint, or bluff about what they heard. Meaning is negotiated around the table, so the story is different every game."},
-      {yt:[{id:"tGUIvXLqat4",label:"Gameplay"},{id:"yqhSW9JQIjw",label:"The death radio"}]}
-    ]}
+ },
+ {
+  "id": "gone-scrawly",
+  "row": 1,
+  "sw": "wisteria",
+  "tag": "Video game",
+  "short": "Unity",
+  "eyebrow": "Drawing puzzle game · Unity 3D",
+  "year": "[[Year]]",
+  "title": "Gone Scrawly",
+  "summary": "A drawing puzzle game where an adult who has forgotten childhood repaints a collapsing doodle diary to recover what happened.",
+  "subtitle": "A mysterious yet familiar world of doodles. The player re-enters a childhood drawing diary whose colors and lines are fading, and restores it by painting, until the whole world comes back.",
+  "meta": [
+   [
+    "Role",
+    "Solo: concept, story, gameplay"
+   ],
+   [
+    "Type",
+    "Drawing puzzle game"
+   ],
+   [
+    "Engine",
+    "Unity 3D"
+   ],
+   [
+    "Medium",
+    "Prototype, motion, narrative"
+   ]
+  ],
+  "links": [
+   [
+    "Watch the moving-image documentation",
+    "https://www.zhihanliu.art/gone-scrawly"
+   ]
+  ],
+  "hero": {
+   "label": "Gone Scrawly title screen",
+   "ratio": "16/9",
+   "src": "img/gs-title.jpg"
+  },
+  "card": "img/cover-01.jpg",
+  "tldr": [
+   [
+    "Premise",
+    "Time is erasing a child's doodle world. Its colors and lines drift toward a strange childish script."
+   ],
+   [
+    "Mechanic",
+    "Painting is the only verb. Restoring color restores the scene and changes what it means."
+   ],
+   [
+    "My role",
+    "Independent concept, narrative, gameplay, visual direction, and the interactive prototype."
+   ]
+  ],
+  "sections": [
+   {
+    "id": "loop",
+    "h": "Four actions",
+    "blocks": [
+     {
+      "p": "One repeated gesture carries changing narrative meaning. Each puzzle moves through the same four actions."
+     },
+     {
+      "steps": [
+       [
+        "Observe",
+        "Read the child's fragmented language and look for what the scene remembers."
+       ],
+       [
+        "Extract",
+        "Find colors in the memory space and connect them to the drawing."
+       ],
+       [
+        "Restore",
+        "Color restores the scene and changes how it can be read."
+       ],
+       [
+        "Reframe",
+        "The 3D room and the drawing become different views of the same memory."
+       ]
+      ]
+     },
+     {
+      "imgs": [
+       {
+        "src": "img/gs-clock-eye.jpg",
+        "label": "A clock-like composition in the drawn world"
+       },
+       {
+        "src": "img/gs-window.jpg",
+        "label": "The quiet 3D room"
+       }
+      ],
+      "ratio": "16/9",
+      "cols": 2
+     }
+    ]
+   },
+   {
+    "id": "look",
+    "h": "Between room and sketchbook",
+    "blocks": [
+     {
+      "p": "Two visual registers mark the shift between memory and present. A calm 3D environment sets up an everyday space the player recognizes. Hand-drawn marks, a clock-like layout, and changing color carry the puzzle into the drawn world."
+     },
+     {
+      "imgs": [
+       {
+        "src": "img/gs-sun.jpg",
+        "label": "The collapsing colors"
+       },
+       {
+        "src": "img/gs-clock.jpg",
+        "label": "Time as a puzzle"
+       }
+      ],
+      "ratio": "16/9",
+      "cols": 2
+     }
+    ]
+   }
+  ],
+  "fit": [
+   "Concept art",
+   "Game mechanics"
   ]
-},
-{
-  id:"shadows-between", row:1, sw:"milk", tag:"Video game", short:"2023",
-  eyebrow:"2D × 3D side-scrolling platformer · Level design", year:"2023",
-  title:"Shadows Between",
-  summary:"A side-scroller where you play a 2D shadow detective in a 3D city. Move the shadow closer or farther from the light to change its size and jump power.",
-  subtitle:"A platformer where 2D and 3D spaces exist at once. The player controls a shadow that must survive in both worlds, and I designed the levels that teach and twist that rule.",
-  meta:[["Role","Level designer"],["Team","7 people"],["Year","2023"],["Medium","Unity, level design"]],
-  links:[["Project page on zhihanliu.art","https://www.zhihanliu.art/shadows-between-1"]],
-  hero:{label:"Shadows Between title screen",ratio:"1500/840",src:"img/shadow-01.jpg"},
-  card:"img/shadow-04.jpg",
-  tldr:[["Core rule","The closer the shadow is to the light, the bigger it gets. The smaller the shadow, the higher it jumps."],["Controls","W and S change distance and size, D moves forward, Space jumps."],["My part","Level design that explores the depth of the 2D and 3D mechanic, including a hidden Wanted Time level."]],
-  sections:[
-    {id:"levels",h:"Level design",wide:true,blocks:[
-      {steps:[["1. Distance and size","Learn the relation between shadow distance and size, and use real objects to block shadow obstacles."],["2. Two paths at once","Perform different actions in both worlds at the same time, such as a shadow jump while the detective turns."],["3. Shadow rules","Push a 3D object to cover the reflection of the spikes."],["4. Shadow rules, part two","The streetlight is broken. Push it over, and walk through its shadow."]]},
-      {imgs:[{src:"img/shadow-05.jpg",label:"Sketch: shadow jump"},{src:"img/shadow-07.jpg",label:"Sketch: blocking with objects"},{src:"img/shadow-09.jpg",label:"Sketch: the fallen streetlight"},{src:"img/shadow-12.jpg",label:"Shadow size from distance"}],ratio:"1/1",cols:4},
-      {imgs:[{src:"img/shadow-04.jpg",label:"Shadow and detective"},{src:"img/shadow-06.jpg",label:"Pushing an object into the light"},{src:"img/shadow-08.jpg",label:"Streetlight puzzle"}],ratio:"1/1"}
-    ]},
-    {id:"wanted",h:"Hidden level: Wanted Time",blocks:[
-      {p:"Step on a can and the noise gives you away. The mob opens fire, and the player has to dodge bullets and their reflections in the shadow world at the same time, keeping both the detective and the shadow alive."},
-      {imgs:[{src:"img/shadow-10.jpg",label:"Wanted Time"},{src:"img/shadow-11.jpg",label:"Escaping across rooftops"}],ratio:"1/1",cols:2}
-    ]}
+ },
+ {
+  "id": "shadows-between",
+  "row": 1,
+  "sw": "milk",
+  "tag": "Video game",
+  "short": "2023",
+  "eyebrow": "2D × 3D side-scrolling platformer · Level design",
+  "year": "2023",
+  "title": "Shadows Between",
+  "summary": "A side-scroller where you play a 2D shadow detective in a 3D city. Move the shadow closer or farther from the light to change its size and jump power.",
+  "subtitle": "A platformer where 2D and 3D spaces exist at once. The player controls a shadow that must survive in both worlds, and I designed the levels that teach and twist that rule.",
+  "meta": [
+   [
+    "Role",
+    "Level designer"
+   ],
+   [
+    "Team",
+    "7 people"
+   ],
+   [
+    "Year",
+    "2023"
+   ],
+   [
+    "Medium",
+    "Unity, level design"
+   ]
+  ],
+  "links": [
+   [
+    "Project page on zhihanliu.art",
+    "https://www.zhihanliu.art/shadows-between-1"
+   ]
+  ],
+  "hero": {
+   "label": "Shadows Between title screen",
+   "ratio": "1500/840",
+   "src": "img/shadow-01.jpg"
+  },
+  "card": "img/shadow-04.jpg",
+  "tldr": [
+   [
+    "Core rule",
+    "The closer the shadow is to the light, the bigger it gets. The smaller the shadow, the higher it jumps."
+   ],
+   [
+    "Controls",
+    "W and S change distance and size, D moves forward, Space jumps."
+   ],
+   [
+    "My part",
+    "Level design that explores the depth of the 2D and 3D mechanic, including a hidden Wanted Time level."
+   ]
+  ],
+  "sections": [
+   {
+    "id": "levels",
+    "h": "Level design",
+    "wide": true,
+    "blocks": [
+     {
+      "steps": [
+       [
+        "1. Distance and size",
+        "Learn the relation between shadow distance and size, and use real objects to block shadow obstacles."
+       ],
+       [
+        "2. Two paths at once",
+        "Perform different actions in both worlds at the same time, such as a shadow jump while the detective turns."
+       ],
+       [
+        "3. Shadow rules",
+        "Push a 3D object to cover the reflection of the spikes."
+       ],
+       [
+        "4. Shadow rules, part two",
+        "The streetlight is broken. Push it over, and walk through its shadow."
+       ]
+      ]
+     },
+     {
+      "imgs": [
+       {
+        "src": "img/shadow-05.jpg",
+        "label": "Sketch: shadow jump"
+       },
+       {
+        "src": "img/shadow-07.jpg",
+        "label": "Sketch: blocking with objects"
+       },
+       {
+        "src": "img/shadow-09.jpg",
+        "label": "Sketch: the fallen streetlight"
+       },
+       {
+        "src": "img/shadow-12.jpg",
+        "label": "Shadow size from distance"
+       }
+      ],
+      "ratio": "1/1",
+      "cols": 4
+     },
+     {
+      "imgs": [
+       {
+        "src": "img/shadow-04.jpg",
+        "label": "Shadow and detective"
+       },
+       {
+        "src": "img/shadow-06.jpg",
+        "label": "Pushing an object into the light"
+       },
+       {
+        "src": "img/shadow-08.jpg",
+        "label": "Streetlight puzzle"
+       }
+      ],
+      "ratio": "1/1"
+     }
+    ]
+   },
+   {
+    "id": "wanted",
+    "h": "Hidden level: Wanted Time",
+    "blocks": [
+     {
+      "p": "Step on a can and the noise gives you away. The mob opens fire, and the player has to dodge bullets and their reflections in the shadow world at the same time, keeping both the detective and the shadow alive."
+     },
+     {
+      "imgs": [
+       {
+        "src": "img/shadow-10.jpg",
+        "label": "Wanted Time"
+       },
+       {
+        "src": "img/shadow-11.jpg",
+        "label": "Escaping across rooftops"
+       }
+      ],
+      "ratio": "1/1",
+      "cols": 2
+     }
+    ]
+   }
+  ],
+  "fit": [
+   "Level design",
+   "Mechanic design"
   ]
-},
-{
-  id:"delivering-lustful-spirit", row:1, sw:"seafoam", tag:"Game jam", short:"LD 54",
-  eyebrow:"Ludum Dare 54 game jam · 2D puzzle", year:"2023",
-  title:"Delivering Lustful Spirit",
-  summary:"A jam game where you are a courier who cannot move alone. Censor and uncensor temptations to steer a lustful spirit past the angels to the gate of Hell.",
-  subtitle:"A 2D side-scrolling puzzle game made in a weekend. You play Asmodeus, a courier who can only travel by luring a lustful spirit, adding and removing mosaics to guide its desire.",
-  meta:[["Role","Level designer"],["Team","Norman Zhang, Miss. Bird, Tian Ni"],["Event","Ludum Dare 54"],["Result","Mood 27th, Audio 34th"]],
-  links:[["Project page on zhihanliu.art","https://www.zhihanliu.art/new-page"]],
-  hero:{label:"The spirit drifting toward a target under the angel's eye",ratio:"1500/838",src:"img/lust-03.jpg"},
-  card:"img/lust-04.jpg",
-  tldr:[["Mosaic strategy","Censor and uncensor desire targets to control the spirit's path."],["Stealth and escape","Avoid the Archangel's Eye. Once exposed, flee God's Hand."],["Reception","From 39 ratings: 27th in Mood, 34th in Audio, 67th in Innovation, 85th overall."]],
-  sections:[
-    {id:"play",h:"How it plays",blocks:[
-      {cards:[["A courier who cannot walk","The Grim Reaper only moves when the spirit carries it, so you play by shaping desire."],["Censor and uncensor","Adding a mosaic hides a temptation. Removing it pulls the spirit toward it."],["Two phases","Stealth under the watching eye, then a scramble once you are seen."]]},
-      {imgs:[{src:"img/lust-05.jpg",label:"Steering with mosaics"},{src:"img/lust-06.jpg",label:"Braking with the space bar near a teleporter"},{src:"img/lust-07.jpg",label:"Exposed: God's Hand reaches in"}],ratio:"16/10"}
-    ]},
-    {id:"result",h:"Jam results",blocks:[
-      {img:{label:"Ludum Dare 54 final results",ratio:"931/629",src:"img/lust-09.jpg",narrow:true}},
-      {p:"Team: Zhihan Liu (level design), Norman Zhang (lead programmer), Miss. Bird (sound), Tian Ni (art)."}
-    ]}
+ },
+ {
+  "id": "delivering-lustful-spirit",
+  "row": 1,
+  "sw": "seafoam",
+  "tag": "Game jam",
+  "short": "LD 54",
+  "eyebrow": "Ludum Dare 54 game jam · 2D puzzle",
+  "year": "2023",
+  "title": "Delivering Lustful Spirit",
+  "summary": "A jam game where you are a courier who cannot move alone. Censor and uncensor temptations to steer a lustful spirit past the angels to the gate of Hell.",
+  "subtitle": "A 2D side-scrolling puzzle game made in a weekend. You play Asmodeus, a courier who can only travel by luring a lustful spirit, adding and removing mosaics to guide its desire.",
+  "meta": [
+   [
+    "Role",
+    "Level designer"
+   ],
+   [
+    "Team",
+    "Norman Zhang, Miss. Bird, Tian Ni"
+   ],
+   [
+    "Event",
+    "Ludum Dare 54"
+   ],
+   [
+    "Result",
+    "Mood 27th, Audio 34th"
+   ]
+  ],
+  "links": [
+   [
+    "Project page on zhihanliu.art",
+    "https://www.zhihanliu.art/new-page"
+   ]
+  ],
+  "hero": {
+   "label": "The spirit drifting toward a target under the angel's eye",
+   "ratio": "1500/838",
+   "src": "img/lust-03.jpg"
+  },
+  "card": "img/lust-04.jpg",
+  "tldr": [
+   [
+    "Mosaic strategy",
+    "Censor and uncensor desire targets to control the spirit's path."
+   ],
+   [
+    "Stealth and escape",
+    "Avoid the Archangel's Eye. Once exposed, flee God's Hand."
+   ],
+   [
+    "Reception",
+    "From 39 ratings: 27th in Mood, 34th in Audio, 67th in Innovation, 85th overall."
+   ]
+  ],
+  "sections": [
+   {
+    "id": "play",
+    "h": "How it plays",
+    "blocks": [
+     {
+      "cards": [
+       [
+        "A courier who cannot walk",
+        "The Grim Reaper only moves when the spirit carries it, so you play by shaping desire."
+       ],
+       [
+        "Censor and uncensor",
+        "Adding a mosaic hides a temptation. Removing it pulls the spirit toward it."
+       ],
+       [
+        "Two phases",
+        "Stealth under the watching eye, then a scramble once you are seen."
+       ]
+      ]
+     },
+     {
+      "imgs": [
+       {
+        "src": "img/lust-05.jpg",
+        "label": "Steering with mosaics"
+       },
+       {
+        "src": "img/lust-06.jpg",
+        "label": "Braking with the space bar near a teleporter"
+       },
+       {
+        "src": "img/lust-07.jpg",
+        "label": "Exposed: God's Hand reaches in"
+       }
+      ],
+      "ratio": "16/10"
+     }
+    ]
+   },
+   {
+    "id": "result",
+    "h": "Jam results",
+    "blocks": [
+     {
+      "img": {
+       "label": "Ludum Dare 54 final results",
+       "ratio": "931/629",
+       "src": "img/lust-09.jpg",
+       "narrow": true
+      }
+     },
+     {
+      "p": "Team: Zhihan Liu (level design), Norman Zhang (lead programmer), Miss. Bird (sound), Tian Ni (art)."
+     }
+    ]
+   }
+  ],
+  "fit": [
+   "Game jam",
+   "Level design"
   ]
-},
-{
-  id:"eyes-of-the-trash-can", row:1, sw:"matcha", tag:"Film × game", short:"[[Year]]",
-  eyebrow:"Experimental film game", year:"[[Year]]",
-  title:"Eyes of the Trash Can",
-  summary:"An experiment that folds film into a video game. You are a community trash can, and you learn the neighbors' secrets from what they throw away.",
-  subtitle:"Every secret will be peered into by you, and it will also entomb you within. The player sees only through the window of a trash can, watching daily life and sorting what people leave behind.",
-  meta:[["Role","[[Your role]]"],["Type","Film-based game"],["Year","[[Year]]"],["Medium","Live-action footage, game logic"]],
-  links:[["Project page on zhihanliu.art","https://www.zhihanliu.art/eyes-of-the-trash-can"]],
-  hero:{label:"The view from inside the trash can",ratio:"1500/785",src:"img/trash-01.jpg"},
-  card:"img/cover-06.jpg",
-  tldr:[["Point of view","Your field of vision is the trash can's window. You can watch, but not move."],["Collecting","Daily garbage collection and retrieval reveal what people hide under a peaceful surface."],["Why film","Live-action footage makes snooping feel uncomfortably real."]],
-  sections:[
-    {id:"concept",h:"Concept",blocks:[
-      {p:"As a community trash can, the player snoops on the daily comings and goings of the people nearby. Through collecting and retrieving their garbage, the secrets and inner lives under a peaceful neighborhood slowly take shape."},
-      {imgs:[{src:"img/trash-02.jpg",label:"A bag of evidence"}],ratio:"1500/1770",narrow:true}
-    ]}
+ },
+ {
+  "id": "eyes-of-the-trash-can",
+  "row": 1,
+  "sw": "matcha",
+  "tag": "Film × game",
+  "short": "[[Year]]",
+  "eyebrow": "Experimental film game",
+  "year": "[[Year]]",
+  "title": "Eyes of the Trash Can",
+  "summary": "An experiment that folds film into a video game. You are a community trash can, and you learn the neighbors' secrets from what they throw away.",
+  "subtitle": "Every secret will be peered into by you, and it will also entomb you within. The player sees only through the window of a trash can, watching daily life and sorting what people leave behind.",
+  "meta": [
+   [
+    "Role",
+    "[[Your role]]"
+   ],
+   [
+    "Type",
+    "Film-based game"
+   ],
+   [
+    "Year",
+    "[[Year]]"
+   ],
+   [
+    "Medium",
+    "Live-action footage, game logic"
+   ]
+  ],
+  "links": [
+   [
+    "Project page on zhihanliu.art",
+    "https://www.zhihanliu.art/eyes-of-the-trash-can"
+   ]
+  ],
+  "hero": {
+   "label": "The view from inside the trash can",
+   "ratio": "1500/785",
+   "src": "img/trash-01.jpg"
+  },
+  "card": "img/cover-06.jpg",
+  "tldr": [
+   [
+    "Point of view",
+    "Your field of vision is the trash can's window. You can watch, but not move."
+   ],
+   [
+    "Collecting",
+    "Daily garbage collection and retrieval reveal what people hide under a peaceful surface."
+   ],
+   [
+    "Why film",
+    "Live-action footage makes snooping feel uncomfortably real."
+   ]
+  ],
+  "sections": [
+   {
+    "id": "concept",
+    "h": "Concept",
+    "blocks": [
+     {
+      "p": "As a community trash can, the player snoops on the daily comings and goings of the people nearby. Through collecting and retrieving their garbage, the secrets and inner lives under a peaceful neighborhood slowly take shape."
+     },
+     {
+      "imgs": [
+       {
+        "src": "img/trash-02.jpg",
+        "label": "A bag of evidence"
+       }
+      ],
+      "ratio": "1500/1770",
+      "narrow": true
+     }
+    ]
+   }
+  ],
+  "fit": [
+   "Narrative",
+   "Film"
   ]
-}
+ }
 ];
 
 
@@ -857,25 +2502,25 @@ const hangers=[];          // all hangers, for the physics loop
 const rails=[];            // [{rail,inner,svg,hs:[]}]
 
 function cardHTML(c){
-  const [bg,ink]=swOf(c), bink=backInk(c);
+  const [bg]=swOf(c), mat=`color-mix(in srgb, ${bg} 28%, #FFFFFF)`;
   const img=c.card||c.hero.src;
   return `
     <span class="clip"></span><span class="string"></span>
     <a class="card3d" href="#${c.id}" aria-label="${esc(c.title)}: open project">
-      <div class="face front" style="--sw:${bg};--ink:${ink}">
-        <i class="pt"></i>
-        <div class="ctop"><span>${esc(c.tag)}</span><span>${fmt(c.short)}</span></div>
-        <div class="cimg">${img?`<img src="${esc(img)}" alt="" loading="lazy" draggable="false">`:`<div class="lbl">Photo coming</div>`}</div>
+      <div class="face front">
+        <div class="ctop"><span class="mono">${esc(c.tag)}</span><span class="mono">${fmt(c.short)}</span></div>
+        <div class="cimg" style="--mat:${mat}">${img?`<img src="${esc(img)}" alt="" loading="lazy" draggable="false">`:`<div class="lbl">Photo coming</div>`}</div>
         <div class="cname">${fmt(c.title)}</div>
-        <div class="chex">${esc(bg)}</div>
+        <div class="crole">${fmt(c.meta[0][1])}</div>
+        <div class="cfoot"><i class="dot" style="--sw:${bg}"></i><span>${fmt(c.meta[3][1])}</span></div>
       </div>
-      <div class="face bface" style="--sw:#F7F1E8;--ink:${bink};--front:${bg}">
-        <i class="pt"></i><i class="bchip" aria-hidden="true"></i>
+      <div class="face bface">
         <p class="mono">${esc(c.tag)} · ${fmt(c.year)}</p>
         <h4>${fmt(c.title)}</h4>
         <p class="bsum">${fmt(c.summary)}</p>
         <dl class="bmeta">
           <div><dt>${esc(c.meta[0][0])}</dt><dd>${fmt(c.meta[0][1])}</dd></div>
+          <div><dt>${esc(c.meta[3][0])}</dt><dd>${fmt(c.meta[3][1])}</dd></div>
         </dl>
         <span class="bcta">Open project <span>→</span></span>
       </div>
@@ -889,7 +2534,7 @@ function renderHome(){
   ROWS.forEach((R,ri)=>{
     const list=CASES.filter(c=>c.row===ri);
     const wrap=document.createElement("div");
-    wrap.innerHTML=`<div class="row-head"><span class="hand">${R.n}</span><h3>${esc(R.h)}</h3><span class="mono">${list.length} projects</span><span class="rnav"><button type="button" data-d="-1" aria-label="Scroll ${esc(R.h)} left">←</button><button type="button" data-d="1" aria-label="Scroll ${esc(R.h)} right">→</button></span></div>
+    wrap.innerHTML=`<div class="row-head"><span class="n">${R.n}</span><h3>${esc(R.h)}</h3><span class="sub">${esc(R.sub||"")}</span><span class="right"><span class="mono">${list.length} projects</span><span class="rnav"><button type="button" data-d="-1" aria-label="Scroll ${esc(R.h)} left">←</button><button type="button" data-d="1" aria-label="Scroll ${esc(R.h)} right">→</button></span></span></div>
       <div class="rail"><div class="rail-inner"><svg class="wire" aria-hidden="true"></svg></div></div>`;
     rowsEl.appendChild(wrap);
     const rail=wrap.querySelector(".rail"), inner=wrap.querySelector(".rail-inner"), svg=wrap.querySelector(".wire");
@@ -924,7 +2569,7 @@ function renderHome(){
     wrap.querySelectorAll(".rnav button").forEach(b=>b.addEventListener("click",()=>rail.scrollBy({left:+b.dataset.d*rail.clientWidth*.75,behavior:reduced?"auto":"smooth"})));
   });
   document.getElementById("workIndex").innerHTML=CASES.map(c=>`
-    <a class="lrow" href="#${c.id}" style="--sw:${swOf(c)[0]}"><i class="sw"></i><span class="n">${fmt(c.title)}</span><span class="d">${fmt(c.summary)}</span><span class="y">${esc(c.tag)}</span><span class="go">→</span></a>`).join("");
+    <a class="lrow" href="#${c.id}" style="--sw:${swOf(c)[0]}"><i class="dot"></i><span class="n">${fmt(c.title)}</span><span class="d">${fmt(c.summary)}</span><span class="y">${esc(c.tag)}</span><span class="go">→</span></a>`).join("");
   layoutRails();
   addEventListener("resize",layoutRails);
   hangers.forEach((h,i)=>setTimeout(()=>kick(h,(i%2?-1:1)*.9),120+i*90));
@@ -947,9 +2592,7 @@ function layoutRails(){
     inner.style.width=W+"px"; inner.style.height=H+"px";
     svg.setAttribute("width",W); svg.setAttribute("height",H);
     // a slightly wobbly, hand-strung line
-    const pts=[]; const N=24;
-    for(let k=0;k<=N;k++){ const t=k/N, x=8+(W-16)*t, y=y0+4*sag*t*(1-t)+Math.sin(t*9+R.seed)*0.9; pts.push(`${x.toFixed(1)} ${y.toFixed(1)}`); }
-    svg.innerHTML=`<path d="M${pts.join(" L")}"/><circle cx="8" cy="${y0}" r="4"/><circle cx="${W-8}" cy="${y0}" r="4"/>`;
+    svg.innerHTML=`<path d="M8 ${y0} Q ${W/2} ${y0+2*sag} ${W-8} ${y0}"/><circle cx="8" cy="${y0}" r="4"/><circle cx="${W-8}" cy="${y0}" r="4"/>`;
     R.upd&&R.upd();
   });
 }
@@ -967,6 +2610,7 @@ function step(ts){
     if(Math.abs(h.theta)>.0006||Math.abs(h.omega)>.0006) active=true; else { h.theta=0; h.omega=0; }
     const deg=h.theta*57.2958;
     h.el.style.transform=`rotate(${deg.toFixed(3)}deg)`;
+    h.el.style.setProperty("--tilt",deg.toFixed(2));
   }
   raf=active?requestAnimationFrame(step):0;
 }
@@ -1018,7 +2662,7 @@ function block(b){
   if(b.videos) return `<div class="vids${b.narrow?" narrowset":""}" style="${b.ratio?`--ar:${b.ratio};`:""}">${b.videos.map(v=>`<figure><video src="${esc(v.src)}" poster="${esc(v.poster)}" muted loop playsinline autoplay preload="metadata"></video><figcaption>${fmt(v.label)}</figcaption></figure>`).join("")}</div>`;
   if(b.yt) return ytHTML(b);
   if(b.steps) return `<div class="steps">${b.steps.map(s=>`<div><b>${fmt(s[0])}</b><span>${fmt(s[1])}</span></div>`).join("")}</div>`;
-  if(b.cards) return `<div class="cards${b.cards.length===4?" c2":""}">${b.cards.map(s=>`<div class="painted"><b>${fmt(s[0])}</b><span>${fmt(s[1])}</span></div>`).join("")}</div>`;
+  if(b.cards) return `<div class="cards${b.cards.length===4?" c2":""}">${b.cards.map(s=>`<div><b>${fmt(s[0])}</b><span>${fmt(s[1])}</span></div>`).join("")}</div>`;
   return "";
 }
 function wireYT(root){
@@ -1127,19 +2771,18 @@ function renderCase(c){
   const [bg]=swOf(c);
   const links=c.links.map(([t,u])=>u&&u.startsWith("scroll:")?`<button type="button" class="btn primary" data-scroll="${esc(u.slice(7))}">${esc(t)}</button>`:u&&u.startsWith("#")?`<a class="btn" href="${esc(u)}">${esc(t)} <span class="arr">→</span></a>`:u?`<a class="btn" href="${esc(u)}" target="_blank" rel="noopener">${esc(t)} <span class="arr">↗</span></a>`:`<span class="btn pending">${esc(t)} · link coming</span>`).join("");
   const main=document.getElementById("case");
-  main.style.setProperty("--case",bg);
-  main.style.setProperty("--case-soft",`color-mix(in srgb, ${bg} 55%, #F7F1E8)`);
+  main.style.setProperty("--mat",`color-mix(in srgb, ${bg} 26%, #FFFFFF)`);
   main.innerHTML=`
     <section class="case-top">
       <a class="back" href="#work">← All work</a>
-      <div class="hexline"><i aria-hidden="true"></i><span class="hand">${esc(c.tag)} · ${esc(bg)}</span></div>
-      <p class="mono" style="margin-top:14px">${fmt(c.eyebrow)} · ${fmt(c.year)}</p>
+      <p class="mono eyebrow"><i class="dot" style="--sw:${bg}"></i>${fmt(c.eyebrow)} · ${fmt(c.year)}</p>
       <h1>${fmt(c.title)}</h1>
       <p class="subtitle">${fmt(c.subtitle)}</p>
       <dl class="meta">${c.meta.map(([k,v])=>`<div><dt class="mono">${esc(k)}</dt><dd>${fmt(v)}</dd></div>`).join("")}</dl>
+      ${c.fit?`<div class="fit"><span class="mono">Shows</span>${c.fit.map(t=>`<span class="t">${esc(t)}</span>`).join("")}</div>`:""}
       ${links?`<div class="case-links">${links}</div>`:""}
       ${c.immersive?immersiveHTML(c):`<div class="case-hero">${ph(c.hero)}</div>`}
-      <div class="tldr">${c.tldr.map(([k,v])=>`<div class="painted"><p class="mono">${esc(k)}</p><p>${fmt(v)}</p></div>`).join("")}</div>
+      <div class="tldr">${c.tldr.map(([k,v])=>`<div><p class="mono">${esc(k)}</p><p>${fmt(v)}</p></div>`).join("")}</div>
     </section>
     <div class="case-body">
       <nav class="toc" aria-label="Sections"><p class="mono">On this page</p>${c.sections.map(s=>`<a href="#${c.id}" data-target="s-${s.id}">${esc(s.h)}</a>`).join("")}</nav>
