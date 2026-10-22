@@ -10,7 +10,8 @@
 <meta property="og:url" content="https://creativedesigner.zhihanliu.art/">
 <meta property="og:image" content="https://creativedesigner.zhihanliu.art/img/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2716%27 fill=%27%2398C1E9%27/%3E%3Ctext x=%2732%27 y=%2743%27 font-family=%27Arial%27 font-size=%2730%27 font-weight=%27700%27 fill=%27%231E3550%27 text-anchor=%27middle%27%3EZL%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <title>Zhihan Liu · Play &amp; Experience Design</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -66,7 +67,8 @@ p{margin:0}
 .nav.scrolled{border-bottom-color:var(--line)}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
 .brand{font-family:var(--display);font-weight:600;font-size:18px;text-decoration:none;letter-spacing:-.01em;white-space:nowrap;display:flex;align-items:center;gap:10px}
-.brand i{width:12px;height:12px;border-radius:3px;background:var(--attic);display:inline-block}
+.brand img{width:38px;height:38px;display:block;object-fit:contain;transition:transform .3s}
+.brand:hover img{transform:rotate(-8deg) scale(1.06)}
 .nav ul{list-style:none;display:flex;gap:4px;margin:0;padding:0}
 .nav ul a{display:block;text-decoration:none;font-size:14.5px;padding:8px 12px;border-radius:999px;color:var(--muted);transition:color .15s,background .15s}
 .nav ul a:hover{color:var(--fg);background:var(--surface)}
@@ -349,7 +351,7 @@ figcaption{font-size:13.5px;color:var(--muted);margin-top:10px}
 
 <header class="nav" id="nav">
   <div class="wrap">
-    <a class="brand" href="#top" data-home><i aria-hidden="true"></i>Zhihan Liu</a>
+    <a class="brand" href="#top" data-home><img src="img/logo.png" alt="" width="38" height="38">Zhihan Liu</a>
     <ul>
       <li><a class="keep" href="#work" data-home>Work</a></li>
       <li><a href="#process" data-home>Process</a></li>
