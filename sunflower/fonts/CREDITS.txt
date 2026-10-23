@@ -4,3 +4,4 @@ https://github.com/googlefonts/zcool-kuaile
 
 Licensed under the SIL Open Font License, Version 1.1.
 See OFL.txt in this directory.
+Subset to Latin characters (ZCOOLKuaiLe-Latin.woff2) for the English version of this page.

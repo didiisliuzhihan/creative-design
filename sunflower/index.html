@@ -1,16 +1,16 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
   <meta name="theme-color" content="#071817">
-  <meta name="description" content="连续六个雨夜，第七日迎接太阳。">
-  <title>第七日</title>
+  <meta name="description" content="Six rainy days, then the sunflower meets the sun on day seven.">
+  <title>Seventh-Day Sunflower</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='10' fill='%23be7831'/%3E%3Cg fill='%23f3c96b'%3E%3Cellipse cx='32' cy='13' rx='7' ry='12'/%3E%3Cellipse cx='32' cy='51' rx='7' ry='12'/%3E%3Cellipse cx='13' cy='32' rx='12' ry='7'/%3E%3Cellipse cx='51' cy='32' rx='12' ry='7'/%3E%3C/g%3E%3C/svg%3E">
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-  <main id="experience" aria-label="第七日向日葵互动">
+  <main id="experience" aria-label="Seventh-Day Sunflower">
     <canvas id="garden" aria-hidden="true"></canvas>
 
     <div class="day-mark" id="dayMark" role="status" aria-live="polite">
@@ -20,30 +20,30 @@
       </div>
     </div>
 
-    <button id="umbrellaHit" class="umbrella-hit" type="button" aria-label="打开雨伞" aria-expanded="false"></button>
-    <button id="flowerHit" class="flower-hit" type="button" aria-label="轻触向日葵，写下一句话"></button>
-    <button id="cloudHit" class="cloud-hit" type="button" aria-label="轻触云朵，放下秋千"></button>
-    <button id="swingHit" class="swing-hit" type="button" aria-label="左右拖动秋千" disabled></button>
-    <button id="soundToggle" class="sound-toggle" type="button" aria-label="关闭声音" aria-pressed="false"><span aria-hidden="true"></span></button>
+    <button id="umbrellaHit" class="umbrella-hit" type="button" aria-label="Open the umbrella" aria-expanded="false"></button>
+    <button id="flowerHit" class="flower-hit" type="button" aria-label="Tap the sunflower to write a line"></button>
+    <button id="cloudHit" class="cloud-hit" type="button" aria-label="Tap the cloud to lower the swing"></button>
+    <button id="swingHit" class="swing-hit" type="button" aria-label="Swing it left and right" disabled></button>
+    <button id="soundToggle" class="sound-toggle" type="button" aria-label="Turn sound off" aria-pressed="false"><span aria-hidden="true"></span></button>
 
-    <p id="hint" class="hint">轻触雨伞</p>
+    <p id="hint" class="hint">Tap the umbrella</p>
 
     <dialog id="noteDialog" aria-labelledby="dialogTitle">
       <form method="dialog" id="noteForm">
         <div class="dialog-head">
-          <span id="dialogTitle">留在雨里</span>
-          <button class="icon-button" value="cancel" aria-label="关闭" type="submit">×</button>
+          <span id="dialogTitle">Leave it in the rain</span>
+          <button class="icon-button" value="cancel" aria-label="Close" type="submit">×</button>
         </div>
-        <label class="sr-only" for="noteInput">写下一句话</label>
-        <textarea id="noteInput" maxlength="36" rows="2" placeholder="写下一句话…" enterkeyhint="send"></textarea>
+        <label class="sr-only" for="noteInput">Write a line</label>
+        <textarea id="noteInput" maxlength="48" rows="2" placeholder="Write a line…" enterkeyhint="send"></textarea>
         <div class="dialog-foot">
-          <output id="charCount" for="noteInput">0 / 36</output>
-          <button id="sendNote" class="send-button" type="submit" value="default">落下</button>
+          <output id="charCount" for="noteInput">0 / 48</output>
+          <button id="sendNote" class="send-button" type="submit" value="default">Let it fall</button>
         </div>
       </form>
     </dialog>
 
-    <div id="toast" class="toast" role="status" aria-live="polite">它落进雨里了</div>
+    <div id="toast" class="toast" role="status" aria-live="polite">It fell into the rain</div>
   </main>
   <script src="./app.js"></script>
 </body>

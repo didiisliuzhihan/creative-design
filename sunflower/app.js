@@ -79,7 +79,7 @@
   }
   experience.classList.toggle('sunny', cycle.sunny);
   dayLabel.textContent = `${cycle.day}`.padStart(2, '0');
-  dayLabel.parentElement.setAttribute('aria-label', `第 ${cycle.day} 天，共 7 天`);
+  dayLabel.parentElement.setAttribute('aria-label', `Day ${cycle.day} of 7`);
   dayDots.forEach((dot, i) => {
     dot.classList.toggle('past', i < cycle.day - 1);
     dot.classList.toggle('now', i === cycle.day - 1);
@@ -90,7 +90,7 @@
     umbrellaHit.setAttribute('aria-hidden', 'true');
     flowerHit.disabled = true;
     flowerHit.tabIndex = -1;
-    hint.textContent = '轻触云朵';
+    hint.textContent = 'Tap the cloud';
   }
 
   let noteStore;
@@ -101,6 +101,19 @@
     localStorage.setItem(NOTES, JSON.stringify(noteStore));
   }
   let notes = noteStore.items;
+  // Portfolio demo: the rainy and sunny scenes run side by side and share storage.
+  // A line written on the rainy side shows up here right away, and the cloud reveals it first.
+  let freshNote = '';
+  addEventListener('storage', event => {
+    if (event.key !== NOTES || !event.newValue) return;
+    try {
+      const next = JSON.parse(event.newValue);
+      if (next && Array.isArray(next.items) && next.cycleKey === cycle.cycleKey) {
+        notes = next.items;
+        if (notes.length) freshNote = notes[notes.length - 1];
+      }
+    } catch {}
+  });
 
   let width = 0;
   let height = 0;
@@ -209,7 +222,7 @@
   function syncSoundButton() {
     soundToggle.classList.toggle('muted', soundMuted);
     soundToggle.setAttribute('aria-pressed', String(soundMuted));
-    soundToggle.setAttribute('aria-label', soundMuted ? '开启声音' : '关闭声音');
+    soundToggle.setAttribute('aria-label', soundMuted ? 'Turn sound on' : 'Turn sound off');
   }
 
   const random = (min, max) => Math.random() * (max - min) + min;
@@ -769,7 +782,17 @@
       ctx.font = '400 14px "ZCOOL KuaiLe", "PingFang SC", "Microsoft YaHei", sans-serif';
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
-      ctx.fillText(cloudMemory, cx, floatY + 3, 124);
+      const words = String(cloudMemory).split(' ');
+      const lines = [];
+      let line = '';
+      words.forEach(word => {
+        const test = line ? `${line} ${word}` : word;
+        if (ctx.measureText(test).width > 124 && line) { lines.push(line); line = word; }
+        else line = test;
+      });
+      if (line) lines.push(line);
+      const shown = lines.slice(0, 3);
+      shown.forEach((text, i) => ctx.fillText(text, cx, floatY + 3 + (i - (shown.length - 1) / 2) * 16, 124));
       ctx.restore();
     }
 
@@ -1093,8 +1116,8 @@
     if (!soundStarted) startSoundscape();
     umbrellaOpen = !umbrellaOpen;
     umbrellaHit.setAttribute('aria-expanded', String(umbrellaOpen));
-    umbrellaHit.setAttribute('aria-label', umbrellaOpen ? '收起雨伞' : '打开雨伞');
-    hint.textContent = umbrellaOpen ? '轻触花朵' : '轻触雨伞';
+    umbrellaHit.setAttribute('aria-label', umbrellaOpen ? 'Close the umbrella' : 'Open the umbrella');
+    hint.textContent = umbrellaOpen ? 'Tap the flower' : 'Tap the umbrella';
     if (umbrellaOpen) {
       markWateredToday();
       playOneShot(audio.umbrellaOpen);
@@ -1119,13 +1142,13 @@
     if (sunnyStage === 0) {
       sunnyStage = 1;
       swingHit.disabled = false;
-      cloudHit.setAttribute('aria-label', '再次轻触云朵，放下太阳吊坠');
-      hint.textContent = '再次轻触云朵';
+      cloudHit.setAttribute('aria-label', 'Tap the cloud again to lower the sun charms');
+      hint.textContent = 'Tap the cloud again';
       playOneShot(audio.umbrellaOpen);
     } else if (sunnyStage === 1) {
       sunnyStage = 2;
-      cloudHit.setAttribute('aria-label', '太阳吊坠已经落下');
-      hint.textContent = '左右拖动秋千';
+      cloudHit.setAttribute('aria-label', 'The sun charms are down');
+      hint.textContent = 'Swing it, or wipe the cloud';
       playOneShot(audio.star);
     }
   }
@@ -1150,7 +1173,7 @@
     if (!cloudGesture.moved && Math.hypot(totalX, totalY) < 7) return;
     if (!cloudGesture.moved) {
       cloudGesture.moved = true;
-      cloudMemory = notes.length ? notes[Math.floor(Math.random() * notes.length)] : '';
+      cloudMemory = freshNote || (notes.length ? notes[Math.floor(Math.random() * notes.length)] : 'Write a line on a rainy day first');
       if (!soundStarted) startSoundscape();
       if (!soundMuted) {
         audio.eraser.currentTime = 0;
@@ -1217,7 +1240,7 @@
 
   function storeNote(rawValue) {
     const value = String(rawValue || '').trim().replace(/\s+/g, ' ');
-    if (!value || [...value].length > 36) throw new Error('文字需为 1–36 个字符');
+    if (!value || [...value].length > 48) throw new Error('Write 1 to 48 characters');
     notes.push(value);
     if (notes.length > 120) notes = notes.slice(-120);
     noteStore = { cycleKey: cycle.cycleKey, items: notes };
@@ -1258,7 +1281,7 @@
     if (soundMuted) stopSoundscape();
     else startSoundscape();
   });
-  input.addEventListener('input', () => { count.textContent = `${[...input.value].length} / 36`; });
+  input.addEventListener('input', () => { count.textContent = `${[...input.value].length} / 48`; });
   input.addEventListener('keydown', event => {
     if (event.key === 'Enter' && !event.shiftKey) {
       event.preventDefault();
@@ -1274,7 +1297,7 @@
     try { value = storeNote(input.value); }
     catch { input.focus(); return; }
     input.value = '';
-    count.textContent = '0 / 36';
+    count.textContent = '0 / 48';
     dialog.close();
     clearTimeout(toastTimer);
     toast.classList.add('show');
@@ -1289,17 +1312,17 @@
     try {
       void Promise.resolve(modelContext.registerTool({
         name: 'add_rain_message',
-        title: '写入雨中',
-        description: '把一条不超过 36 个字符的文字加入当前设备的文字雨。',
+        title: 'Write into the rain',
+        description: 'Add a line of up to 48 characters to the text rain on this device.',
         inputSchema: {
           type: 'object',
-          properties: { message: { type: 'string', minLength: 1, maxLength: 36 } },
+          properties: { message: { type: 'string', minLength: 1, maxLength: 48 } },
           required: ['message'],
           additionalProperties: false
         },
         annotations: { readOnlyHint: false, untrustedContentHint: true },
         execute(payload) {
-          if (!payload || typeof payload.message !== 'string') throw new Error('message 必须是文字');
+          if (!payload || typeof payload.message !== 'string') throw new Error('message must be text');
           const message = storeNote(payload.message);
           return { saved: true, message, total: notes.length };
         }
