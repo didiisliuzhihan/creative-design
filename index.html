@@ -508,7 +508,7 @@ const CASES=[
    "ratio": "1376/768",
    "src": "img/home-fridge-night.jpg"
   },
-  "card": "img/home-fridge-open.jpg",
+  "card": "img/home-fridge-night.jpg",
   "tldr": [
    [
     "Premise",
@@ -1377,7 +1377,7 @@ const CASES=[
    "ratio": "1800/1124",
    "src": "img/nushu-scroll.jpg"
   },
-  "card": "img/nushu-disc.jpg",
+  "card": "img/nushu-box-screen.jpg",
   "tldr": [
    [
     "Rules",
@@ -1716,7 +1716,9 @@ const CASES=[
    "Print production",
    "Cooperative play"
   ],
-  "line": "Rules · print · box"
+  "line": "Rules · print · box",
+  "cardFit": "contain",
+  "cardBg": "#2B2E2B"
  },
  {
   "id": "sunflower-house",
@@ -3048,7 +3050,7 @@ function cardHTML(c){
     <a class="card3d" href="#${c.id}" aria-label="${esc(c.title)}: open project">
       <div class="face front">
         <div class="ctop"><span class="mono">${esc(c.tag)}</span><span class="mono">${fmt(c.short)}</span></div>
-        <div class="cimg" style="--mat:${mat}">${img?`<img src="${esc(img)}" alt="" loading="lazy" draggable="false">`:`<div class="lbl">Photo coming</div>`}</div>
+        <div class="cimg" style="--mat:${c.cardBg||mat}">${img?`<img src="${esc(img)}" alt="" loading="lazy" draggable="false"${c.cardFit?` style="object-fit:${c.cardFit}"`:""}>`:`<div class="lbl">Photo coming</div>`}</div>
         <div class="cname">${fmt(c.title)}</div>
         <div class="crole">${fmt(c.meta[0][1])}</div>
         <div class="cfoot"><i class="dot" style="--sw:${bg}"></i><span>${fmt(c.line||c.tag)}</span></div>
