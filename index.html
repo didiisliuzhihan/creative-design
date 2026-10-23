@@ -50,6 +50,9 @@
 [hidden]{display:none!important}
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto} *{transition:none!important;animation:none!important}}
+/* Paper-plane cursor from zhihanliu.art; text fields keep the text cursor */
+html,body,a,button,label,summary,[role=button],.card3d,.ytb,.zoomable{cursor:url("img/cursor-plane.png") 4 5,auto;cursor:-webkit-image-set(url("img/cursor-plane.png") 1x,url("img/cursor-plane@2x.png") 2x) 4 5,auto;cursor:image-set(url("img/cursor-plane.png") 1x,url("img/cursor-plane@2x.png") 2x) 4 5,auto}
+input,textarea,[contenteditable]{cursor:text}
 body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
 a{color:inherit}
@@ -1431,6 +1434,14 @@ const CASES=[
        }
       ],
       "ratio": "4/3"
+     },
+     {
+      "img": {
+       "label": "Final test: the finished capybara in its party hat, wired to the laptop, belly screen running",
+       "ratio": "1080/1920",
+       "src": "img/dua-final-test.jpg",
+       "narrow": true
+      }
      }
     ]
    },
@@ -2668,26 +2679,59 @@ const CASES=[
    {
     "id": "ip",
     "h": "From toy to IP",
+    "wide": true,
     "blocks": [
      {
-      "p": "The characters outlived the installation. Bad Children grew into world-building illustrations, level design, 3D-printed figurines, a published sticker pack, a virtual desktop pet, and later the Bad Children Shop web app."
+      "p": "The characters outlived the installation. Bad Children grew into a published sticker pack, a desktop pet, seasonal illustrations, and later the Bad Children Shop web app."
+     },
+     {
+      "h3": "Sticker pack"
+     },
+     {
+      "img": {
+       "label": "The published sticker pack: 15 expressions",
+       "ratio": "957/1600",
+       "src": "img/bcp-stickers.jpg",
+       "narrow": true
+      }
+     },
+     {
+      "h3": "Desktop pet"
+     },
+     {
+      "p": "An interactive desktop pet that sits on the screen and reacts to the player, with alternate outfits."
      },
      {
       "imgs": [
        {
-        "src": "img/bcp-kuku.jpg",
-        "label": "Kuku Sunflower"
+        "src": "img/bcp-pet.jpg",
+        "label": "Desktop pet"
        },
        {
-        "src": "img/bcp-sheep-girl.jpg",
-        "label": "Sheep-hat girl and her capsule machine"
-       },
-       {
-        "src": "img/bcp-jimao.jpg",
-        "label": "Jimao in a capsule"
+        "src": "img/bcp-pet-mummy.jpg",
+        "label": "Desktop pet, mummy outfit"
        }
       ],
-      "ratio": "1/1"
+      "ratio": "1/1",
+      "cols": 2,
+      "narrow": true
+     },
+     {
+      "h3": "Halloween special"
+     },
+     {
+      "imgs": [
+       {
+        "src": "img/bcp-halloween.jpg",
+        "label": "Halloween special"
+       },
+       {
+        "src": "img/bcp-halloween-mono.jpg",
+        "label": "Halloween special, monochrome version"
+       }
+      ],
+      "ratio": "1999/1340",
+      "cols": 2
      }
     ]
    }
