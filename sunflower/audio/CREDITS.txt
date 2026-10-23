@@ -1,0 +1,18 @@
+Audio sources (downloaded 2026-09-23)
+
+Music
+- Rainy night: “Forest Mist Whispers” — Alejandro Magaña (A. M.)
+  https://assets.mixkit.co/music/148/148.mp3
+- Seventh day: “Classical 3” — Jonny S.
+  https://assets.mixkit.co/music/710/710.mp3
+
+Sound effects
+- Rain: “Light rain loop” (Mixkit item 2393)
+- Umbrella open: “Cloth slide out” (Mixkit item 1898)
+- Umbrella close: “Pillow soft hit” (Mixkit item 1897)
+- Star collision: “Fairy magic sparkle” (Mixkit item 871)
+- Occasional star collision variants: “Water bubble” (Mixkit item 1317), “Relaxing bell chime” (Mixkit item 3109)
+- Cloud erasing: “Chalkboard eraser” (Mixkit item 3085)
+
+All files are used under the Mixkit Stock Music Free License / Mixkit Sound Effects Free License:
+https://mixkit.co/license/

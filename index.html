@@ -72,54 +72,48 @@ p{margin:0}
 .nav ul{list-style:none;display:flex;gap:4px;margin:0;padding:0}
 .nav ul a{display:block;text-decoration:none;font-size:14.5px;padding:8px 12px;border-radius:999px;color:var(--muted);transition:color .15s,background .15s}
 .nav ul a:hover{color:var(--fg);background:var(--surface)}
-.nav ul a.cta{color:var(--bg);background:var(--fg)}
-.nav ul a.cta:hover{opacity:.85;background:var(--fg);color:var(--bg)}
-@media (max-width:560px){.nav ul a:not(.cta):not(.keep){display:none}}
+.nav ul a.cta{color:var(--fg)}
+.nav ul a.cta::after{content:" ↗";font-family:var(--mono);font-size:12px}
+@media (max-width:560px){.nav ul a:not(.cta):not(.keep){display:none}.nav ul a{white-space:nowrap;padding:8px 9px}}
+@media (max-width:420px){.nav ul a[href="#contact"]{display:none}}
 
-/* Hero */
-.hero{padding-block:clamp(28px,4.5vh,48px) clamp(20px,3vh,28px);display:grid;gap:14px}
-.hero h1{font-size:clamp(30px,3.6vw,48px);line-height:1.06;max-width:24ch}
-@media (min-width:1100px){.hero h1{max-width:30ch}}
+/* Hero: one statement, one index column. No buttons. */
+.hero{padding-block:clamp(40px,7vh,88px) clamp(28px,5vh,56px);display:grid;grid-template-columns:minmax(0,8fr) minmax(0,4fr);gap:clamp(24px,5vw,72px);align-items:end}
+.hero h1{font-size:clamp(40px,5.6vw,80px);line-height:.98;letter-spacing:-.03em;max-width:15ch}
 .hero h1 em{font-style:normal;color:var(--accent)}
-.hero-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;margin-top:4px}
-.hero .lede{font-size:17px;color:var(--muted);max-width:66ch}
-.hero .lede strong{color:var(--fg);font-weight:500}
-.quick{display:flex;flex-wrap:wrap;gap:10px}
+.hero-side{display:grid;gap:14px;padding-left:20px;border-left:1px solid var(--line)}
+.hero-side p{font-size:16px;color:var(--muted);max-width:40ch}
+.hero-side p strong{color:var(--fg);font-weight:500}
+@media (max-width:860px){.hero{grid-template-columns:1fr}.hero-side{padding-left:0;border-left:0}}
 .btn{display:inline-flex;align-items:center;gap:8px;font:500 14.5px/1 var(--body);padding:12px 16px;border-radius:999px;text-decoration:none;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer;transition:border-color .15s,transform .15s}
 .btn:hover{border-color:var(--fg)}
 .btn.primary{background:var(--fg);color:var(--bg);border-color:var(--fg)}
 .btn .arr{font-family:var(--mono);font-size:13px}
 .btn.pending{color:var(--muted);border-style:dashed;cursor:default}
 .btn.pending:hover{border-color:var(--line)}
-@media (max-width:860px){.hero-row{grid-template-columns:1fr;gap:20px}}
 
 /* Section headers */
-.sec{padding-block:56px}
+.sec{padding-block:clamp(64px,10vh,112px) 0}
 .sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding-bottom:20px;border-bottom:1px solid var(--line);margin-bottom:32px;flex-wrap:wrap}
-.sec-head h2{font-size:28px}
+.sec-head h2{font-size:clamp(26px,2.6vw,34px)}
 
-/* Work: two rails of ID cards hung on sagging lines */
-#work{padding-block:4px 56px}
-.work-head{align-items:flex-end;margin-bottom:8px;padding-bottom:14px}
-.work-head h2{font-size:24px}
-.work-head p{margin-top:6px}
-.row-head{display:flex;align-items:baseline;gap:12px;margin-top:18px;flex-wrap:wrap}
-.row-head .n{font:500 12.5px var(--mono);color:var(--accent)}
-.row-head h3{font-size:19px}
-.row-head .sub{color:var(--muted);font-size:14px}
-.row-head .right{margin-left:auto;display:flex;align-items:center;gap:12px}
-.rnav{display:flex;gap:6px}
-.rnav button{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--fg);font-size:15px;cursor:pointer;transition:border-color .15s}
-.rnav button:hover:not(:disabled){border-color:var(--fg)}
-.rnav button:disabled{opacity:.35;cursor:default}
-.rail{position:relative;overflow-x:auto;overflow-y:hidden;scrollbar-width:thin;--cw:clamp(178px,15.5vw,196px)}
-.rail.more-r{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 56px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 56px),transparent)}
-.rail.more-l{-webkit-mask-image:linear-gradient(90deg,transparent,#000 56px);mask-image:linear-gradient(90deg,transparent,#000 56px)}
-.rail.more-l.more-r{-webkit-mask-image:linear-gradient(90deg,transparent,#000 56px,#000 calc(100% - 56px),transparent);mask-image:linear-gradient(90deg,transparent,#000 56px,#000 calc(100% - 56px),transparent)}
-.rail-inner{position:relative;min-width:100%}
+/* Work: every card visible. Cards wrap onto as many hanging lines as the width needs. */
+#work{padding-block:clamp(36px,6vh,64px) 0}
+.row-head{display:flex;align-items:baseline;gap:8px 16px;flex-wrap:wrap;padding-top:14px;border-top:1px solid var(--line)}
+.row-head+.lines{margin-top:6px}
+.lines+.row-head{margin-top:clamp(32px,5vh,56px)}
+.row-head .n{font:500 12.5px var(--mono);color:var(--accent);letter-spacing:.04em}
+.row-head h2{font-size:clamp(22px,2.2vw,28px)}
+.row-head .n{width:40px}
+.row-head .sub{color:var(--muted);font-size:14.5px}
+.row-head .mono{margin-left:auto}
+@media (max-width:560px){.row-head .n{width:auto}.row-head .sub{flex-basis:100%}.row-head .mono{display:none}}
+.lines{position:relative;--cw:clamp(168px,14.6vw,204px)}
+@media (max-width:560px){.lines{--cw:min(176px,calc((100vw - 64px)/2))}}
 .wire{position:absolute;left:0;top:0;pointer-events:none;overflow:visible}
 .wire path{fill:none;stroke:var(--wire);stroke-width:1.5}
 .wire circle{fill:var(--bg);stroke:var(--wire);stroke-width:1.5}
+.hint{margin-top:10px}
 .hanger{position:absolute;width:var(--cw);transform-origin:50% 0;will-change:transform;perspective:1100px;--tilt:0}
 .clip{position:absolute;left:50%;top:-8px;width:10px;height:15px;transform:translateX(-50%);border:1.5px solid var(--wire);border-radius:3px;background:var(--bg);z-index:2}
 .string{display:block;width:1.5px;margin:0 auto;background:var(--wire)}
@@ -137,6 +131,7 @@ p{margin:0}
 .cimg .lbl{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:10px;font:500 12px/1.35 var(--body);color:var(--ph-ink);background-image:repeating-linear-gradient(135deg,transparent 0 12px,color-mix(in srgb,var(--ph-ink) 12%,transparent) 12px 13px)}
 .cname{font-family:var(--display);font-weight:500;font-size:18px;line-height:1.1;letter-spacing:-.01em;margin-top:2px}
 .crole{font-size:12.5px;color:var(--muted);margin-top:-4px}
+@media (max-width:560px){.crole{display:none}.cname{font-size:16.5px}}
 .cfoot{display:flex;align-items:center;gap:6px;margin-top:auto;font:500 10.5px var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
 .cfoot span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
 .bface{transform:rotateY(180deg);color:var(--holo-ink);border-color:transparent;
@@ -150,22 +145,17 @@ p{margin:0}
 .bmeta div{display:grid;grid-template-columns:62px minmax(0,1fr);gap:6px}
 .bmeta dt{opacity:.6}.bmeta dd{margin:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .bcta{display:flex;justify-content:space-between;align-items:center;font-weight:600;font-size:13px;padding-top:9px;border-top:1px solid color-mix(in srgb,var(--holo-ink) 18%,transparent)}
-.work-index{margin-top:40px}
 
-/* How I work: a process strip mapped to evidence */
-.process{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
-.process>div{background:var(--surface);padding:22px 20px 20px;display:flex;flex-direction:column;gap:8px}
-.process .n{font:500 12px var(--mono);color:var(--accent)}
-.process h3{font-size:19px;line-height:1.15}
-.process p{font-size:14px;color:var(--muted)}
-.process .ev{margin-top:auto;padding-top:10px;display:flex;flex-wrap:wrap;gap:6px}
-.process .ev a{font-size:12.5px;text-decoration:none;padding:4px 10px;border-radius:999px;background:var(--accent-soft);color:var(--accent);font-weight:500}
-.process .ev a:hover{text-decoration:underline}
-@media (max-width:980px){.process{grid-template-columns:repeat(2,minmax(0,1fr))}.process>div:last-child{grid-column:1/-1}}
-@media (max-width:560px){.process{grid-template-columns:1fr}}
-.tools{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;align-items:center}
-.tools .mono{margin-right:6px}
-.tools span.t{font-size:13.5px;padding:6px 12px;border:1px solid var(--line);border-radius:999px;background:var(--surface)}
+/* How I work: an indexed list, not a card grid */
+.proc{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.proc li{display:grid;grid-template-columns:56px minmax(0,3fr) minmax(0,5fr) minmax(0,3fr);gap:20px;padding:22px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.proc .n{font:500 12.5px var(--mono);color:var(--accent)}
+.proc h3{font-size:21px;line-height:1.15}
+.proc p{font-size:15.5px;color:var(--muted)}
+.proc .ev{font-size:14px;color:var(--muted)}
+.proc .ev a{color:var(--fg);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}
+.proc .ev a:hover{text-decoration-color:var(--fg)}
+@media (max-width:860px){.proc li{grid-template-columns:40px minmax(0,1fr);gap:6px 12px}.proc p,.proc .ev{grid-column:2}}
 
 /* Placeholders */
 .ph{position:relative;margin:0;width:100%;max-width:100%;border-radius:var(--radius);background:var(--tint,var(--ph));overflow:hidden;display:grid;place-items:center;border:1px solid var(--line)}
@@ -194,6 +184,7 @@ p{margin:0}
 .principles i{width:8px;height:8px;border-radius:50%;background:var(--attic);box-shadow:0 0 0 3px var(--accent-soft);margin-top:9px;font-style:normal}
 .principles b{font-weight:600}
 .principles span{color:var(--muted)}
+.tools-line{margin-top:32px;line-height:1.7}
 .xp{border-top:1px solid var(--line)}
 .xp div{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 16px;padding:16px 0;border-bottom:1px solid var(--line)}
 .xp .r{font-weight:500}
@@ -233,8 +224,8 @@ footer{padding-block:32px 48px;display:flex;justify-content:space-between;gap:16
 .case-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
 .case-hero{margin-top:40px}
 .case-hero .ph{background:var(--mat,var(--ph))}
-.tldr{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin-top:40px}
-.tldr div{background:var(--surface);padding:24px}
+.tldr{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;margin-top:40px;padding-top:20px;border-top:1px solid var(--fg)}
+.tldr div{padding:0}
 .tldr p{margin-top:10px;font-size:15.5px}
 @media (max-width:720px){.tldr{grid-template-columns:1fr}}
 .case-body{display:grid;grid-template-columns:200px minmax(0,1fr);gap:64px;padding-block:64px 32px}
@@ -285,6 +276,21 @@ figcaption{font-size:13.5px;color:var(--muted);margin-top:10px}
 .cards div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px}
 .cards b{display:block;font-family:var(--display);font-weight:500;font-size:19px}
 .cards span{display:block;color:var(--muted);font-size:15px;margin-top:8px}
+.press{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;border-top:1px solid var(--fg);margin-top:8px}
+.press a{display:grid;gap:10px;padding:22px 24px 24px 0;text-decoration:none;border-bottom:1px solid var(--line)}
+.press a+a{padding-left:24px;border-left:1px solid var(--line)}
+.press .mono{font-size:11.5px}
+.press b{font-family:var(--display);font-weight:500;font-size:21px;line-height:1.2;letter-spacing:-.01em}
+.press q{font-size:15.5px;color:var(--muted);quotes:"\201C" "\201D"}
+.press .go{font:500 13px var(--body);color:var(--accent)}
+.press a:hover .go{text-decoration:underline}
+@media (max-width:640px){.press{grid-template-columns:1fr}.press a+a{padding-left:0;border-left:0}}
+.files{border-top:1px solid var(--line);font-size:14.5px}
+.files div{display:grid;grid-template-columns:96px minmax(0,1fr) minmax(0,1.3fr);gap:16px;padding:11px 0;border-bottom:1px solid var(--line)}
+.files .d{font:12.5px var(--mono);color:var(--muted)}
+.files .f{font-family:var(--mono);font-size:13px;overflow-wrap:anywhere}
+.files .w{color:var(--muted)}
+@media (max-width:560px){.files div{grid-template-columns:1fr;gap:2px}}
 .zoomable{cursor:zoom-in}
 .ph:has(.zoomable)::after{content:"⤢ Click to enlarge";position:absolute;right:10px;bottom:10px;font:500 11.5px var(--body);color:#fff;background:rgba(20,24,32,.62);padding:5px 9px;border-radius:999px;opacity:0;transition:opacity .2s;pointer-events:none}
 .ph:hover::after{opacity:1}
@@ -339,6 +345,9 @@ figcaption{font-size:13.5px;color:var(--muted);margin-top:10px}
 .immersive.phone .imm-stage.on{height:auto;aspect-ratio:auto;display:grid;place-items:center;padding:28px 16px;background:linear-gradient(180deg,#e7f1f7,#d3e3ec)}
 .imm-phone{width:min(390px,100%);height:min(780px,78vh);border:10px solid #111;border-radius:44px;overflow:hidden;background:#fff;box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
 .imm-note{font-size:13.5px;color:var(--muted);margin-top:10px}
+.immersive.pp .imm-stage{aspect-ratio:auto;display:grid;place-items:center;padding:28px 16px 96px;background:linear-gradient(180deg,#e7f1f7,#d3e3ec)}
+.immersive.pp .imm-stage.on{padding-bottom:28px}
+.immersive.pp .imm-phone img{position:static;display:block;width:100%;height:100%;object-fit:cover;object-position:top}
 .imm-note a{color:var(--accent)}
 .prose .narrow{max-width:360px;margin-inline:auto}
 .next{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:24px;text-decoration:none;padding:40px 0;border-top:1px solid var(--line);margin-top:48px}
@@ -356,7 +365,7 @@ figcaption{font-size:13.5px;color:var(--muted);margin-top:10px}
       <li><a class="keep" href="#work" data-home>Work</a></li>
       <li><a href="#process" data-home>Process</a></li>
       <li><a href="#about" data-home>About</a></li>
-      <li><a href="#contact" data-home>Contact</a></li>
+      <li><a class="keep" href="#contact" data-home>Contact</a></li>
       <li><a class="cta" href="#resume" id="navResume">Resume</a></li>
     </ul>
   </div>
@@ -364,61 +373,30 @@ figcaption{font-size:13.5px;color:var(--muted);margin-top:10px}
 
 <main id="home" class="wrap">
   <section class="hero" id="top">
-    <p class="mono">Zhihan (Dee) Liu · Play &amp; Experience Designer · New York</p>
-    <h1>I design toys and play, from the <em>first sketch to the factory sample</em>.</h1>
-    <div class="hero-row">
-      <p class="lede">Collectible toys, interactive plush, tabletop games, and play installations, built with electronics, paper goods, and craft materials. I research the play, design the characters, prototype by hand, and work with makers to get it produced. <strong>MFA Design &amp; Technology, Parsons.</strong></p>
-      <div class="quick">
-        <a class="btn primary" href="#resume" data-resume>Resume <span class="arr">↗</span></a>
-        <a class="btn" href="https://www.linkedin.com/in/zhihan-liu-1856b22ba/" target="_blank" rel="noopener">LinkedIn <span class="arr">↗</span></a>
-        <a class="btn" href="#contact">Contact</a>
-      </div>
+    <h1>Toys and play, from first sketch to <em>factory sample</em>.</h1>
+    <div class="hero-side">
+      <p class="mono">Zhihan (Dee) Liu · New York</p>
+      <p>I design collectible kits, interactive plush, tabletop games, and play installations, then prototype them by hand and see them through production. <strong>MFA Design &amp; Technology, Parsons.</strong></p>
     </div>
   </section>
 
-  <section class="sec" id="work">
-    <div class="sec-head work-head">
-      <div><h2>Selected work</h2><p class="mono" id="railHint">Hover a card to flip it · Click to open</p></div>
-      <span class="mono" id="workCount"></span>
-    </div>
+  <section id="work" aria-label="Work">
     <div id="rows"></div>
-    <div class="links work-index" id="workIndex"></div>
+    <p class="mono hint" id="railHint">Hover a card to flip it · Click to open</p>
   </section>
 
   <section class="sec" id="process">
     <div class="sec-head">
       <h2>From idea to production</h2>
-      <span class="mono">How I work · with evidence</span>
+      <span class="mono">How I work</span>
     </div>
-    <div class="process">
-      <div><span class="n">01</span><h3>Research the play</h3><p>Audiences, trends, and play patterns first: who plays, for how long, alone or together, and what brings them back.</p><span class="ev"><a href="#bad-children-shop">Bad Children Shop</a><a href="#whispers-of-female-script">Whispers</a></span></div>
-      <div><span class="n">02</span><h3>Sketch the characters</h3><p>Hand sketches, character design, turnarounds, and concept renders to show intent. Original IP and licensed IP, including Rakshasa Street.</p><span class="ev"><a href="#bad-children-paradise">Bad Children Paradise</a><a href="#crystal-citizen">Crystal Citizen</a></span></div>
-      <div><span class="n">03</span><h3>Prototype by hand</h3><p>Electronics, paper, fabric, and found objects. Fast, cheap rounds that people can touch and test.</p><span class="ev"><a href="#toast">Toast</a><a href="#sunflower-house">Sunflower House</a><a href="#a-home-only-without-me">A Home Only</a></span></div>
-      <div><span class="n">04</span><h3>Make it buildable</h3><p>Materials, samples, print files, and production handoff, refined with manufacturers and printers.</p><span class="ev"><a href="#crystal-citizen">Crystal Citizen</a><a href="#whispers-of-female-script">Whispers</a></span></div>
-      <div><span class="n">05</span><h3>Package and launch</h3><p>Packaging, product photography, a storefront, and exhibitions where real people use the work.</p><span class="ev"><a href="#crystal-citizen">Crystal Citizen</a><a href="#a-home-only-without-me">A Home Only</a></span></div>
-    </div>
-    <div class="tools"><span class="mono">Tools</span><span class="t">Hand sketching</span><span class="t">Illustrator</span><span class="t">Photoshop</span><span class="t">InDesign</span><span class="t">Blender</span><span class="t">Figma</span><span class="t">Arduino · ESP32</span><span class="t">NFC · sensors</span><span class="t">Unity</span></div>
-  </section>
-
-  <section class="sec" id="more">
-    <div class="sec-head">
-      <h2>More from the archive</h2>
-      <span class="mono">zhihanliu.art</span>
-    </div>
-    <div class="links">
-      <a class="lrow" style="--sw:#F6D9B8" href="https://www.zhihanliu.art/packagingdesign" target="_blank" rel="noopener">
-        <i class="dot"></i><span class="n">Packaging design</span><span class="d">Tear-open blind boxes for Crystal Citizen and the Whispers of Female Script game box</span><span class="y">Packaging</span><span class="go">↗</span>
-      </a>
-      <a class="lrow" style="--sw:#CDE6EF" href="https://www.zhihanliu.art/short-film-works" target="_blank" rel="noopener">
-        <i class="dot"></i><span class="n">Short films</span><span class="d">SCALE, a 15-minute fantasy-realism film, and Zhihuan’s Daily Dictation, shot on a phone</span><span class="y">Film</span><span class="go">↗</span>
-      </a>
-      <a class="lrow" style="--sw:#E6E3F7" href="https://productdesign.zhihanliu.art" target="_blank" rel="noopener">
-        <i class="dot"></i><span class="n">Product design portfolio</span><span class="d">Consumer apps, B2B workflows, and a WeChat mini program</span><span class="y">Product</span><span class="go">↗</span>
-      </a>
-      <a class="lrow" style="--sw:#D9DDBF" href="https://www.zhihanliu.art" target="_blank" rel="noopener">
-        <i class="dot"></i><span class="n">Full archive</span><span class="d">Every interactive, film, and packaging project at zhihanliu.art</span><span class="y">Archive</span><span class="go">↗</span>
-      </a>
-    </div>
+    <ol class="proc">
+      <li><span class="n">01</span><h3>Research the play</h3><p>Who plays, for how long, alone or together, and what brings them back.</p><span class="ev">Seen in <a href="#whispers-of-female-script">Whispers</a>, <a href="#bad-children-shop">Bad Children Shop</a></span></li>
+      <li><span class="n">02</span><h3>Sketch the characters</h3><p>Sketches, turnarounds, and renders that show intent. Original IP and licensed IP, including Rakshasa Street.</p><span class="ev">Seen in <a href="#crystal-citizen">Crystal Citizen</a>, <a href="#bad-children-paradise">Bad Children Paradise</a></span></li>
+      <li><span class="n">03</span><h3>Prototype by hand</h3><p>Electronics, paper, fabric, and found objects. Cheap rounds people can touch and test.</p><span class="ev">Seen in <a href="#a-home-only-without-me">A Home Only Without Me</a>, <a href="#toast">Toast</a></span></li>
+      <li><span class="n">04</span><h3>Make it buildable</h3><p>Dielines, print files, dimension specs, and sample rounds with manufacturers.</p><span class="ev">Seen in <a href="#crystal-citizen">Crystal Citizen</a>, <a href="#whispers-of-female-script">Whispers</a></span></li>
+      <li><span class="n">05</span><h3>Package and launch</h3><p>Packaging, instructions, photography, a storefront, and shows where real people use the work.</p><span class="ev">Seen in <a href="#crystal-citizen">Crystal Citizen</a>, <a href="#a-home-only-without-me">A Home Only Without Me</a></span></li>
+    </ol>
   </section>
 
   <section class="sec" id="about">
@@ -434,6 +412,7 @@ figcaption{font-size:13.5px;color:var(--muted);margin-top:10px}
           <div><i></i><p><b>Let the object carry the story.</b> <span>Plush, cards, capsules, and boxes hold the narrative, so people find it by touching, opening, and matching.</span></p></div>
           <div><i></i><p><b>Prototype in the real medium.</b> <span>I build with the actual materials early and test with players, then change what the play tells me to change.</span></p></div>
         </div>
+        <p class="mono tools-line">Tools · Sketching, Illustrator, Photoshop, InDesign, Blender, ZBrush, Figma, Arduino, ESP32, NFC, Unity</p>
       </div>
       <div class="xp">
         <div><span class="r">Product Designer</span><span class="o">TraderBear · Awesome Bears</span><span class="t">2026 – Now</span></div>
@@ -459,6 +438,7 @@ figcaption{font-size:13.5px;color:var(--muted);margin-top:10px}
         <a class="crow" href="https://www.linkedin.com/in/zhihan-liu-1856b22ba/" target="_blank" rel="noopener"><span>LinkedIn</span><span>↗</span></a>
         <a class="crow" href="#resume" data-resume><span>Resume (PDF)</span><span>↗</span></a>
         <a class="crow" href="https://productdesign.zhihanliu.art" target="_blank" rel="noopener"><span>Product design portfolio <span class="crow-sub">productdesign.zhihanliu.art</span></span><span>↗</span></a>
+        <a class="crow" href="https://www.zhihanliu.art" target="_blank" rel="noopener"><span>Full archive, films and packaging <span class="crow-sub">zhihanliu.art</span></span><span>↗</span></a>
       </div>
     </div>
   </section>
@@ -473,69 +453,961 @@ figcaption{font-size:13.5px;color:var(--muted);margin-top:10px}
 
 <script>
 /* ---------- Content ----------
-   row 0 = toys and physical play, row 1 = play experiences and games.
-   sw = the project's swatch, used only as a pale tint. fit = skills this project shows.
+   row 0 = selected work, row 1 = more play. Order here is the order on the page.
+   sw = the project's swatch, used only as a pale tint. line = the short label on the card front.
    [[text]] renders as a highlighted placeholder to replace later. */
 const RESUME_URL="resume.pdf";
-const ROWS=[{"n":"01","h":"Toys & physical play","sub":"Collectibles, plush, electronics, paper goods"},{"n":"02","h":"Play experiences & games","sub":"Installations, apps, video games"}];
+const ROWS=[{"n":"01","h":"Selected work","sub":"From a gallery installation to a boxed product"},{"n":"02","h":"More play","sub":"Prototypes, games, and apps"}];
 const SW={"attic":["#98C1E9","#1E3550"],"butter":["#FED57D","#C62A29"],"apricot":["#F0A351","#1E3550"],"matcha":["#9CA362","#1E3550"],"rainy":["#B3DFEB","#A9581A"],"clover":["#5BA881","#1E3550"],"ballet":["#FDD0D0","#A9581A"],"wisteria":["#E6E3F7","#A9581A"],"cherry":["#C62A29","#F7F1E8"],"latte":["#F7F1E8","#2F7350"],"milk":["#FCEDED","#2F7350"],"seafoam":["#E7F5F9","#565C24"]};
 const CASES=[
+ {
+  "id": "a-home-only-without-me",
+  "row": 0,
+  "sw": "attic",
+  "tag": "Installation",
+  "short": "2026",
+  "eyebrow": "Interactive installation · Physical narrative game",
+  "year": "2026",
+  "title": "A Home Only Without Me",
+  "summary": "A half-room installation where visitors investigate a family's generational curse through miniature scenes hidden inside a refrigerator and a TV cabinet.",
+  "subtitle": "An interactive narrative installation played through the silence of domestic objects. Visitors enter as investigators, piece the story together from miniature scenes, and leave as part of it.",
+  "meta": [
+   [
+    "Role",
+    "Concept, story, interaction, build"
+   ],
+   [
+    "Shown",
+    "A Space Gallery, New York · Parsons Pop Show"
+   ],
+   [
+    "Year",
+    "2026, MFA thesis"
+   ],
+   [
+    "Medium",
+    "Mixed media, approx. 8 × 8 ft"
+   ]
+  ],
+  "links": [
+   [
+    "Press ↓",
+    "scroll:press"
+   ],
+   [
+    "Watch the walkthrough ↓",
+    "scroll:yts"
+   ],
+   [
+    "Thesis page on zhihanliu.art",
+    "https://www.zhihanliu.art/home-1"
+   ]
+  ],
+  "hero": {
+   "label": "The refrigerator and TV cabinet in the dark gallery",
+   "ratio": "1376/768",
+   "src": "img/home-fridge-night.jpg"
+  },
+  "card": "img/home-fridge-open.jpg",
+  "tldr": [
+   [
+    "Premise",
+    "No character is in the room. A family's story of fish-scale disease, inheritance, and reincarnation lives in the objects they left behind."
+   ],
+   [
+    "What I built",
+    "Miniature scenes inside a refrigerator and a CRT TV cabinet. NFC, magnetic, ultrasonic, and fabric-touch triggers play sound and small screens."
+   ],
+   [
+    "Shown and covered",
+    "I'm Not an Alien?, A Space Gallery, New York, June 10 to 17, 2026, curated by Yichen Ji. Covered by Fakewhale and ArtRabbit."
+   ]
+  ],
+  "sections": [
+   {
+    "id": "premise",
+    "h": "Premise",
+    "blocks": [
+     {
+      "q": "A family lived here. Then they didn't. What they left behind is still waiting to be found."
+     },
+     {
+      "p": "A Home Only Without Me is a physical narrative game built from a magical-realist family tragedy. Visitors step into a half room as investigators and search for the truth inside miniature family scenes hidden in a refrigerator and a television casing."
+     },
+     {
+      "p": "No character physically exists in the space. When no one is present, who are we observing, and who is observing us? Even an ordinary trash can holds whispered secrets. Only on leaving the room does the visitor close the story's loop and become part of it."
+     }
+    ]
+   },
+   {
+    "id": "press",
+    "h": "Press",
+    "blocks": [
+     {
+      "press": [
+       {
+        "outlet": "Fakewhale",
+        "date": "July 2, 2026",
+        "title": "I'm Not an Alien? at A Space Gallery, New York",
+        "quote": "expands the discourse into a magical-realist family narrative",
+        "url": "https://log.fakewhale.xyz/im-not-an-alien-at-a-space-gallery-new-york/"
+       },
+       {
+        "outlet": "ArtRabbit",
+        "date": "June 29, 2026",
+        "title": "The Alien Isn't Out There Anymore: Emerging Artists on Technology, Perception, and the Search for Reality",
+        "quote": "No characters physically occupy the space, yet traces of their presence remain everywhere.",
+        "url": "https://www.artrabbit.com/network/features/2026/june/the-alien-isnt-out-there-anymore-emerging-artist"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "journey",
+    "h": "The visitor journey",
+    "blocks": [
+     {
+      "steps": [
+       [
+        "Enter",
+        "The refrigerator and television invite investigation at a domestic scale."
+       ],
+       [
+        "Handle",
+        "Looking, reaching, and handling objects reveal fragments of the family story."
+       ],
+       [
+        "Interpret",
+        "Visitors piece the narrative together through physical evidence and sound."
+       ],
+       [
+        "Leave",
+        "The exit text turns the investigator into the next person the house remembers."
+       ]
+      ]
+     },
+     {
+      "imgs": [
+       {
+        "src": "img/home-visitors.jpg",
+        "label": "Visitors searching the open refrigerator"
+       },
+       {
+        "src": "img/home-07.jpg",
+        "label": "Matching evidence at the TV cabinet"
+       },
+       {
+        "src": "img/home-16.jpg",
+        "label": "Reading a scene up close"
+       }
+      ],
+      "ratio": "3/4"
+     }
+    ]
+   },
+   {
+    "id": "build",
+    "h": "Engineering the interaction",
+    "wide": true,
+    "blocks": [
+     {
+      "p": "Hand-drawn interaction points guided the spatial build. Each domestic gesture, reaching, touching, turning, or matching, became part of the interaction vocabulary, and the electronics stay hidden inside the built scenes."
+     },
+     {
+      "imgs": [
+       {
+        "src": "img/home-sensors.jpg",
+        "label": "Sensor layout across the refrigerator: NFC scene matching, magnetic induction, ultrasonic sensing, fabric touch"
+       },
+       {
+        "src": "img/home-sketch.jpg",
+        "label": "Early sketch of interaction points"
+       }
+      ],
+      "ratio": "auto",
+      "cols": 2
+     },
+     {
+      "steps": [
+       [
+        "Map the action",
+        "Define each gesture through the object, so familiar domestic behavior becomes the controls."
+       ],
+       [
+        "Integrate the input",
+        "Place NFC, magnetic, and proximity sensing inside the miniature scenes."
+       ],
+       [
+        "Connect the response",
+        "Route each trigger to sound and scene content across headphones, speakers, and tiny displays."
+       ]
+      ]
+     },
+     {
+      "cards": [
+       [
+        "XIAO ESP32-S3",
+        "Microcontroller for each scene, programmed in the Arduino IDE."
+       ],
+       [
+        "PN532 NFC",
+        "Visitors match evidence cards to scenes to unlock their audio."
+       ],
+       [
+        "MAX98357A I2S",
+        "Amplified narration and ambient sound inside the furniture."
+       ],
+       [
+        "E-paper + reed switch",
+        "A companion display wakes when a door opens."
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "scenes",
+    "h": "Inside the scenes",
+    "wide": true,
+    "blocks": [
+     {
+      "imgs": [
+       {
+        "src": "img/home-detail.jpg",
+        "label": "A miniature room behind the fridge door"
+       },
+       {
+        "src": "img/home-tv.jpg",
+        "label": "The TV cabinet scene"
+       },
+       {
+        "src": "img/home-01.jpg",
+        "label": "Lace, light, and a hidden bedroom"
+       }
+      ],
+      "ratio": "3/4"
+     },
+     {
+      "imgs": [
+       {
+        "src": "img/home-fridge-dark.jpg",
+        "label": "The installation in the dark"
+       },
+       {
+        "src": "img/home-08.jpg",
+        "label": "Both objects lit from inside"
+       }
+      ],
+      "ratio": "16/9",
+      "cols": 2
+     }
+    ]
+   },
+   {
+    "id": "voices",
+    "h": "Voices of the family",
+    "blocks": [
+     {
+      "p": "Each scene carries a voice. Visitors hear the family only in fragments, and have to decide for themselves what happened."
+     },
+     {
+      "q": "It looks like a water burial, but it is not. With his back turned to us, he walks resolutely toward rebirth.",
+      "cite": "The Little Girl"
+     },
+     {
+      "q": "It was us. We did it. The family. Then we put him in the water. I'm a fisherman. Everything returns to the water, in the end.",
+      "cite": "The Grandfather"
+     }
+    ]
+   },
+   {
+    "id": "yts",
+    "h": "Walkthrough",
+    "blocks": [
+     {
+      "yt": [
+       {
+        "id": "Z-a4qLTW7UM",
+        "label": "Installation walkthrough",
+        "poster": "img/home-fridge-night.jpg"
+       },
+       {
+        "id": "qcmmnh7pA_A",
+        "label": "Documentation",
+        "poster": "img/home-visitor.jpg"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "exhibition",
+    "h": "Exhibition",
+    "blocks": [
+     {
+      "p": "Shown in I'm Not an Alien?, a group exhibition at A Space Gallery, New York, June 10 to 17, 2026, curated by Yichen Ji, about perception and the relation between human experience and technological systems. Also shown at Parsons Pop Show 2026."
+     },
+     {
+      "p": "Code collaborator: Felix Yu. Exhibition photography credited to Jingyi Yu in the Fakewhale review."
+     }
+    ]
+   }
+  ],
+  "fit": [
+   "Fabrication",
+   "Electronics and sensors",
+   "Spatial play"
+  ],
+  "line": "NFC · sensors · press"
+ },
  {
   "id": "crystal-citizen",
   "row": 0,
   "sw": "clover",
-  "tag": "Collectible toy",
+  "tag": "DIY blind-box kit",
   "short": "2023–25",
-  "eyebrow": "Collectible toy brand · Co-founder",
+  "eyebrow": "DIY micro-landscape blind-box kit · Co-founder",
   "year": "2023 – 2025",
   "title": "Crystal Citizen",
-  "summary": "A blind-box line of tiny crystal dioramas and desktop figures, taken from brand to factory to a working Shopify store.",
-  "subtitle": "An independent collectible line from Hong Kong. Each tear-open blind box pairs a lightweight DIY crystal-diorama kit with a collectible desktop figure, so unboxing becomes a small ritual of building and display.",
+  "summary": "A blind box you build. A figure, real crystals, and miniature landscape pieces become a small diorama inside an acrylic case.",
+  "subtitle": "Tear open the box, find out which citizen you got, and build a tiny crystal landscape around them. I designed the kit, the figures, the instruction guide, and the packaging, and took them through samples to production.",
   "meta": [
    [
     "Role",
     "Co-founder, chief designer"
    ],
    [
-    "Base",
-    "Hong Kong"
+    "Product",
+    "DIY blind-box kit"
    ],
    [
     "Years",
-    "2023 – 2025"
+    "2023 – 2025, produced 2024"
    ],
    [
-    "Medium",
-    "3D modeling, packaging, Shopify"
+    "Base",
+    "Hong Kong"
    ]
   ],
   "links": [
+   [
+    "See the box → build → result ↓",
+    "scroll:box"
+   ],
    [
     "Packaging on zhihanliu.art",
     "https://www.zhihanliu.art/packagingdesign"
    ]
   ],
   "hero": {
-   "label": "A finished crystal diorama: a figure by a turquoise lake",
-   "ratio": "3/2",
-   "src": "img/cc-diorama.jpg"
+   "label": "Tearing open the Crystal Citizen box",
+   "ratio": "1170/991",
+   "src": "img/cc-tear.jpg"
   },
-  "card": "img/cc-cube.jpg",
+  "card": "img/cc-lake.jpg",
   "tldr": [
    [
-    "Product",
-    "Tear-open blind boxes, each with a DIY crystal-diorama kit and a collectible figure."
+    "In the box",
+    "A figure, a raw crystal, a vial of crystal chips, miniature landscape pieces, an acrylic case, a character card, and a fold-out guide."
+   ],
+   [
+    "The play",
+    "Tear the strip, reveal the citizen, build the scene in a few minutes, then keep it on the desk."
    ],
    [
     "What I owned",
-    "Positioning and user research, 3D models and renders, samples with manufacturers, packaging and logo, product photography."
-   ],
-   [
-    "Shipped",
-    "A Shopify storefront selling real product, and Instagram marketing alongside my co-founder."
+    "Kit design, figure sculpts, instructions, cards, packaging and print specs, factory samples, photography, and the storefront."
    ]
   ],
   "sections": [
+   {
+    "id": "box",
+    "h": "1 · A box in your hand",
+    "blocks": [
+     {
+      "p": "The box is the first part of the play. A die-cut tear strip runs around it with the line Unwrap Your Crystal DIY Adventure printed along the edge, so opening it is a small event rather than a lid coming off."
+     },
+     {
+      "imgs": [
+       {
+        "src": "img/cc-box.jpg",
+        "label": "The tear-open box, 175 × 90 × 90 mm"
+       },
+       {
+        "src": "img/cc-box-top.jpg",
+        "label": "Logo and character tiles on the top flap"
+       },
+       {
+        "src": "img/cc-vial.jpg",
+        "label": "Opening the box: the vial over the foam insert"
+       }
+      ],
+      "ratio": "4/3"
+     },
+     {
+      "cards": [
+       [
+        "Figure",
+        "One citizen per box, sealed in a clear case, so the reveal stays a surprise."
+       ],
+       [
+        "Crystals",
+        "A raw crystal specimen and a glass vial of crystal chips."
+       ],
+       [
+        "Landscape",
+        "Miniature landscape elements for the scene."
+       ],
+       [
+        "Display case",
+        "An acrylic cube that the scene is built inside."
+       ],
+       [
+        "Character card",
+        "Names the citizen, their crystal, and a short line about them."
+       ],
+       [
+        "Guide",
+        "A fold-out sheet: six steps to build the scene in about three minutes."
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "inside",
+    "h": "2 · What's inside",
+    "wide": true,
+    "blocks": [
+     {
+      "imgs": [
+       {
+        "src": "img/cc-card-citrine.jpg",
+        "label": "Citrine card with the figure in its clear case"
+       },
+       {
+        "src": "img/cc-guide.jpg",
+        "label": "The guide: 6 steps to DIY your Crystal Citizen"
+       },
+       {
+        "src": "img/cc-vial-hand.jpg",
+        "label": "The vial of crystal chips"
+       }
+      ],
+      "ratio": "3/4"
+     },
+     {
+      "p": "Each citizen is paired with a crystal, and the card carries both. The cards are printed holographic, so they stay collectible after the scene is built."
+     },
+     {
+      "videos": [
+       {
+        "src": "media/cc-holo.mp4",
+        "poster": "media/cc-holo.jpg",
+        "label": "Holographic character cards under light"
+       }
+      ],
+      "ratio": "16/9"
+     },
+     {
+      "imgs": [
+       {
+        "src": "img/cc-card-tourmaline.jpg",
+        "label": "Black Tourmaline card"
+       },
+       {
+        "src": "img/cc-card-fluorite.jpg",
+        "label": "Green Fluorite card"
+       }
+      ],
+      "ratio": "3/4",
+      "narrow": true
+     }
+    ]
+   },
+   {
+    "id": "build",
+    "h": "3 · How you build it",
+    "blocks": [
+     {
+      "steps": [
+       [
+        "Unwrap",
+        "Pull the tear strip and lift out the insert."
+       ],
+       [
+        "Reveal",
+        "Open the clear case to see which citizen you got, and read their card."
+       ],
+       [
+        "Build",
+        "Follow the six-step guide to lay the landscape, the raw crystal, and the crystal chips inside the acrylic case."
+       ],
+       [
+        "Display",
+        "Stand the citizen in the scene and close the case. The kit becomes a desk object."
+       ]
+      ]
+     },
+     {
+      "p": "The guide's cover promises a three-minute build in six steps. A blind box usually ends at the reveal. Here the reveal starts a short craft session."
+     }
+    ]
+   },
+   {
+    "id": "result",
+    "h": "4 · What you end up with",
+    "wide": true,
+    "blocks": [
+     {
+      "imgs": [
+       {
+        "src": "img/cc-lake.jpg",
+        "label": "A citizen by a lake of crystal chips"
+       },
+       {
+        "src": "img/cc-glow.jpg",
+        "label": "A glowing crystal scene"
+       },
+       {
+        "src": "img/cc-stroll.jpg",
+        "label": "Fortune Stroll, built"
+       }
+      ],
+      "ratio": "1/1"
+     },
+     {
+      "imgs": [
+       {
+        "src": "img/cc-scenes.jpg",
+        "label": "Finished cases as a set"
+       },
+       {
+        "src": "img/cc-crystal-rock.jpg",
+        "label": "Detail: a raw crystal as a boulder"
+       }
+      ],
+      "ratio": "3/2",
+      "cols": 2
+     }
+    ]
+   },
+   {
+    "id": "figures",
+    "h": "5 · Designing the citizens",
+    "wide": true,
+    "blocks": [
+     {
+      "steps": [
+       [
+        "Sculpt",
+        "Each figure sculpted in ZBrush."
+       ],
+       [
+        "Pose",
+        "Poses that match each card's theme: a stroll, a run, reading, yoga, watering plants."
+       ],
+       [
+        "Low poly",
+        "A stylized low-poly version for miniature production."
+       ],
+       [
+        "Factory handoff",
+        "Dimension checks, color references, and correction notes for the sample rounds."
+       ]
+      ]
+     },
+     {
+      "imgs": [
+       {
+        "src": "img/cc-zbrush.jpg",
+        "label": "ZBrush sculpt"
+       },
+       {
+        "src": "img/cc-color.jpg",
+        "label": "Colored render"
+       },
+       {
+        "src": "img/cc-ortho.jpg",
+        "label": "Pose views"
+       }
+      ],
+      "ratio": "2/3"
+     },
+     {
+      "imgs": [
+       {
+        "src": "img/cc-pose-1.jpg",
+        "label": "Pose study: run"
+       },
+       {
+        "src": "img/cc-pose-2.jpg",
+        "label": "Pose study: reading"
+       },
+       {
+        "src": "img/cc-pose-3.jpg",
+        "label": "Pose study: yoga"
+       },
+       {
+        "src": "img/cc-pose-4.jpg",
+        "label": "Pose study: watering"
+       }
+      ],
+      "ratio": "4/5",
+      "cols": 4
+     }
+    ]
+   },
+   {
+    "id": "factory",
+    "h": "6 · Samples and production",
+    "wide": true,
+    "blocks": [
+     {
+      "p": "Production ran from May to July 2024. I sent dimension boxes and color references, marked corrections on each sample round, and reviewed the painted batches."
+     },
+     {
+      "imgs": [
+       {
+        "src": "img/cc-bbox-1.jpg",
+        "label": "Dimension boxes for the factory"
+       },
+       {
+        "src": "img/cc-bbox-2.jpg",
+        "label": "Size check across poses"
+       },
+       {
+        "src": "img/cc-album-fix.jpg",
+        "label": "Correction marks on the model, May 2024"
+       }
+      ],
+      "ratio": "4/5"
+     },
+     {
+      "imgs": [
+       {
+        "src": "img/cc-album-sample.jpg",
+        "label": "Sample photos from the factory, July 2024"
+       },
+       {
+        "src": "img/cc-batch-1.jpg",
+        "label": "Painted batch"
+       },
+       {
+        "src": "img/cc-sample-hand.jpg",
+        "label": "A printed and painted sample in hand"
+       }
+      ],
+      "ratio": "3/4"
+     }
+    ]
+   },
+   {
+    "id": "spec",
+    "h": "7 · Packaging spec",
+    "wide": true,
+    "blocks": [
+     {
+      "img": {
+       "label": "Dieline: 175 × 90 × 90 mm tear-open box, 350 gsm white card with matte lamination",
+       "ratio": "1800/914",
+       "src": "img/cc-dieline.jpg"
+      }
+     },
+     {
+      "cards": [
+       [
+        "Structure",
+        "Tear-open box, 175 × 90 × 90 mm, die-cut tear strip."
+       ],
+       [
+        "Material",
+        "350 gsm white cardstock with matte lamination."
+       ],
+       [
+        "Panels",
+        "Logo face, character tiles on the top flap, a scan-for-more QR panel, and a safety and age warning panel."
+       ],
+       [
+        "Proof",
+        "Print proof dated July 19, 2024."
+       ]
+      ]
+     },
+     {
+      "img": {
+       "label": "Box quote from the supplier, July 2024: 200, 500, and 1,000 unit tiers",
+       "ratio": "831/393",
+       "src": "img/cc-quote.jpg",
+       "narrow": true
+      }
+     }
+    ]
+   },
+   {
+    "id": "store",
+    "h": "8 · On sale",
+    "blocks": [
+     {
+      "p": "I shot the product photography and built the Shopify storefront that sold the kit. Brand systems and concept-to-production work were developed with my co-founder."
+     },
+     {
+      "imgs": [
+       {
+        "src": "img/cc-store.jpg",
+        "label": "Storefront on mobile"
+       },
+       {
+        "src": "img/cc-collage.jpg",
+        "label": "Brand collage: box, scenes, and store"
+       }
+      ],
+      "ratio": "1/2",
+      "cols": 2,
+      "narrow": true
+     }
+    ]
+   }
+  ],
+  "fit": [
+   "Craft kit design",
+   "Instructions",
+   "Packaging",
+   "Figure design",
+   "Factory samples"
+  ],
+  "line": "DIY kit · packaging"
+ },
+ {
+  "id": "capybara",
+  "row": 0,
+  "sw": "matcha",
+  "tag": "Interactive plush",
+  "short": "[[Year]]",
+  "eyebrow": "Birthday-themed interactive plush · Electronics + web",
+  "year": "[[Year]]",
+  "title": "Birthday Capybara",
+  "summary": "A birthday-themed interactive capybara plush. Its soft body, an Arduino/ESP32 circuit, and a web page work together as one playable gift.",
+  "subtitle": "[[Two sentences: who the gift is for, and what happens when they play with it.]]",
+  "meta": [
+   [
+    "Role",
+    "[[Concept, plush, electronics, web]]"
+   ],
+   [
+    "Type",
+    "Interactive plush + web page"
+   ],
+   [
+    "Year",
+    "[[Year]]"
+   ],
+   [
+    "Medium",
+    "Arduino / ESP32, [[sensors and outputs]]"
+   ]
+  ],
+  "links": [],
+  "hero": {
+   "label": "Video, 20 to 30 seconds: the capybara being played with",
+   "ratio": "16/9"
+  },
+  "card": "",
+  "tldr": [
+   [
+    "Body",
+    "[[Size, materials, and where the electronics sit.]]"
+   ],
+   [
+    "Circuit",
+    "[[Board, sensors, and outputs.]]"
+   ],
+   [
+    "Web page",
+    "[[What the page shows and how it answers the plush.]]"
+   ]
+  ],
+  "sections": [
+   {
+    "id": "play",
+    "h": "See it play",
+    "blocks": [
+     {
+      "img": {
+       "label": "Real footage, 20 to 30 seconds",
+       "ratio": "16/9"
+      }
+     },
+     {
+      "p": "[[One paragraph: the moment it is made for, and the play loop in order.]]"
+     }
+    ]
+   },
+   {
+    "id": "system",
+    "h": "How the parts make one experience",
+    "blocks": [
+     {
+      "cards": [
+       [
+        "Plush body",
+        "[[Shape, fabric, and how it is held.]]"
+       ],
+       [
+        "Arduino / ESP32",
+        "[[What the board senses and controls.]]"
+       ],
+       [
+        "Circuit",
+        "[[Wiring, power, and how it fits inside.]]"
+       ],
+       [
+        "Web page",
+        "[[What appears on the phone, and how it is triggered.]]"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "sketch",
+    "h": "Sketches",
+    "blocks": [
+     {
+      "img": {
+       "label": "Sketches and character turnaround",
+       "ratio": "16/9"
+      }
+     }
+    ]
+   },
+   {
+    "id": "inside",
+    "h": "Inside",
+    "blocks": [
+     {
+      "img": {
+       "label": "Internal structure: board, sensors, battery inside the plush",
+       "ratio": "4/3"
+      }
+     }
+    ]
+   },
+   {
+    "id": "iterate",
+    "h": "Prototype rounds and debugging",
+    "blocks": [
+     {
+      "img": {
+       "label": "Prototype iterations side by side",
+       "ratio": "16/9"
+      }
+     },
+     {
+      "steps": [
+       [
+        "Round 1",
+        "[[What you built and what failed.]]"
+       ],
+       [
+        "Round 2",
+        "[[What changed.]]"
+       ],
+       [
+        "Debugging",
+        "[[The hardest bug and how you found it.]]"
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "fit": [
+   "Plush",
+   "Electronics",
+   "Physical + digital play"
+  ],
+  "line": "Plush · ESP32 · web"
+ },
+ {
+  "id": "whispers-of-female-script",
+  "row": 0,
+  "sw": "cherry",
+  "tag": "Tabletop + packaging",
+  "short": "2023",
+  "eyebrow": "Two-player narrative tabletop · Game, components, and packaging",
+  "year": "2023",
+  "title": "Whispers of Female Script",
+  "summary": "A two-player tabletop game about decoding Nüshu, a script made and used by women in China. I designed the rules, every printed component, and the box, and worked with the manufacturer through production.",
+  "subtitle": "A cooperative narrative game in which two players, separated in time, decode Nüshu characters for each other. One project from rules to box: components, a rulebook that doubles as a screen, a laser-cut decoding disc, and the packaging, refined with the manufacturer. Exhibited at the Shanghai Women's Book Fair.",
+  "meta": [
+   [
+    "Role",
+    "Solo: research, rules, art, packaging"
+   ],
+   [
+    "Players",
+    "2, cooperative"
+   ],
+   [
+    "Shown",
+    "Shanghai Women's Book Fair"
+   ],
+   [
+    "Made",
+    "Cards, laser-cut disc, scroll, rulebook, box"
+   ]
+  ],
+  "links": [
+   [
+    "Full process on zhihanliu.art",
+    "https://www.zhihanliu.art/whispers-of-female-script"
+   ]
+  ],
+  "hero": {
+   "label": "The game laid out as a scroll with cards and the decoding disc",
+   "ratio": "1800/1124",
+   "src": "img/nushu-scroll.jpg"
+  },
+  "card": "img/nushu-disc.jpg",
+  "tldr": [
+   [
+    "Rules",
+    "Each player's answer hides in the other player's symbol art. Neither can finish alone."
+   ],
+   [
+    "Components",
+    "24 narrative cards, 2 character cards, a decoding disc with puzzle pieces, a scroll board, a rulebook screen, and the box."
+   ],
+   [
+    "Production",
+    "Laser-cut discs, 3D assembly checks, file rounds with the manufacturer, and a simpler insert."
+   ]
+  ],
+  "sections": [
+   {
+    "id": "why",
+    "h": "Why Nüshu",
+    "blocks": [
+     {
+      "q": "A silenced shout in history, its voice swallowed by grand narratives."
+     },
+     {
+      "p": "With few chances for education, women in parts of Hunan created their own writing system. Sharing it, they built a private network of thought and feeling outside the male-dominated order. The game asks players to enter that world by learning to read it."
+     },
+     {
+      "imgs": [
+       {
+        "src": "img/nushu-16.jpg",
+        "label": "Background and cultural research"
+       }
+      ],
+      "ratio": "10/3",
+      "cols": 1
+     }
+    ]
+   },
    {
     "id": "play",
     "h": "Play pattern",
@@ -543,109 +1415,499 @@ const CASES=[
      {
       "cards": [
        [
-        "Who",
-        "Collectors who buy blind boxes for the surprise and keep them on display."
+        "Role-play and adventure",
+        "Another self, from the past or the future, veiled beyond your sight."
        ],
        [
-        "Loop",
-        "Tear the box open, find out which figure you got, build the crystal diorama, then display it."
+        "Encrypted dialogue",
+        "Read the clues and hidden text on your cards. Every line is both a guide and a possible trap."
        ],
        [
-        "Why it lasts",
-        "Building the scene turns a two-second reveal into a small craft session and a desk object."
+        "Decode together",
+        "Your answer lies inside the other player's symbol image, so you must talk to finish the story."
        ]
       ]
-     }
-    ]
-   },
-   {
-    "id": "concept",
-    "h": "Concept",
-    "blocks": [
-     {
-      "p": "Crystal Citizen started from a simple feeling: a blind box should not end when it is opened. Each box holds a lightweight crystal-diorama kit and a figure, so the buyer finishes the scene with their own hands and keeps it on the desk."
      },
      {
       "imgs": [
        {
-        "src": "img/cc-cube.jpg",
-        "label": "A finished cube in hand"
+        "src": "img/nushu-08.jpg",
+        "label": "Narrative card, the One from the Past"
        },
        {
-        "src": "img/cc-diorama.jpg",
-        "label": "Lake scene detail"
+        "src": "img/nushu-09.jpg",
+        "label": "Narrative card, the One from the Future"
+       },
+       {
+        "src": "img/nushu-11.jpg",
+        "label": "Decoding card"
        }
       ],
-      "ratio": "1/1",
+      "ratio": "916/1743"
+     }
+    ]
+   },
+   {
+    "id": "rules",
+    "h": "How the rules are taught",
+    "wide": true,
+    "blocks": [
+     {
+      "p": "The rulebook is an accordion fold bound in brocade over rigid board, with a separate paper title label. Standing up, it doubles as a tabletop screen. Card hierarchy and typography carry the rest of the rules."
+     },
+     {
+      "imgs": [
+       {
+        "src": "img/nushu-brocade.jpg",
+        "label": "Brocade rulebook cover"
+       },
+       {
+        "src": "img/nushu-rulebook.jpg",
+        "label": "Accordion rulebook, standing as a screen"
+       },
+       {
+        "src": "img/nushu-rule-page.jpg",
+        "label": "Rule page: the origin of Nüshu"
+       }
+      ],
+      "ratio": "3/4"
+     }
+    ]
+   },
+   {
+    "id": "components",
+    "h": "Components",
+    "wide": true,
+    "blocks": [
+     {
+      "cards": [
+       [
+        "Narrative cards",
+        "24 cards that carry the story and the clues."
+       ],
+       [
+        "Character cards",
+        "2 cards that set each player's identity."
+       ],
+       [
+        "Decoding disc",
+        "A rotating, layered disc that turns a symbol into a physical action. Each solved character adds a puzzle piece."
+       ],
+       [
+        "Scroll board",
+        "A fabric-mounted print on wooden dowels, used as the shared play surface."
+       ]
+      ]
+     },
+     {
+      "imgs": [
+       {
+        "src": "img/nushu-disc-photo.jpg",
+        "label": "Decoding disc, layered"
+       },
+       {
+        "src": "img/nushu-cards-scroll.jpg",
+        "label": "Cards placed on the scroll print"
+       },
+       {
+        "src": "img/nushu-scroll-print.jpg",
+        "label": "The scroll laid out"
+       }
+      ],
+      "ratio": "3/4"
+     }
+    ]
+   },
+   {
+    "id": "disc",
+    "h": "From render to laser cut",
+    "wide": true,
+    "blocks": [
+     {
+      "p": "I rendered cards, tokens, and the disc in 3D before print to check scale, layering, and material, then had the disc laser-cut in layers, with acetate sheets."
+     },
+     {
+      "imgs": [
+       {
+        "src": "img/nushu-disc-render.jpg",
+        "label": "Disc render: two layers"
+       },
+       {
+        "src": "img/nushu-disc-fx.jpg",
+        "label": "Disc effect render"
+       },
+       {
+        "src": "img/nushu-laser.jpg",
+        "label": "Laser-cut layers and acetate"
+       }
+      ],
+      "ratio": "1/1"
+     }
+    ]
+   },
+   {
+    "id": "box",
+    "h": "The box",
+    "wide": true,
+    "blocks": [
+     {
+      "p": "Box graphics were painted in Photoshop and converted to vector for print. The first structure nested an inner box and a foam insert. Working with the manufacturer, I simplified it to a single insert liner, a coated-paper interior lid, and a vertical belly band with a circular die-cut window."
+     },
+     {
+      "imgs": [
+       {
+        "src": "img/nushu-box-render.jpg",
+        "label": "3D assembly check of box and belly band"
+       },
+       {
+        "src": "img/nushu-box-art.jpg",
+        "label": "Box art with the circular window"
+       },
+       {
+        "src": "img/nushu-box-screen.jpg",
+        "label": "Box and rulebook screen, rendered together"
+       }
+      ],
+      "ratio": "4/5"
+     }
+    ]
+   },
+   {
+    "id": "maker",
+    "h": "Working with the manufacturer",
+    "wide": true,
+    "blocks": [
+     {
+      "p": "Files went back and forth over June and July 2023: a requirement sheet first, then layered and vector artwork, then cut files for the cards and disc. Some working files were later lost. This is the record that remains."
+     },
+     {
+      "files": [
+       [
+        "2023-06-14",
+        "桌游 包装盒 需求表格.xlsx",
+        "Packaging requirement sheet"
+       ],
+       [
+        "2023-06-15",
+        "封面设计+封腰设计 .psb / .ai",
+        "Cover and belly band, layered and vector"
+       ],
+       [
+        "2023-06-16",
+        "包装盒文件打包.rar",
+        "Box print package"
+       ],
+       [
+        "2023-06-27",
+        "内页.ai, 内页第二页.ai, 内页.psb",
+        "Rulebook inner pages"
+       ],
+       [
+        "2023-07-17",
+        "CardProduct_AI源文件 .ai / .dxf",
+        "Card and disc cut files"
+       ],
+       [
+        "2023-07-17",
+        "CardProduct_解码盘设计图.pdf",
+        "Decoding disc drawing"
+       ],
+       [
+        "2023-07-17",
+        "商家沟通示意图.psd",
+        "Explainer diagram for the manufacturer"
+       ],
+       [
+        "2023-07-22",
+        "解码盘.rar, 底板花纹.zip",
+        "Disc files and board pattern"
+       ]
+      ]
+     },
+     {
+      "imgs": [
+       {
+        "src": "img/nushu-album-1.jpg",
+        "label": "Photos shared with the manufacturer, July 2023"
+       },
+       {
+        "src": "img/nushu-album-2.jpg",
+        "label": "Disc and box photos, July 2023"
+       },
+       {
+        "src": "img/nushu-album-3.jpg",
+        "label": "Box and material photos, June 2023"
+       }
+      ],
+      "ratio": "3/5"
+     }
+    ]
+   },
+   {
+    "id": "tested",
+    "h": "Play tests and exhibition",
+    "wide": true,
+    "blocks": [
+     {
+      "imgs": [
+       {
+        "src": "img/nushu-play-4.jpg",
+        "label": "Turning the disc"
+       },
+       {
+        "src": "img/nushu-play-2.jpg",
+        "label": "Cards and rulebook in play"
+       },
+       {
+        "src": "img/nushu-play-5.jpg",
+        "label": "Opening the box"
+       }
+      ],
+      "ratio": "16/9"
+     },
+     {
+      "imgs": [
+       {
+        "src": "img/nushu-expo-1.jpg",
+        "label": "Shown at the Shanghai Women's Book Fair"
+       },
+       {
+        "src": "img/nushu-expo-3.jpg",
+        "label": "On the bookstore table"
+       }
+      ],
+      "ratio": "2/1",
       "cols": 2
      }
     ]
    },
    {
-    "id": "delivery",
-    "h": "Materials, samples, and production",
-    "blocks": [
-     {
-      "steps": [
-       [
-        "Research",
-        "Positioned the line and studied the collectors it was for."
-       ],
-       [
-        "3D and samples",
-        "Modeled and rendered figures, then refined materials and samples with manufacturers."
-       ],
-       [
-        "Packaging",
-        "Designed the tear-open box, logo, and inserts so opening feels like a ritual."
-       ],
-       [
-        "Store",
-        "Shot product photography and built the Shopify storefront for real sales."
-       ]
-      ]
-     },
-     {
-      "img": {
-       "label": "Brand collage: packaging, scenes, and storefront",
-       "ratio": "1300/1800",
-       "src": "img/cc-collage.jpg",
-       "narrow": true
-      }
-     },
-     {
-      "p": "Brand systems and concept-to-production work were developed with my co-founder, and my partner led marketing. Tools: Figma, Illustrator, Photoshop, InDesign, Blender, and Shopify."
-     }
-    ]
-   },
-   {
-    "id": "more",
-    "h": "More objects",
+    "id": "flow",
+    "h": "Game flow and iteration",
     "blocks": [
      {
       "imgs": [
        {
-        "src": "img/pack-02.jpg",
-        "label": "Pillow cushion tray, a later home object"
+        "src": "img/nushu-18.jpg",
+        "label": "Game flow"
+       },
+       {
+        "src": "img/nushu-20.jpg",
+        "label": "Iteration"
        }
       ],
-      "ratio": "16/9",
-      "narrow": true
+      "ratio": "10/3",
+      "cols": 1
      }
     ]
    }
   ],
   "fit": [
-   "Hard-goods production",
-   "Materials and samples",
+   "Rules writing",
+   "Paper goods",
    "Packaging",
-   "Character design",
-   "3D modeling"
-  ]
+   "Print production",
+   "Cooperative play"
+  ],
+  "line": "Rules · print · box"
+ },
+ {
+  "id": "sunflower-house",
+  "row": 0,
+  "sw": "rainy",
+  "tag": "Wall toy + web",
+  "short": "2026",
+  "eyebrow": "Wall-mounted toy house · NFC daily ritual",
+  "year": "2026",
+  "title": "Seventh-Day Sunflower",
+  "summary": "A small wall-hung toy house with an NFC tag. Tap it each day to open a little web scene: six rainy nights of watering a sunflower, then a sunny seventh day.",
+  "subtitle": "A decorative toy house for the wall and a daily check-in page behind it. One tap of the phone opens the house: on rainy nights you water a sunflower and leave a message in the rain, and on the seventh day the sun comes out.",
+  "meta": [
+   [
+    "Role",
+    "Concept, toy, web interaction"
+   ],
+   [
+    "Type",
+    "Physical toy + mobile web"
+   ],
+   [
+    "Year",
+    "2026"
+   ],
+   [
+    "Medium",
+    "NFC NTAG215, Canvas, Web Audio"
+   ]
+  ],
+  "links": [],
+  "hero": {
+   "label": "The wall-mounted toy house with its NFC tag",
+   "ratio": "4/3"
+  },
+  "card": "img/sun-card.jpg",
+  "tldr": [
+   [
+    "Ritual",
+    "An NFC tag in the toy house opens the page. No app, no account: the phone is the key to the door."
+   ],
+   [
+    "Seven-day loop",
+    "Days one to six are rainy nights. Visit on consecutive days and day seven turns into a sunny garden."
+   ],
+   [
+    "Built and tested",
+    "A mobile-first Canvas page with sound, local memory, and 23 of 23 automated checks passing."
+   ]
+  ],
+  "sections": [
+   {
+    "id": "loop",
+    "h": "Play pattern: a seven-day loop",
+    "blocks": [
+     {
+      "cards": [
+       [
+        "Rainy nights, days 1 to 6",
+        "The sunflower sulks under a closed umbrella. Open the umbrella and rain falls, ripples turn into glowing stars, and the flower slowly smiles."
+       ],
+       [
+        "Messages in the rain",
+        "Tap the sunflower to write a line. It joins the rain for the rest of the week, drawn at random from everything left so far."
+       ],
+       [
+        "The seventh day",
+        "Tap the cloud to lower a swing, then five sun charms. Wipe the cloud to reveal one message from the past six nights."
+       ],
+       [
+        "Then it starts again",
+        "The next day begins a new rainy cycle and the old messages are washed away."
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "system",
+    "h": "Designing the daily rule",
+    "blocks": [
+     {
+      "p": "The loop counts calendar days in the phone's own time zone, not 24-hour windows. Visiting twice on one day does not add progress, and missing a day resets the streak, so the sunny day has to be earned with a small daily habit."
+     },
+     {
+      "p": "Everything lives in the browser, with no server and no account. Changing phones starts the garden over. For a private ritual about a small daily act of care, that fragility suits the piece."
+     },
+     {
+      "imgs": [
+       {
+        "src": "img/sun-night-closed.jpg",
+        "label": "Day 1: umbrella closed"
+       },
+       {
+        "src": "img/sun-night-open.jpg",
+        "label": "Umbrella open, rain falling"
+       },
+       {
+        "src": "img/sun-night-dialog.jpg",
+        "label": "Writing a line into the rain"
+       }
+      ],
+      "ratio": "390/844"
+     },
+     {
+      "imgs": [
+       {
+        "src": "img/sun-sun-cloud.jpg",
+        "label": "Day 7: tap the cloud"
+       },
+       {
+        "src": "img/sun-sun-pendants.jpg",
+        "label": "Sun charms come down"
+       },
+       {
+        "src": "img/sun-sun-erased.jpg",
+        "label": "Wipe the cloud to read a message"
+       }
+      ],
+      "ratio": "390/844"
+     }
+    ]
+   },
+   {
+    "id": "sound",
+    "h": "Sound",
+    "blocks": [
+     {
+      "p": "Mobile browsers block autoplay, so the first touch on the umbrella, the flower, or the cloud starts the music. Rain fades in after the umbrella opens, and the star chimes are quiet, randomized, and spaced several seconds apart so they never nag."
+     },
+     {
+      "p": "Music and sound effects are from Mixkit under its free license. The lettering uses ZCOOL KuaiLe under the SIL Open Font License."
+     }
+    ]
+   },
+   {
+    "id": "house",
+    "h": "The house",
+    "blocks": [
+     {
+      "img": {
+       "label": "Toy house on the wall, phone tapping the NFC tag",
+       "ratio": "4/3"
+      }
+     },
+     {
+      "p": "[[How the toy house is made, its size and materials, and where the NFC tag sits.]]"
+     }
+    ]
+   },
+   {
+    "id": "next",
+    "h": "What I would change next",
+    "blocks": [
+     {
+      "steps": [
+       [
+        "Count the watering",
+        "Today a visit counts as a day. Next, only an opened umbrella should count."
+       ],
+       [
+        "Roll over at midnight",
+        "Refresh the day automatically if the page stays open past midnight."
+       ],
+       [
+        "Gentler reduced motion",
+        "Finish state changes instantly instead of freezing them."
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "fit": [
+   "NFC electronics",
+   "Daily play pattern",
+   "Craft build"
+  ],
+  "line": "NFC · daily ritual",
+  "immersive": {
+   "device": "phone",
+   "posterPhone": true,
+   "url": "sunflower/?day=1",
+   "poster": "img/sun-night-open.jpg",
+   "label": "Seventh-Day Sunflower web scene",
+   "cta": "Try the rainy night",
+   "note": "The real page from the toy house, running in a phone frame. Open the umbrella, tap the sunflower to leave a line in the rain.",
+   "more": [
+    [
+     "See day 7, the sunny day",
+     "sunflower/?day=7"
+    ]
+   ]
+  }
  },
  {
   "id": "toast",
-  "row": 0,
+  "row": 1,
   "sw": "apricot",
   "tag": "Plush toy",
   "short": "2026",
@@ -810,11 +2072,141 @@ const CASES=[
    "Rapid prototyping",
    "Soft goods",
    "Play pattern"
-  ]
+  ],
+  "line": "Plush · ESP32 · touch"
+ },
+ {
+  "id": "gone-scrawly",
+  "row": 1,
+  "sw": "wisteria",
+  "tag": "Video game",
+  "short": "Unity",
+  "eyebrow": "Drawing puzzle game · Unity 3D",
+  "year": "[[Year]]",
+  "title": "Gone Scrawly",
+  "summary": "A drawing puzzle game where an adult who has forgotten childhood repaints a collapsing doodle diary to recover what happened.",
+  "subtitle": "A mysterious yet familiar world of doodles. The player re-enters a childhood drawing diary whose colors and lines are fading, and restores it by painting, until the whole world comes back.",
+  "meta": [
+   [
+    "Role",
+    "Solo: concept, story, gameplay"
+   ],
+   [
+    "Type",
+    "Drawing puzzle game"
+   ],
+   [
+    "Engine",
+    "Unity 3D"
+   ],
+   [
+    "Medium",
+    "Prototype, motion, narrative"
+   ]
+  ],
+  "links": [
+   [
+    "Watch the moving-image documentation",
+    "https://www.zhihanliu.art/gone-scrawly"
+   ]
+  ],
+  "hero": {
+   "label": "Gone Scrawly title screen",
+   "ratio": "16/9",
+   "src": "img/gs-title.jpg"
+  },
+  "card": "img/cover-01.jpg",
+  "tldr": [
+   [
+    "Premise",
+    "Time is erasing a child's doodle world. Its colors and lines drift toward a strange childish script."
+   ],
+   [
+    "Mechanic",
+    "Painting is the only verb. Restoring color restores the scene and changes what it means."
+   ],
+   [
+    "My role",
+    "Independent concept, narrative, gameplay, visual direction, and the interactive prototype."
+   ]
+  ],
+  "sections": [
+   {
+    "id": "loop",
+    "h": "Four actions",
+    "blocks": [
+     {
+      "p": "One repeated gesture carries changing narrative meaning. Each puzzle moves through the same four actions."
+     },
+     {
+      "steps": [
+       [
+        "Observe",
+        "Read the child's fragmented language and look for what the scene remembers."
+       ],
+       [
+        "Extract",
+        "Find colors in the memory space and connect them to the drawing."
+       ],
+       [
+        "Restore",
+        "Color restores the scene and changes how it can be read."
+       ],
+       [
+        "Reframe",
+        "The 3D room and the drawing become different views of the same memory."
+       ]
+      ]
+     },
+     {
+      "imgs": [
+       {
+        "src": "img/gs-clock-eye.jpg",
+        "label": "A clock-like composition in the drawn world"
+       },
+       {
+        "src": "img/gs-window.jpg",
+        "label": "The quiet 3D room"
+       }
+      ],
+      "ratio": "16/9",
+      "cols": 2
+     }
+    ]
+   },
+   {
+    "id": "look",
+    "h": "Between room and sketchbook",
+    "blocks": [
+     {
+      "p": "Two visual registers mark the shift between memory and present. A calm 3D environment sets up an everyday space the player recognizes. Hand-drawn marks, a clock-like layout, and changing color carry the puzzle into the drawn world."
+     },
+     {
+      "imgs": [
+       {
+        "src": "img/gs-sun.jpg",
+        "label": "The collapsing colors"
+       },
+       {
+        "src": "img/gs-clock.jpg",
+        "label": "Time as a puzzle"
+       }
+      ],
+      "ratio": "16/9",
+      "cols": 2
+     }
+    ]
+   }
+  ],
+  "fit": [
+   "Concept art",
+   "Game mechanics"
+  ],
+  "line": "Unity · drawing puzzle"
  },
  {
   "id": "bad-children-paradise",
-  "row": 0,
+  "row": 1,
   "sw": "butter",
   "tag": "AR × toy stage",
   "short": "[[Year]]",
@@ -941,831 +2333,8 @@ const CASES=[
    "Character design",
    "Physical + digital play",
    "IP extension"
-  ]
- },
- {
-  "id": "capybara",
-  "row": 0,
-  "sw": "matcha",
-  "tag": "Plush toy",
-  "short": "[[Year]]",
-  "eyebrow": "Interactive toy",
-  "year": "[[Year]]",
-  "title": "Capybara Plush",
-  "summary": "[[An interactive capybara plush. One sentence on what it does and who it is for.]]",
-  "subtitle": "[[Two sentences: the feeling it should create, and the interaction that creates it.]]",
-  "meta": [
-   [
-    "Role",
-    "[[Your role]]"
-   ],
-   [
-    "Type",
-    "Interactive plush"
-   ],
-   [
-    "Year",
-    "[[Year]]"
-   ],
-   [
-    "Medium",
-    "[[Board, sensors, output]]"
-   ]
   ],
-  "links": [],
-  "hero": {
-   "label": "Hero photo of the capybara plush",
-   "ratio": "4/3"
-  },
-  "card": "",
-  "tldr": [
-   [
-    "Idea",
-    "[[The emotion or habit it supports.]]"
-   ],
-   [
-    "Interaction",
-    "[[Squeeze, pat, hug, voice, light?]]"
-   ],
-   [
-    "Status",
-    "[[Prototype, tested with how many people.]]"
-   ]
-  ],
-  "sections": [
-   {
-    "id": "concept",
-    "h": "Concept",
-    "blocks": [
-     {
-      "p": "[[Why a capybara, who it is for, and what it does.]]"
-     },
-     {
-      "img": {
-       "label": "Sketches or character turnaround",
-       "ratio": "16/9"
-      }
-     }
-    ]
-   },
-   {
-    "id": "build",
-    "h": "Build",
-    "blocks": [
-     {
-      "p": "[[Electronics, materials, and how the inside fits the soft body.]]"
-     },
-     {
-      "img": {
-       "label": "Inside the plush: board and sensors",
-       "ratio": "4/3"
-      }
-     }
-    ]
-   },
-   {
-    "id": "test",
-    "h": "Play test",
-    "blocks": [
-     {
-      "p": "[[What players did, what surprised you, what changed.]]"
-     }
-    ]
-   }
-  ],
-  "fit": [
-   "Plush",
-   "Electronics"
-  ]
- },
- {
-  "id": "sunflower-house",
-  "row": 0,
-  "sw": "rainy",
-  "tag": "Wall toy + web",
-  "short": "2026",
-  "eyebrow": "Wall-mounted toy house · NFC daily ritual",
-  "year": "2026",
-  "title": "Seventh-Day Sunflower",
-  "summary": "A small wall-hung toy house with an NFC tag. Tap it each day to open a little web scene: six rainy nights of watering a sunflower, then a sunny seventh day.",
-  "subtitle": "A decorative toy house for the wall and a daily check-in page behind it. One tap of the phone opens the house: on rainy nights you water a sunflower and leave a message in the rain, and on the seventh day the sun comes out.",
-  "meta": [
-   [
-    "Role",
-    "Concept, toy, web interaction"
-   ],
-   [
-    "Type",
-    "Physical toy + mobile web"
-   ],
-   [
-    "Year",
-    "2026"
-   ],
-   [
-    "Medium",
-    "NFC NTAG215, Canvas, Web Audio"
-   ]
-  ],
-  "links": [],
-  "hero": {
-   "label": "The wall-mounted toy house with its NFC tag",
-   "ratio": "4/3"
-  },
-  "card": "",
-  "tldr": [
-   [
-    "Ritual",
-    "An NFC tag in the toy house opens the page. No app, no account: the phone is the key to the door."
-   ],
-   [
-    "Seven-day loop",
-    "Days one to six are rainy nights. Visit on consecutive days and day seven turns into a sunny garden."
-   ],
-   [
-    "Built and tested",
-    "A mobile-first Canvas page with sound, local memory, and 23 of 23 automated checks passing."
-   ]
-  ],
-  "sections": [
-   {
-    "id": "loop",
-    "h": "Play pattern: a seven-day loop",
-    "blocks": [
-     {
-      "cards": [
-       [
-        "Rainy nights, days 1 to 6",
-        "The sunflower sulks under a closed umbrella. Open the umbrella and rain falls, ripples turn into glowing stars, and the flower slowly smiles."
-       ],
-       [
-        "Messages in the rain",
-        "Tap the sunflower to write a line. It joins the rain for the rest of the week, drawn at random from everything left so far."
-       ],
-       [
-        "The seventh day",
-        "Tap the cloud to lower a swing, then five sun charms. Wipe the cloud to reveal one message from the past six nights."
-       ],
-       [
-        "Then it starts again",
-        "The next day begins a new rainy cycle and the old messages are washed away."
-       ]
-      ]
-     }
-    ]
-   },
-   {
-    "id": "system",
-    "h": "Designing the daily rule",
-    "blocks": [
-     {
-      "p": "The loop counts calendar days in the phone's own time zone, not 24-hour windows. Visiting twice on one day does not add progress, and missing a day resets the streak, so the sunny day has to be earned with a small daily habit."
-     },
-     {
-      "p": "Everything lives in the browser, with no server and no account. Changing phones starts the garden over. For a private ritual about a small daily act of care, that fragility suits the piece."
-     },
-     {
-      "img": {
-       "label": "Rainy night: umbrella open, message rain falling",
-       "ratio": "9/16",
-       "narrow": true
-      }
-     },
-     {
-      "img": {
-       "label": "Seventh day: swing, sun charms, and a revealed message",
-       "ratio": "9/16",
-       "narrow": true
-      }
-     }
-    ]
-   },
-   {
-    "id": "sound",
-    "h": "Sound",
-    "blocks": [
-     {
-      "p": "Mobile browsers block autoplay, so the first touch on the umbrella, the flower, or the cloud starts the music. Rain fades in after the umbrella opens, and the star chimes are quiet, randomized, and spaced several seconds apart so they never nag."
-     }
-    ]
-   },
-   {
-    "id": "house",
-    "h": "The house",
-    "blocks": [
-     {
-      "img": {
-       "label": "Toy house on the wall, phone tapping the NFC tag",
-       "ratio": "4/3"
-      }
-     },
-     {
-      "p": "[[How the toy house is made, its size and materials, and where the NFC tag sits.]]"
-     }
-    ]
-   },
-   {
-    "id": "next",
-    "h": "What I would change next",
-    "blocks": [
-     {
-      "steps": [
-       [
-        "Count the watering",
-        "Today a visit counts as a day. Next, only an opened umbrella should count."
-       ],
-       [
-        "Roll over at midnight",
-        "Refresh the day automatically if the page stays open past midnight."
-       ],
-       [
-        "Gentler reduced motion",
-        "Finish state changes instantly instead of freezing them."
-       ]
-      ]
-     }
-    ]
-   }
-  ],
-  "fit": [
-   "NFC electronics",
-   "Daily play pattern",
-   "Craft build"
-  ]
- },
- {
-  "id": "whispers-of-female-script",
-  "row": 0,
-  "sw": "cherry",
-  "tag": "Tabletop",
-  "short": "2023",
-  "eyebrow": "Two-player narrative tabletop · Cultural research",
-  "year": "2023",
-  "title": "Whispers of Female Script",
-  "summary": "A two-player tabletop game about decoding Nüshu, a script created and used only by women in China. Language becomes the puzzle and the bond.",
-  "subtitle": "A cooperative narrative game in which two players, separated in time, decode Nüshu characters for each other. Exhibited at the Shanghai Women's Book Fair.",
-  "meta": [
-   [
-    "Role",
-    "Solo: research, story, mechanics, art"
-   ],
-   [
-    "Players",
-    "2, cooperative"
-   ],
-   [
-    "Shown",
-    "Shanghai Women's Book Fair"
-   ],
-   [
-    "Medium",
-    "Cards, decoding disc, scroll, box"
-   ]
-  ],
-  "links": [
-   [
-    "Full process on zhihanliu.art",
-    "https://www.zhihanliu.art/whispers-of-female-script"
-   ]
-  ],
-  "hero": {
-   "label": "The game laid out as a scroll with cards and the decoding disc",
-   "ratio": "1800/1124",
-   "src": "img/nushu-scroll.jpg"
-  },
-  "card": "img/nushu-13.jpg",
-  "tldr": [
-   [
-    "Subject",
-    "Nüshu, the world's only surviving script made exclusively by women, once a private network beyond a male-dominated society."
-   ],
-   [
-    "Mechanic",
-    "Each player's answer hides in the other player's symbol art. Neither can finish alone."
-   ],
-   [
-    "Objects",
-    "24 narrative cards, 2 character cards, a decoding disc with puzzle pieces, a scroll board, and the box."
-   ]
-  ],
-  "sections": [
-   {
-    "id": "why",
-    "h": "Why Nüshu",
-    "blocks": [
-     {
-      "q": "A silenced shout in history, its voice swallowed by grand narratives."
-     },
-     {
-      "p": "With few chances for education, women in parts of Hunan created their own writing system. Sharing it, they built a private network of thought and feeling outside the male-dominated order. The game asks players to enter that world by learning to read it."
-     },
-     {
-      "imgs": [
-       {
-        "src": "img/nushu-15.jpg",
-        "label": "Project overview board"
-       },
-       {
-        "src": "img/nushu-16.jpg",
-        "label": "Background and cultural research"
-       },
-       {
-        "src": "img/nushu-17.jpg",
-        "label": "Research into narrative"
-       }
-      ],
-      "ratio": "10/3",
-      "cols": 1
-     }
-    ]
-   },
-   {
-    "id": "play",
-    "h": "Play pattern",
-    "blocks": [
-     {
-      "cards": [
-       [
-        "Role-play and adventure",
-        "Another self, from the past or the future, veiled beyond your sight."
-       ],
-       [
-        "Encrypted dialogue",
-        "Read the clues and hidden text on your cards. Every line is both a guide and a possible trap."
-       ],
-       [
-        "Decode together",
-        "Your answer lies inside the other player's symbol image, so you must talk to finish the story."
-       ]
-      ]
-     },
-     {
-      "imgs": [
-       {
-        "src": "img/nushu-08.jpg",
-        "label": "Narrative card, the One from the Past"
-       },
-       {
-        "src": "img/nushu-09.jpg",
-        "label": "Narrative card, the One from the Future"
-       },
-       {
-        "src": "img/nushu-11.jpg",
-        "label": "Decoding card"
-       }
-      ],
-      "ratio": "916/1743"
-     }
-    ]
-   },
-   {
-    "id": "objects",
-    "h": "Paper goods and print production",
-    "wide": true,
-    "blocks": [
-     {
-      "p": "Every component was designed for print: 24 narrative cards, 2 character cards, a rotating decoding disc with matching puzzle pieces, a scroll-like play surface, and the box. Typography and card hierarchy carry the rules, so the game needs almost no rulebook."
-     },
-     {
-      "steps": [
-       [
-        "Decode",
-        "The rotating disc turns a visual symbol into a physical action. Each solved character adds a puzzle piece in its shape."
-       ],
-       [
-        "Read",
-        "Printed characters and card hierarchy organize incomplete information."
-       ],
-       [
-        "Exchange",
-        "The shared scroll surface structures how players compare and pass clues."
-       ]
-      ]
-     },
-     {
-      "imgs": [
-       {
-        "src": "img/nushu-disc.jpg",
-        "label": "Decoding disc in hand"
-       },
-       {
-        "src": "img/nushu-12.jpg",
-        "label": "Disc and puzzle pieces"
-       },
-       {
-        "src": "img/nushu-cards.jpg",
-        "label": "Cards standing on the scroll"
-       }
-      ],
-      "ratio": "4/3"
-     },
-     {
-      "imgs": [
-       {
-        "src": "img/nushu-13.jpg",
-        "label": "Character card: the Female Poet, Quest for Freedom"
-       },
-       {
-        "src": "img/nushu-14.jpg",
-        "label": "Character card: the One from the Future"
-       }
-      ],
-      "ratio": "1241/1843",
-      "narrow": true
-     }
-    ]
-   },
-   {
-    "id": "flow",
-    "h": "Game flow and iteration",
-    "blocks": [
-     {
-      "imgs": [
-       {
-        "src": "img/nushu-18.jpg",
-        "label": "Game flow"
-       },
-       {
-        "src": "img/nushu-19.jpg",
-        "label": "Information exchange"
-       },
-       {
-        "src": "img/nushu-20.jpg",
-        "label": "Iteration"
-       },
-       {
-        "src": "img/nushu-21.jpg",
-        "label": "Final structure"
-       }
-      ],
-      "ratio": "10/3",
-      "cols": 1
-     }
-    ]
-   }
-  ],
-  "fit": [
-   "Paper goods",
-   "Print production",
-   "Packaging",
-   "Cooperative play"
-  ]
- },
- {
-  "id": "station-nowhere",
-  "row": 0,
-  "sw": "latte",
-  "tag": "Sound tabletop",
-  "short": "[[Year]]",
-  "eyebrow": "Listening-based social tabletop",
-  "year": "[[Year]]",
-  "title": "Station Nowhere",
-  "summary": "A tabletop game where sound replaces visuals. Wandering souls tune into a death radio and build a shared story from ambient audio and abstract cards.",
-  "subtitle": "A listening-based tabletop game. Players are wandering souls tuning into a death radio, and the story exists only in what they hear, say, and bluff.",
-  "meta": [
-   [
-    "Role",
-    "Solo, end to end"
-   ],
-   [
-    "Type",
-    "Social tabletop + web radio"
-   ],
-   [
-    "Year",
-    "[[Year]]"
-   ],
-   [
-    "Medium",
-    "Audio, cards, companion website"
-   ]
-  ],
-  "links": [
-   [
-    "Project page on zhihanliu.art",
-    "https://www.zhihanliu.art/sound-board-game"
-   ]
-  ],
-  "hero": {
-   "label": "Players reaching for cards around the radio",
-   "ratio": "1500/678",
-   "src": "img/cover-03.jpg"
-  },
-  "card": "img/cover-03.jpg",
-  "tldr": [
-   [
-    "Twist",
-    "Sound is the main narrative medium. Ambient audio and abstract notion cards drive play."
-   ],
-   [
-    "Social play",
-    "Players interpret, mislead, and guess meanings, building a shared narrative space."
-   ],
-   [
-    "Self-produced",
-    "UI design, a companion radio website, card design, and physical card production."
-   ]
-  ],
-  "sections": [
-   {
-    "id": "play",
-    "h": "Play pattern",
-    "blocks": [
-     {
-      "p": "Each round the radio plays a stretch of ambient sound. Players hold abstract notion cards and describe, hint, or bluff about what they heard. Meaning is negotiated around the table, so the story is different every game."
-     },
-     {
-      "yt": [
-       {
-        "id": "tGUIvXLqat4",
-        "label": "Gameplay"
-       },
-       {
-        "id": "yqhSW9JQIjw",
-        "label": "The death radio"
-       }
-      ]
-     }
-    ]
-   }
-  ],
-  "fit": [
-   "Paper goods",
-   "Social play",
-   "Audio"
-  ]
- },
- {
-  "id": "a-home-only-without-me",
-  "row": 1,
-  "sw": "attic",
-  "tag": "Installation",
-  "short": "2026",
-  "eyebrow": "Interactive installation · Physical narrative game",
-  "year": "2026",
-  "title": "A Home Only Without Me",
-  "summary": "A half-room installation where visitors investigate a family's generational curse through miniature scenes hidden inside a refrigerator and a TV cabinet.",
-  "subtitle": "An interactive narrative installation played through the silence of domestic objects. Visitors enter as investigators, piece the story together from miniature scenes, and leave as part of it.",
-  "meta": [
-   [
-    "Role",
-    "Concept, story, interaction, build"
-   ],
-   [
-    "Shown",
-    "Parsons Pop Show · A Space Gallery"
-   ],
-   [
-    "Year",
-    "2026, MFA thesis"
-   ],
-   [
-    "Medium",
-    "ESP32, NFC, sensors, sound"
-   ]
-  ],
-  "links": [
-   [
-    "Watch the walkthrough ↓",
-    "scroll:yts"
-   ],
-   [
-    "Thesis page on zhihanliu.art",
-    "https://www.zhihanliu.art/home-1"
-   ]
-  ],
-  "hero": {
-   "label": "The refrigerator and TV cabinet in the dark gallery",
-   "ratio": "1376/768",
-   "src": "img/home-fridge-night.jpg"
-  },
-  "card": "img/home-fridge-open.jpg",
-  "tldr": [
-   [
-    "Premise",
-    "No character is in the room. A family's story of fish-scale disease, inheritance, and reincarnation lives in the objects they left behind."
-   ],
-   [
-    "What I built",
-    "Miniature scenes inside a refrigerator and a CRT TV cabinet. NFC, magnetic, ultrasonic, and fabric-touch triggers play sound and small screens."
-   ],
-   [
-    "Shown",
-    "Parsons Pop Show 2026, and the group show I Am Not an Alien? at A Space Gallery, Brooklyn, June 2026."
-   ]
-  ],
-  "sections": [
-   {
-    "id": "premise",
-    "h": "Premise",
-    "blocks": [
-     {
-      "q": "A family lived here. Then they didn't. What they left behind is still waiting to be found."
-     },
-     {
-      "p": "A Home Only Without Me is a physical narrative game built from a magical-realist family tragedy. Visitors step into a half room as investigators and search for the truth inside miniature family scenes hidden in a refrigerator and a television casing."
-     },
-     {
-      "p": "No character physically exists in the space. When no one is present, who are we observing, and who is observing us? Even an ordinary trash can holds whispered secrets. Only on leaving the room does the visitor close the story's loop and become part of it."
-     }
-    ]
-   },
-   {
-    "id": "journey",
-    "h": "The visitor journey",
-    "blocks": [
-     {
-      "steps": [
-       [
-        "Enter",
-        "The refrigerator and television invite investigation at a domestic scale."
-       ],
-       [
-        "Handle",
-        "Looking, reaching, and handling objects reveal fragments of the family story."
-       ],
-       [
-        "Interpret",
-        "Visitors piece the narrative together through physical evidence and sound."
-       ],
-       [
-        "Leave",
-        "The exit text turns the investigator into the next person the house remembers."
-       ]
-      ]
-     },
-     {
-      "imgs": [
-       {
-        "src": "img/home-visitors.jpg",
-        "label": "Visitors searching the open refrigerator"
-       },
-       {
-        "src": "img/home-07.jpg",
-        "label": "Matching evidence at the TV cabinet"
-       },
-       {
-        "src": "img/home-16.jpg",
-        "label": "Reading a scene up close"
-       }
-      ],
-      "ratio": "3/4"
-     }
-    ]
-   },
-   {
-    "id": "build",
-    "h": "Engineering the interaction",
-    "wide": true,
-    "blocks": [
-     {
-      "p": "Hand-drawn interaction points guided the spatial build. Each domestic gesture, reaching, touching, turning, or matching, became part of the interaction vocabulary, and the electronics stay hidden inside the built scenes."
-     },
-     {
-      "imgs": [
-       {
-        "src": "img/home-sensors.jpg",
-        "label": "Sensor layout across the refrigerator: NFC scene matching, magnetic induction, ultrasonic sensing, fabric touch"
-       },
-       {
-        "src": "img/home-sketch.jpg",
-        "label": "Early sketch of interaction points"
-       }
-      ],
-      "ratio": "auto",
-      "cols": 2
-     },
-     {
-      "steps": [
-       [
-        "Map the action",
-        "Define each gesture through the object, so familiar domestic behavior becomes the controls."
-       ],
-       [
-        "Integrate the input",
-        "Place NFC, magnetic, and proximity sensing inside the miniature scenes."
-       ],
-       [
-        "Connect the response",
-        "Route each trigger to sound and scene content across headphones, speakers, and tiny displays."
-       ]
-      ]
-     },
-     {
-      "cards": [
-       [
-        "XIAO ESP32-S3",
-        "Microcontroller for each scene, programmed in the Arduino IDE."
-       ],
-       [
-        "PN532 NFC",
-        "Visitors match evidence cards to scenes to unlock their audio."
-       ],
-       [
-        "MAX98357A I2S",
-        "Amplified narration and ambient sound inside the furniture."
-       ],
-       [
-        "E-paper + reed switch",
-        "A companion display wakes when a door opens."
-       ]
-      ]
-     },
-     {
-      "p": "Code collaborator: Felix Yu."
-     }
-    ]
-   },
-   {
-    "id": "scenes",
-    "h": "Inside the scenes",
-    "wide": true,
-    "blocks": [
-     {
-      "imgs": [
-       {
-        "src": "img/home-detail.jpg",
-        "label": "A miniature room behind the fridge door"
-       },
-       {
-        "src": "img/home-tv.jpg",
-        "label": "The TV cabinet scene"
-       },
-       {
-        "src": "img/home-01.jpg",
-        "label": "Lace, light, and a hidden bedroom"
-       }
-      ],
-      "ratio": "3/4"
-     },
-     {
-      "imgs": [
-       {
-        "src": "img/home-fridge-dark.jpg",
-        "label": "The installation in the dark"
-       },
-       {
-        "src": "img/home-08.jpg",
-        "label": "Both objects lit from inside"
-       }
-      ],
-      "ratio": "16/9",
-      "cols": 2
-     }
-    ]
-   },
-   {
-    "id": "voices",
-    "h": "Voices of the family",
-    "blocks": [
-     {
-      "p": "Each scene carries a voice. Visitors hear the family only in fragments, and have to decide for themselves what happened."
-     },
-     {
-      "q": "It looks like a water burial, but it is not. With his back turned to us, he walks resolutely toward rebirth.",
-      "cite": "The Little Girl"
-     },
-     {
-      "q": "It was us. We did it. The family. Then we put him in the water. I'm a fisherman. Everything returns to the water, in the end.",
-      "cite": "The Grandfather"
-     }
-    ]
-   },
-   {
-    "id": "yts",
-    "h": "Walkthrough",
-    "blocks": [
-     {
-      "yt": [
-       {
-        "id": "Z-a4qLTW7UM",
-        "label": "Installation walkthrough",
-        "poster": "img/home-fridge-night.jpg"
-       },
-       {
-        "id": "qcmmnh7pA_A",
-        "label": "Documentation",
-        "poster": "img/home-visitor.jpg"
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "id": "exhibition",
-    "h": "Exhibition",
-    "blocks": [
-     {
-      "p": "The installation was shown at Parsons Pop Show 2026, and in I Am Not an Alien?, a group exhibition at A Space Gallery in Brooklyn about perception and the relation between human experience and technological systems. ArtRabbit and Fakewhale both covered the show, and the ArtRabbit review discussed the miniature domestic scenes and their question of who observes and who is observed."
-     }
-    ]
-   }
-  ],
-  "fit": [
-   "Fabrication",
-   "Electronics and sensors",
-   "Spatial play"
-  ]
+  "line": "AR · toy stage"
  },
  {
   "id": "bad-children-shop",
@@ -2005,135 +2574,93 @@ const CASES=[
    "Character design",
    "Collectibles",
    "Play testing, 30+ players"
-  ]
+  ],
+  "line": "Capsule toys · web app"
  },
  {
-  "id": "gone-scrawly",
+  "id": "station-nowhere",
   "row": 1,
-  "sw": "wisteria",
-  "tag": "Video game",
-  "short": "Unity",
-  "eyebrow": "Drawing puzzle game · Unity 3D",
+  "sw": "latte",
+  "tag": "Sound tabletop",
+  "short": "[[Year]]",
+  "eyebrow": "Listening-based social tabletop",
   "year": "[[Year]]",
-  "title": "Gone Scrawly",
-  "summary": "A drawing puzzle game where an adult who has forgotten childhood repaints a collapsing doodle diary to recover what happened.",
-  "subtitle": "A mysterious yet familiar world of doodles. The player re-enters a childhood drawing diary whose colors and lines are fading, and restores it by painting, until the whole world comes back.",
+  "title": "Station Nowhere",
+  "summary": "A tabletop game where sound replaces visuals. Wandering souls tune into a death radio and build a shared story from ambient audio and abstract cards.",
+  "subtitle": "A listening-based tabletop game. Players are wandering souls tuning into a death radio, and the story exists only in what they hear, say, and bluff.",
   "meta": [
    [
     "Role",
-    "Solo: concept, story, gameplay"
+    "Solo, end to end"
    ],
    [
     "Type",
-    "Drawing puzzle game"
+    "Social tabletop + web radio"
    ],
    [
-    "Engine",
-    "Unity 3D"
+    "Year",
+    "[[Year]]"
    ],
    [
     "Medium",
-    "Prototype, motion, narrative"
+    "Audio, cards, companion website"
    ]
   ],
   "links": [
    [
-    "Watch the moving-image documentation",
-    "https://www.zhihanliu.art/gone-scrawly"
+    "Project page on zhihanliu.art",
+    "https://www.zhihanliu.art/sound-board-game"
    ]
   ],
   "hero": {
-   "label": "Gone Scrawly title screen",
-   "ratio": "16/9",
-   "src": "img/gs-title.jpg"
+   "label": "Players reaching for cards around the radio",
+   "ratio": "1500/678",
+   "src": "img/cover-03.jpg"
   },
-  "card": "img/cover-01.jpg",
+  "card": "img/cover-03.jpg",
   "tldr": [
    [
-    "Premise",
-    "Time is erasing a child's doodle world. Its colors and lines drift toward a strange childish script."
+    "Twist",
+    "Sound is the main narrative medium. Ambient audio and abstract notion cards drive play."
    ],
    [
-    "Mechanic",
-    "Painting is the only verb. Restoring color restores the scene and changes what it means."
+    "Social play",
+    "Players interpret, mislead, and guess meanings, building a shared narrative space."
    ],
    [
-    "My role",
-    "Independent concept, narrative, gameplay, visual direction, and the interactive prototype."
+    "Self-produced",
+    "UI design, a companion radio website, card design, and physical card production."
    ]
   ],
   "sections": [
    {
-    "id": "loop",
-    "h": "Four actions",
+    "id": "play",
+    "h": "Play pattern",
     "blocks": [
      {
-      "p": "One repeated gesture carries changing narrative meaning. Each puzzle moves through the same four actions."
+      "p": "Each round the radio plays a stretch of ambient sound. Players hold abstract notion cards and describe, hint, or bluff about what they heard. Meaning is negotiated around the table, so the story is different every game."
      },
      {
-      "steps": [
-       [
-        "Observe",
-        "Read the child's fragmented language and look for what the scene remembers."
-       ],
-       [
-        "Extract",
-        "Find colors in the memory space and connect them to the drawing."
-       ],
-       [
-        "Restore",
-        "Color restores the scene and changes how it can be read."
-       ],
-       [
-        "Reframe",
-        "The 3D room and the drawing become different views of the same memory."
-       ]
+      "yt": [
+       {
+        "id": "tGUIvXLqat4",
+        "label": "Gameplay"
+       },
+       {
+        "id": "yqhSW9JQIjw",
+        "label": "The death radio"
+       }
       ]
-     },
-     {
-      "imgs": [
-       {
-        "src": "img/gs-clock-eye.jpg",
-        "label": "A clock-like composition in the drawn world"
-       },
-       {
-        "src": "img/gs-window.jpg",
-        "label": "The quiet 3D room"
-       }
-      ],
-      "ratio": "16/9",
-      "cols": 2
-     }
-    ]
-   },
-   {
-    "id": "look",
-    "h": "Between room and sketchbook",
-    "blocks": [
-     {
-      "p": "Two visual registers mark the shift between memory and present. A calm 3D environment sets up an everyday space the player recognizes. Hand-drawn marks, a clock-like layout, and changing color carry the puzzle into the drawn world."
-     },
-     {
-      "imgs": [
-       {
-        "src": "img/gs-sun.jpg",
-        "label": "The collapsing colors"
-       },
-       {
-        "src": "img/gs-clock.jpg",
-        "label": "Time as a puzzle"
-       }
-      ],
-      "ratio": "16/9",
-      "cols": 2
      }
     ]
    }
   ],
   "fit": [
-   "Concept art",
-   "Game mechanics"
-  ]
+   "Paper goods",
+   "Social play",
+   "Audio"
+  ],
+  "line": "Sound · web radio"
  },
  {
   "id": "shadows-between",
@@ -2284,7 +2811,8 @@ const CASES=[
   "fit": [
    "Level design",
    "Mechanic design"
-  ]
+  ],
+  "line": "Unity · level design"
  },
  {
   "id": "delivering-lustful-spirit",
@@ -2402,7 +2930,8 @@ const CASES=[
   "fit": [
    "Game jam",
    "Level design"
-  ]
+  ],
+  "line": "Ludum Dare 54"
  },
  {
   "id": "eyes-of-the-trash-can",
@@ -2483,7 +3012,8 @@ const CASES=[
   "fit": [
    "Narrative",
    "Film"
-  ]
+  ],
+  "line": "Film · branching"
  }
 ];
 
@@ -2496,12 +3026,12 @@ const swOf=c=>SW[c.sw]||SW.latte;
 const backInk=c=>{const [bg,ink]=swOf(c); return ink.toUpperCase()==="#F7F1E8"?bg:ink;};
 const kindOf=c=>c.row===0?"Installation or toy":"Game";
 
-/* ---------- Home: two rails of hanging cards ---------- */
+/* ---------- Home: hanging cards, all visible, wrapped onto lines ---------- */
 const reduced=matchMedia("(prefers-reduced-motion: reduce)").matches;
 const finePointer=matchMedia("(hover: hover) and (pointer: fine)").matches;
 const STRING=[44,58,50,62,46,54,40];
 const hangers=[];          // all hangers, for the physics loop
-const rails=[];            // [{rail,inner,svg,hs:[]}]
+const rails=[];            // one per row: {box,svg,hs:[]}
 
 function cardHTML(c){
   const [bg]=swOf(c), mat=`color-mix(in srgb, ${bg} 28%, #FFFFFF)`;
@@ -2514,7 +3044,7 @@ function cardHTML(c){
         <div class="cimg" style="--mat:${mat}">${img?`<img src="${esc(img)}" alt="" loading="lazy" draggable="false">`:`<div class="lbl">Photo coming</div>`}</div>
         <div class="cname">${fmt(c.title)}</div>
         <div class="crole">${fmt(c.meta[0][1])}</div>
-        <div class="cfoot"><i class="dot" style="--sw:${bg}"></i><span>${fmt(c.meta[3][1])}</span></div>
+        <div class="cfoot"><i class="dot" style="--sw:${bg}"></i><span>${fmt(c.line||c.tag)}</span></div>
       </div>
       <div class="face bface">
         <p class="mono">${esc(c.tag)} · ${fmt(c.year)}</p>
@@ -2522,7 +3052,7 @@ function cardHTML(c){
         <p class="bsum">${fmt(c.summary)}</p>
         <dl class="bmeta">
           <div><dt>${esc(c.meta[0][0])}</dt><dd>${fmt(c.meta[0][1])}</dd></div>
-          <div><dt>${esc(c.meta[3][0])}</dt><dd>${fmt(c.meta[3][1])}</dd></div>
+          <div><dt>Shows</dt><dd>${fmt(c.line||c.meta[3][1])}</dd></div>
         </dl>
         <span class="bcta">Open project <span>→</span></span>
       </div>
@@ -2530,23 +3060,19 @@ function cardHTML(c){
 }
 
 function renderHome(){
-  document.getElementById("workCount").textContent=`${CASES.length} projects`;
-  if(!finePointer) document.getElementById("railHint").textContent="Tap a card to flip it · Tap again to open · Swipe each row for more";
+  if(!finePointer) document.getElementById("railHint").textContent="Tap a card to flip it · Tap again to open";
   const rowsEl=document.getElementById("rows");
   ROWS.forEach((R,ri)=>{
     const list=CASES.filter(c=>c.row===ri);
-    const wrap=document.createElement("div");
-    wrap.innerHTML=`<div class="row-head"><span class="n">${R.n}</span><h3>${esc(R.h)}</h3><span class="sub">${esc(R.sub||"")}</span><span class="right"><span class="mono">${list.length} projects</span><span class="rnav"><button type="button" data-d="-1" aria-label="Scroll ${esc(R.h)} left">←</button><button type="button" data-d="1" aria-label="Scroll ${esc(R.h)} right">→</button></span></span></div>
-      <div class="rail"><div class="rail-inner"><svg class="wire" aria-hidden="true"></svg></div></div>`;
-    rowsEl.appendChild(wrap);
-    const rail=wrap.querySelector(".rail"), inner=wrap.querySelector(".rail-inner"), svg=wrap.querySelector(".wire");
-    const R0={rail,inner,svg,hs:[],seed:ri};
+    rowsEl.insertAdjacentHTML("beforeend",`<div class="row-head"><span class="n">${R.n}</span><h2>${esc(R.h)}</h2><span class="sub">${esc(R.sub||"")}</span><span class="mono">${list.length} projects</span></div><div class="lines"><svg class="wire" aria-hidden="true"></svg></div>`);
+    const box=rowsEl.lastElementChild, svg=box.querySelector(".wire");
+    const R0={box,svg,hs:[],seed:ri};
     rails.push(R0);
     list.forEach((c,i)=>{
       const el=document.createElement("div");
       el.className="hanger";
       el.innerHTML=cardHTML(c);
-      inner.appendChild(el);
+      box.appendChild(el);
       const h={el,card:el.querySelector(".card3d"),string:el.querySelector(".string"),theta:0,omega:0,i};
       hangers.push(h); R0.hs.push(h);
       const flip=on=>{ if(el.classList.contains("flipped")===on) return; el.classList.toggle("flipped",on); kick(h,(on?1:-1)*(1.1+Math.random()*.6)); };
@@ -2562,40 +3088,38 @@ function renderHome(){
       h.card.addEventListener("blur",()=>flip(false));
     });
     bindSwing(R0);
-    const upd=()=>{ const max=rail.scrollWidth-rail.clientWidth-2;
-      rail.classList.toggle("more-l",rail.scrollLeft>2); rail.classList.toggle("more-r",rail.scrollLeft<max);
-      wrap.querySelectorAll(".rnav button").forEach(b=>b.disabled=(+b.dataset.d<0)?rail.scrollLeft<=2:rail.scrollLeft>=max);
-      wrap.querySelector(".rnav").hidden=max<=0; };
-    R0.upd=upd;
-    rail.addEventListener("scroll",upd,{passive:true});
-    wrap.querySelectorAll(".rnav button").forEach(b=>b.addEventListener("click",()=>rail.scrollBy({left:+b.dataset.d*rail.clientWidth*.75,behavior:reduced?"auto":"smooth"})));
   });
-  document.getElementById("workIndex").innerHTML=CASES.map(c=>`
-    <a class="lrow" href="#${c.id}" style="--sw:${swOf(c)[0]}"><i class="dot"></i><span class="n">${fmt(c.title)}</span><span class="d">${fmt(c.summary)}</span><span class="y">${esc(c.tag)}</span><span class="go">→</span></a>`).join("");
   layoutRails();
-  addEventListener("resize",layoutRails);
-  hangers.forEach((h,i)=>setTimeout(()=>kick(h,(i%2?-1:1)*.9),120+i*90));
+  let rt; addEventListener("resize",()=>{ cancelAnimationFrame(rt); rt=requestAnimationFrame(layoutRails); });
+  hangers.forEach((h,i)=>setTimeout(()=>kick(h,(i%2?-1:1)*.9),120+i*70));
 }
 
+/* Split each row into as few lines as the width allows, balanced, so nothing scrolls or hides. */
 function layoutRails(){
   rails.forEach(R=>{
-    const {rail,inner,svg,hs}=R; if(!hs.length) return;
-    const n=hs.length, cw=hs[0].el.offsetWidth, gap=24;
-    const W=Math.max(rail.clientWidth, n*cw+(n-1)*gap+40);
-    const y0=22, sag=26, pad=(W-(n*cw+(n-1)*gap))/2, cardH=cw*288/200;
-    let maxBottom=0;
-    hs.forEach((h,i)=>{
-      const x=pad+cw/2+i*(cw+gap), t=x/W, py=y0+4*sag*t*(1-t), L=STRING[(i+R.seed*3)%STRING.length];
-      h.el.style.left=(x-cw/2)+"px"; h.el.style.top=py+"px";
-      h.string.style.height=L+"px";
-      maxBottom=Math.max(maxBottom,py+L+cardH);
-    });
-    const H=Math.ceil(maxBottom+36);
-    inner.style.width=W+"px"; inner.style.height=H+"px";
+    const {box,svg,hs}=R; if(!hs.length) return;
+    const W=box.clientWidth, cw=hs[0].el.offsetWidth, minGap=W<560?12:22, n=hs.length;
+    const cap=Math.max(1,Math.floor((W-8+minGap)/(cw+minGap)));
+    const lines=Math.ceil(n/cap), per=Math.ceil(n/lines);
+    const g=per>1?Math.min(56,(W-8-per*cw)/(per-1)):0;
+    const span=per*cw+(per-1)*g, pad=(W-span)/2, cardH=cw*288/200, sag=W<560?14:22;
+    let top=0, paths="";
+    for(let L=0;L<lines;L++){
+      const items=hs.slice(L*per,(L+1)*per), off=(per-items.length)*(cw+g)/2, y0=top+22;
+      let bottom=0;
+      items.forEach((h,i)=>{
+        const x=pad+off+cw/2+i*(cw+g), t=x/W, py=y0+4*sag*t*(1-t), len=STRING[(h.i+R.seed*3+L)%STRING.length]*(W<560?.7:1);
+        h.el.style.left=(x-cw/2)+"px"; h.el.style.top=py+"px";
+        h.string.style.height=len+"px";
+        bottom=Math.max(bottom,py+len+cardH);
+      });
+      paths+=`<path d="M8 ${y0} Q ${W/2} ${y0+2*sag} ${W-8} ${y0}"/><circle cx="8" cy="${y0}" r="4"/><circle cx="${W-8}" cy="${y0}" r="4"/>`;
+      top=bottom+(W<560?20:28);
+    }
+    const H=Math.ceil(top+8);
+    box.style.height=H+"px";
     svg.setAttribute("width",W); svg.setAttribute("height",H);
-    // a slightly wobbly, hand-strung line
-    svg.innerHTML=`<path d="M8 ${y0} Q ${W/2} ${y0+2*sag} ${W-8} ${y0}"/><circle cx="8" cy="${y0}" r="4"/><circle cx="${W-8}" cy="${y0}" r="4"/>`;
-    R.upd&&R.upd();
+    svg.innerHTML=paths;
   });
 }
 
@@ -2618,7 +3142,7 @@ function step(ts){
 }
 function bindSwing(R){
   let lp=null;
-  R.rail.addEventListener("pointermove",e=>{
+  R.box.addEventListener("pointermove",e=>{
     const now=performance.now();
     if(lp){
       const dts=Math.max(.008,(now-lp.t)/1000), vx=(e.clientX-lp.x)/dts;
@@ -2629,7 +3153,7 @@ function bindSwing(R){
     }
     lp={x:e.clientX,t:now};
   },{passive:true});
-  R.rail.addEventListener("pointerleave",()=>lp=null);
+  R.box.addEventListener("pointerleave",()=>lp=null);
 }
 
 /* ---------- Case blocks ---------- */
@@ -2661,9 +3185,11 @@ function block(b){
     </div>`;
   if(b.h3) return `<h3 class="sub">${fmt(b.h3)}</h3>`;
   if(b.imgs) return `<div class="imgs${b.narrow?" narrowset":""}" style="${b.ratio?`--ar:${b.ratio};`:""}${b.cols?`grid-template-columns:repeat(${b.cols},minmax(0,1fr));`:`grid-template-columns:repeat(${Math.min(b.imgs.length,3)},minmax(0,1fr));`}">${b.imgs.map(i=>`<figure><img src="${esc(i.src)}" alt="${esc(i.label)}" loading="lazy"><figcaption>${fmt(i.label)}</figcaption></figure>`).join("")}</div>`;
-  if(b.videos) return `<div class="vids${b.narrow?" narrowset":""}" style="${b.ratio?`--ar:${b.ratio};`:""}">${b.videos.map(v=>`<figure><video src="${esc(v.src)}" poster="${esc(v.poster)}" muted loop playsinline autoplay preload="metadata"></video><figcaption>${fmt(v.label)}</figcaption></figure>`).join("")}</div>`;
+  if(b.videos) return `<div class="vids${b.narrow?" narrowset":""}" style="${b.ratio?`--ar:${b.ratio};`:""}${b.videos.length===1?"grid-template-columns:1fr;":""}">${b.videos.map(v=>`<figure><video src="${esc(v.src)}" poster="${esc(v.poster)}" muted loop playsinline autoplay preload="metadata"></video><figcaption>${fmt(v.label)}</figcaption></figure>`).join("")}</div>`;
   if(b.yt) return ytHTML(b);
   if(b.steps) return `<div class="steps">${b.steps.map(s=>`<div><b>${fmt(s[0])}</b><span>${fmt(s[1])}</span></div>`).join("")}</div>`;
+  if(b.press) return `<div class="press">${b.press.map(p=>`<a href="${esc(p.url)}" target="_blank" rel="noopener"><span class="mono">${esc(p.outlet)} · ${esc(p.date)}</span><b>${esc(p.title)}</b>${p.quote?`<q>${esc(p.quote)}</q>`:""}<span class="go">Read on ${esc(p.outlet)} ↗</span></a>`).join("")}</div>`;
+  if(b.files) return `<div class="files">${b.files.map(f=>`<div><span class="d">${esc(f[0])}</span><span class="f">${esc(f[1])}</span><span class="w">${fmt(f[2])}</span></div>`).join("")}</div>`;
   if(b.cards) return `<div class="cards${b.cards.length===4?" c2":""}">${b.cards.map(s=>`<div><b>${fmt(s[0])}</b><span>${fmt(s[1])}</span></div>`).join("")}</div>`;
   return "";
 }
@@ -2750,12 +3276,12 @@ function wireZoom(root){
 }
 function immersiveHTML(c){
   const im=c.immersive, live=!!im.url;
-  return `<section class="immersive${im.device==="phone"?" phone":""}" aria-label="${esc(im.label)}">
+  return `<section class="immersive${im.device==="phone"?" phone":""}${im.posterPhone?" pp":""}" aria-label="${esc(im.label)}">
     <div class="imm-stage" id="immStage">
-      <img src="${esc(im.poster)}" alt="${esc(im.label)}">
+      ${im.posterPhone?`<div class="imm-phone"><img src="${esc(im.poster)}" alt="${esc(im.label)}"></div>`:`<img src="${esc(im.poster)}" alt="${esc(im.label)}">`}
       ${live?`<button type="button" class="imm-go" id="immGo">${esc(im.cta||"Enter the live homepage")} <span>▶</span></button>`:`<span class="imm-soon">Live site deploying</span>`}
     </div>
-    ${live?`<p class="imm-note">${esc(im.note||"The real homepage with its opening animation. Hover the houses, open a resident\u2019s thought, and scroll inside the frame.")} <a href="${esc(im.url)}" target="_blank" rel="noopener">Open it full screen ↗</a></p>`:""}
+    ${live?`<p class="imm-note">${esc(im.note||"The real homepage with its opening animation. Hover the houses, open a resident\u2019s thought, and scroll inside the frame.")} <a href="${esc(im.url)}" target="_blank" rel="noopener">Open it full screen ↗</a>${(im.more||[]).map(([t,u])=>` · <a href="${esc(u)}" target="_blank" rel="noopener">${esc(t)} ↗</a>`).join("")}</p>`:""}
   </section>`;
 }
 function wireImmersive(c){
@@ -2771,7 +3297,7 @@ function wireImmersive(c){
 function renderCase(c){
   const i=CASES.indexOf(c), nx=CASES[(i+1)%CASES.length];
   const [bg]=swOf(c);
-  const links=c.links.map(([t,u])=>u&&u.startsWith("scroll:")?`<button type="button" class="btn primary" data-scroll="${esc(u.slice(7))}">${esc(t)}</button>`:u&&u.startsWith("#")?`<a class="btn" href="${esc(u)}">${esc(t)} <span class="arr">→</span></a>`:u?`<a class="btn" href="${esc(u)}" target="_blank" rel="noopener">${esc(t)} <span class="arr">↗</span></a>`:`<span class="btn pending">${esc(t)} · link coming</span>`).join("");
+  const links=c.links.map(([t,u],li)=>u&&u.startsWith("scroll:")?`<button type="button" class="btn${li===0?" primary":""}" data-scroll="${esc(u.slice(7))}">${esc(t)}</button>`:u&&u.startsWith("#")?`<a class="btn" href="${esc(u)}">${esc(t)} <span class="arr">→</span></a>`:u?`<a class="btn" href="${esc(u)}" target="_blank" rel="noopener">${esc(t)} <span class="arr">↗</span></a>`:`<span class="btn pending">${esc(t)} · link coming</span>`).join("");
   const main=document.getElementById("case");
   main.style.setProperty("--mat",`color-mix(in srgb, ${bg} 26%, #FFFFFF)`);
   main.innerHTML=`
